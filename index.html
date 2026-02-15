@@ -78,27 +78,23 @@
 
     <!-- MAIN APPLICATION SCRIPT -->
     <script>
-       // Script Error Handler
        function handleScriptError(src) {
         console.error("Failed to load script:", src);
-        const el = document.getElementById('main-content');
-        if (el) {
-          const errorDiv = document.createElement('div');
-          errorDiv.className = "p-4 text-red-600 bg-red-50 border border-red-200 m-4 rounded mb-2";
-          errorDiv.innerHTML = `<strong>Script Error:</strong> Failed to load <code>${src}</code>.<br>Please ensure the folders (js/organic, etc.) exist in your repository.`;
-          el.prepend(errorDiv);
-        }
+        // We do not show alerts for config files as they might be loading asynchronously or lazily in some setups,
+        // but robust logging is good.
       }
     </script>
 
-    <!-- Scripts (Categorized Folder Structure) -->
-    <script src="js/utils.js" onerror="handleScriptError('js/utils.js')"></script>
-    <script src="js/general/main.js" onerror="handleScriptError('js/general/main.js')"></script>
-    <script src="js/inorganic/main.js" onerror="handleScriptError('js/inorganic/main.js')"></script>
-    <script src="js/organic/main.js" onerror="handleScriptError('js/organic/main.js')"></script>
-    <script src="js/physical/main.js" onerror="handleScriptError('js/physical/main.js')"></script>
-    <script src="js/industrial/main.js" onerror="handleScriptError('js/industrial/main.js')"></script>
-    <script src="js/app.js" onerror="handleScriptError('js/app.js')"></script>
+    <!-- App Logic -->
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Category Configurations (Lightweight Manifests) -->
+    <script src="js/general/config.js" onerror="handleScriptError('js/general/config.js')"></script>
+    <script src="js/inorganic/config.js" onerror="handleScriptError('js/inorganic/config.js')"></script>
+    <script src="js/organic/config.js" onerror="handleScriptError('js/organic/config.js')"></script>
+    <script src="js/physical/config.js" onerror="handleScriptError('js/physical/config.js')"></script>
+    <script src="js/industrial/config.js" onerror="handleScriptError('js/industrial/config.js')"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

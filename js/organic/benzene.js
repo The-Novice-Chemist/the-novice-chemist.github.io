@@ -1,0 +1,1 @@
+window.registerContent('organic', 'benzene', window.AppUtils.underConstructionHTML("Aromatic Hydrocarbons (Benzene)", "Organic"));

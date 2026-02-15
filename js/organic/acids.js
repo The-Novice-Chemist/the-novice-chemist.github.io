@@ -1,0 +1,1 @@
+window.registerContent('organic', 'acids', window.AppUtils.underConstructionHTML("Carboxylic Acids", "Organic"));

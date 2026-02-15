@@ -41,14 +41,17 @@ function loadTopicContent(categoryId, topicId) {
     script.id = scriptId;
     script.src = `js/${categoryId}/${topicId}.js`; 
     script.onerror = () => {
-        document.getElementById('main-content').innerHTML = `
-            <div class="flex flex-col items-center justify-center h-full text-center p-8">
-                <div class="text-stone-300 mb-4"><i data-lucide="file-x" class="w-12 h-12"></i></div>
-                <h3 class="text-xl font-hand-title text-stone-700 mb-2">Content Not Found</h3>
-                <p class="text-stone-500 max-w-md font-hand-body text-xl">We couldn't load the file <code>js/${categoryId}/${topicId}.js</code>.</p>
-            </div>
-        `;
-        if(window.lucide) window.lucide.createIcons();
+        const container = document.getElementById('main-content');
+        if(container) {
+            container.innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full text-center p-8">
+                    <div class="text-stone-300 mb-4"><i data-lucide="file-x" class="w-12 h-12"></i></div>
+                    <h3 class="text-xl font-hand-title text-stone-700 mb-2">Content Not Found</h3>
+                    <p class="text-stone-500 max-w-md font-hand-body text-xl">We couldn't load the file <code>js/${categoryId}/${topicId}.js</code>.</p>
+                </div>
+            `;
+            if(window.lucide) window.lucide.createIcons();
+        }
     };
     document.body.appendChild(script);
 }
@@ -94,16 +97,15 @@ function pushRoute(categoryId, moduleId = null, topicId = null) {
 // RENDERER
 // ==========================================
 
-// State now includes sidebarOpen
 let state = { 
-    isSidebarOpen: true, // Default open on load
+    isSidebarOpen: false, // Default closed as requested
     isMobile: window.innerWidth < 768 
 };
 
-// Listen for resize
 window.addEventListener('resize', () => {
+    const wasMobile = state.isMobile;
     state.isMobile = window.innerWidth < 768;
-    updateLayout();
+    if (wasMobile !== state.isMobile) updateLayout();
 });
 
 function render() {
@@ -150,7 +152,7 @@ function render() {
     }
 
     renderSidebar(currentCategory.modules, effectiveModuleId, effectiveTopicId);
-    updateLayout(); // Apply sidebar state classes
+    updateLayout();
 
     if (currentTopic && currentTopic.content) {
         renderContent(currentModule, currentTopic);
@@ -166,18 +168,16 @@ function render() {
     }
 }
 
-// Manages Sidebar Visibility CSS
 function updateLayout() {
     const sidebar = document.getElementById('sidebar-container');
     const overlay = document.getElementById('mobile-overlay');
     
-    // Clear manual overrides first
-    sidebar.classList.remove('w-0', 'w-80', 'px-0', '-translate-x-full', 'translate-x-0', 'hidden', 'block');
+    // Reset classes
+    sidebar.className = "fixed inset-y-0 left-0 z-40 bg-stone-50/95 border-r border-stone-200 transition-all duration-300 transform overflow-hidden";
     overlay.classList.add('hidden');
 
     if (state.isMobile) {
-        // Mobile Behavior: Off-canvas
-        sidebar.classList.add('fixed', 'w-80');
+        sidebar.classList.add('w-80');
         if (state.isSidebarOpen) {
             sidebar.classList.add('translate-x-0');
             overlay.classList.remove('hidden');
@@ -185,14 +185,13 @@ function updateLayout() {
             sidebar.classList.add('-translate-x-full');
         }
     } else {
-        // Desktop Behavior: Collapsible
         sidebar.classList.remove('fixed', '-translate-x-full');
         sidebar.classList.add('relative');
-        
+        // Desktop Toggle Logic
         if (state.isSidebarOpen) {
             sidebar.classList.add('w-80', 'translate-x-0');
         } else {
-            sidebar.classList.add('w-0', 'border-none'); // Hide width and border
+            sidebar.classList.add('w-0', 'border-none');
         }
     }
     if(window.lucide) window.lucide.createIcons();
@@ -202,7 +201,7 @@ function renderNavbar(categories, currentId) {
     const container = document.getElementById('navbar-container');
     const navItems = categories.map(cat => {
         const isOrganic = cat.id === 'organic';
-        let btnClass = "px-4 py-2 rounded-full text-lg font-hand-body transition-all duration-200 ";
+        let btnClass = "px-3 py-1.5 rounded-full text-xl font-hand-body transition-all duration-200 ";
         
         if (isOrganic) {
             btnClass += currentId === cat.id 
@@ -216,39 +215,38 @@ function renderNavbar(categories, currentId) {
     }).join('');
 
     container.innerHTML = `
-    <div class="h-16 bg-white/90 backdrop-blur-md border-b border-stone-200 flex items-center justify-between px-4 lg:px-6 shadow-sm w-full sticky top-0 z-50">
-      <div class="flex items-center gap-4">
-          <!-- Toggle Button (Visible on both Mobile and Desktop now) -->
-          <button data-action="toggle-sidebar" class="p-2 text-stone-600 hover:bg-stone-100 rounded-lg transition-colors" title="Toggle Sidebar">
+    <div class="h-16 bg-white/90 backdrop-blur-md border-b border-stone-200 flex items-center justify-between px-4 shadow-sm w-full sticky top-0 z-50">
+      <div class="flex items-center gap-3">
+          <button data-action="toggle-sidebar" class="p-2 text-stone-600 hover:bg-stone-100 rounded-lg transition-colors focus:outline-none" title="Toggle Sidebar">
             <i data-lucide="${state.isSidebarOpen ? 'panel-left-close' : 'panel-left-open'}" class="w-6 h-6"></i>
           </button>
 
           <div class="flex items-center gap-2 cursor-pointer group" data-action="go-home">
-            <span class="font-hand-title font-bold text-2xl md:text-3xl text-stone-900 tracking-tight pointer-events-none group-hover:text-teal-700 transition-colors">The Novice Chemist</span>
+            <span class="font-hand-title font-bold text-3xl text-stone-900 tracking-tight pointer-events-none group-hover:text-teal-700 transition-colors mt-1">The Novice Chemist</span>
           </div>
       </div>
       
-      <div class="hidden md:flex items-center space-x-2">${navItems}</div>
+      <div class="hidden md:flex items-center space-x-1">${navItems}</div>
     </div>`;
 }
 
 function renderSidebar(modules, curModId, curTopId) {
     const container = document.getElementById('sidebar-container');
     const modulesHtml = modules.map(mod => `
-        <div class="space-y-3 mb-8">
+        <div class="space-y-2 mb-6">
             <div class="flex items-center gap-2 px-3">
-                <div class="text-xl font-hand-title font-bold text-teal-800 tracking-wide">${mod.title}</div>
+                <div class="text-2xl font-hand-title font-bold text-teal-800 tracking-wide">${mod.title.split(':')[0]}</div>
             </div>
-            <ul class="space-y-1">
+            <ul class="space-y-0.5">
                 ${mod.topics.map(topic => {
                     const active = curModId === mod.id && curTopId === topic.id;
                     return `<li>
                         <button data-action="nav-topic" data-module="${mod.id}" data-topic="${topic.id}" 
-                            class="group w-full flex items-center gap-3 px-3 py-1.5 text-lg font-hand-body transition-all rounded-md
+                            class="group w-full flex items-center gap-3 px-4 py-1.5 text-xl font-hand-body transition-all rounded-md
                             ${active 
-                                ? 'text-teal-900 font-bold bg-teal-50/80 translate-x-1' 
-                                : 'text-stone-500 hover:text-stone-800 hover:translate-x-1'}">
-                            ${active ? '<i data-lucide="pen-tool" class="w-4 h-4 text-teal-600"></i>' : '<span class="w-4"></span>'}
+                                ? 'text-teal-900 font-bold bg-teal-50/80' 
+                                : 'text-stone-500 hover:text-stone-800 hover:bg-stone-100/50'}">
+                            ${active ? '<i data-lucide="check" class="w-4 h-4 text-teal-600"></i>' : '<span class="w-4"></span>'}
                             <span class="truncate text-left pointer-events-none">${topic.title}</span>
                         </button>
                     </li>`;
@@ -304,19 +302,16 @@ function renderWelcome(categories) {
 function renderContent(module, topic) {
     const container = document.getElementById('main-content');
     
-    // Using 'paper-bg' class defined in CSS for the lined paper look
     container.innerHTML = `
-    <div class="paper-bg min-h-full p-8 md:p-16 animate-fade-in">
+    <div class="paper-bg min-h-full p-6 md:p-12 animate-fade-in">
       <div class="max-w-4xl mx-auto">
-          <header class="mb-12 border-b-2 border-stone-200 pb-8 relative">
-            <div class="absolute -left-4 top-1 w-8 h-8 bg-stone-200 rounded-full opacity-50"></div>
-            <div class="flex items-center gap-2 text-xl font-hand-body font-bold text-teal-700 uppercase mb-2 pl-6">
+          <header class="mb-8 border-b-2 border-stone-200 pb-6 relative">
+            <div class="flex items-center gap-2 text-xl font-hand-body font-bold text-teal-700 uppercase mb-2">
                 <span>${module.title.split(':')[0]}</span>
             </div>
-            <h1 class="text-5xl md:text-6xl font-hand-title font-bold text-stone-900 mb-2 pl-6 leading-tight">${topic.title}</h1>
+            <h1 class="text-5xl md:text-6xl font-hand-title font-bold text-stone-900 mb-2 leading-tight">${topic.title}</h1>
           </header>
           
-          <!-- Content Body with Handwriten Font -->
           <div class="font-hand-body text-2xl leading-[2rem] text-stone-800 prose-headings:font-hand-title prose-headings:font-bold prose-headings:text-teal-800 prose-strong:text-stone-900 prose-p:mb-0">
             ${topic.content}
           </div>
@@ -338,14 +333,19 @@ document.body.addEventListener('click', (e) => {
     
     if(a === 'toggle-sidebar') {
         state.isSidebarOpen = !state.isSidebarOpen;
-        render(); // Re-renders navbar (icon update) and calls updateLayout
+        updateLayout();
+        // Force icon refresh
+        const icon = t.querySelector('i');
+        if(icon && window.lucide) {
+           icon.setAttribute('data-lucide', state.isSidebarOpen ? 'panel-left-close' : 'panel-left-open');
+           window.lucide.createIcons();
+        }
     }
     if(a === 'nav-category') pushRoute(t.dataset.id);
     if(a === 'nav-topic') {
-        // On Mobile, auto-close sidebar after selection
         if(state.isMobile) state.isSidebarOpen = false;
         pushRoute(window.location.hash.split('/')[0].substring(1), t.dataset.module, t.dataset.topic);
-        if(state.isMobile) render(); // Force re-render to close sidebar
+        if(state.isMobile) updateLayout();
     }
     if(a === 'go-home') pushRoute(null);
 });
@@ -353,7 +353,7 @@ document.body.addEventListener('click', (e) => {
 const overlay = document.getElementById('mobile-overlay');
 if(overlay) overlay.addEventListener('click', () => { 
     state.isSidebarOpen = false; 
-    render(); 
+    updateLayout(); 
 });
 
 window.addEventListener('hashchange', render);

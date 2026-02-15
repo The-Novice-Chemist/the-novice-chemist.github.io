@@ -11,18 +11,18 @@ function getSafeData(key) {
 // Ensure AppData exists
 window.AppData = window.AppData || {};
 
-const CATEGORIES = [
-  getSafeData('general'),
-  getSafeData('inorganic'),
-  getSafeData('organic'),
-  getSafeData('physical'),
-  getSafeData('industrial')
-].filter(Boolean);
-
 // ==========================================
 // ROUTER LOGIC
 // ==========================================
 function getRouteFromHash() {
+  const CATEGORIES = [
+    getSafeData('general'),
+    getSafeData('inorganic'),
+    getSafeData('organic'),
+    getSafeData('physical'),
+    getSafeData('industrial')
+  ].filter(Boolean);
+
   const hash = window.location.hash.slice(1).toLowerCase();
   if (!hash) return { categoryId: null, moduleId: null, topicId: null };
 
@@ -62,7 +62,6 @@ function renderNavbar(categories, currentCategoryId) {
   const container = document.getElementById('navbar-container');
   if (!container) return;
   
-  // Show minimal nav even if no data
   if (categories.length === 0) {
       container.innerHTML = `
         <div class="h-16 bg-white border-b border-red-200 flex items-center px-4 lg:px-8 shadow-sm w-full">
@@ -159,17 +158,15 @@ function renderSidebar(modules, currentModuleId, currentTopicId) {
   container.innerHTML = `<div class="h-full flex flex-col pt-4 md:pt-0"><div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">${html}</div></div>`;
 }
 
-function renderWelcome() {
+function renderWelcome(categories) {
   const container = document.getElementById('main-content');
   if (!container) return;
   
-  // Use loaded categories or fallback if empty (to avoid crashing)
-  const displayCats = CATEGORIES.length > 0 ? CATEGORIES : [
+  const displayCats = categories.length > 0 ? categories : [
     {id:'error', title: 'Data Loading Error', icon: 'alert-triangle'}
   ];
   
   const categoryCards = displayCats.map(cat => {
-    // Default icons map if the category doesn't have one explicitly (from data file) or use hardcoded map
     const iconMap = {
         'general': 'atom',
         'inorganic': 'layers',
@@ -247,18 +244,17 @@ let state = {
 
 function render() {
   try {
+    const CATEGORIES = [
+      getSafeData('general'),
+      getSafeData('inorganic'),
+      getSafeData('organic'),
+      getSafeData('physical'),
+      getSafeData('industrial')
+    ].filter(Boolean);
+
     if (CATEGORIES.length === 0) {
-        document.getElementById('main-content').innerHTML = `
-            <div class="flex flex-col items-center justify-center h-full text-center p-8">
-                <h2 class="text-2xl font-bold text-stone-800 mb-2">Data Loading Failed</h2>
-                <p class="text-stone-600 mb-4">The syllabus files could not be loaded.</p>
-                <div class="bg-stone-100 p-4 rounded text-xs font-mono text-left max-w-md mx-auto">
-                    Check that <code>js/general.js</code> etc. exist in the <code>js</code> folder.
-                </div>
-            </div>
-        `;
-        renderNavbar([], null); // Render empty navbar
-        return;
+        // Fallback or loading state
+        console.log("Waiting for data...");
     }
 
     const { currentCategoryId, currentModuleId, currentTopicId, isMobileMenuOpen } = state;
@@ -272,7 +268,7 @@ function render() {
     if (currentCategory && currentModule && currentTopic) {
       renderContent(currentModule, currentTopic);
     } else {
-      renderWelcome();
+      renderWelcome(CATEGORIES);
     }
 
     const sidebarContainer = document.getElementById('sidebar-container');
@@ -301,6 +297,14 @@ function render() {
 
 // Actions
 function navigateToCategory(categoryId) {
+  const CATEGORIES = [
+      getSafeData('general'),
+      getSafeData('inorganic'),
+      getSafeData('organic'),
+      getSafeData('physical'),
+      getSafeData('industrial')
+    ].filter(Boolean);
+
   const category = CATEGORIES.find(c => c.id === categoryId);
   if (category) {
     const moduleId = category.modules[0].id;
@@ -363,7 +367,6 @@ window.addEventListener('hashchange', () => {
 
 // Init
 console.log("App starting...");
-// Initialize on DOMContentLoaded to ensure elements exist
 window.addEventListener('DOMContentLoaded', () => {
     const route = getRouteFromHash();
     state = { ...state, ...route };

@@ -147,7 +147,7 @@
                         <table class="w-full text-sm text-left min-w-[600px]">
                             <thead class="bg-stone-100 text-stone-700 font-serif">
                                 <tr>
-                                    <th class="px-5 py-3 font-semibold border-b border-stone-200">Functional Group</th>
+                                    <th class="px-5 py-3 font-semibold border-b border-stone-200 w-1/3">Structure</th>
                                     <th class="px-5 py-3 font-semibold border-b border-stone-200">Name Given</th>
                                     <th class="px-5 py-3 font-semibold border-b border-stone-200">Example</th>
                                 </tr>
@@ -155,103 +155,280 @@
                             <tbody class="divide-y divide-stone-100 bg-white">
                                 <!-- 1. Alkane -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-C-C-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <line x1="20" y1="20" x2="80" y2="20" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="15" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <text x="85" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Alkane</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3-CH_3$ (Ethane)</td>
                                 </tr>
                                 <!-- 2. Alkene -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-C=C-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <line x1="20" y1="16" x2="80" y2="16" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <line x1="20" y1="24" x2="80" y2="24" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="15" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <text x="85" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Alkene</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_2=CH_2$ (Ethene)</td>
                                 </tr>
                                 <!-- 3. Alkyne -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-C≡C-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <line x1="20" y1="12" x2="80" y2="12" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <line x1="20" y1="20" x2="80" y2="20" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <line x1="20" y1="28" x2="80" y2="28" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="15" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <text x="85" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Alkyne</td>
                                     <td class="px-5 py-3 text-stone-500">$CH≡CH$ (Ethyne)</td>
                                 </tr>
                                 <!-- 4. Alkyl Halide -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-R-X</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <line x1="30" y1="20" x2="70" y2="20" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="25" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="75" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#16a34a">X</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Alkyl Halide</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3-Cl$ (Chloroethane)</td>
                                 </tr>
                                 <!-- 5. Aryl Halide -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">Ar-X</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="60" viewBox="0 0 100 60">
+                                            <!-- Benzene Ring -->
+                                            <g transform="translate(10,5)">
+                                                <path d="M15 10 L35 10 L45 27 L35 44 L15 44 L5 27 Z" fill="none" stroke="#374151" stroke-width="2"/>
+                                                <circle cx="25" cy="27" r="8" fill="none" stroke="#374151" stroke-width="1.5"/>
+                                                <line x1="45" y1="27" x2="65" y2="27" stroke="#374151" stroke-width="2"/>
+                                                <text x="70" y="32" font-family="sans-serif" font-weight="600" fill="#16a34a">X</text>
+                                            </g>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Aryl Halide</td>
                                     <td class="px-5 py-3 text-stone-500">$C_6H_5-Cl$ (Chlorobenzene)</td>
                                 </tr>
                                 <!-- 6. Benzyl Halide -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">Ar-C-X</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="140" height="60" viewBox="0 0 140 60">
+                                            <g transform="translate(10,5)">
+                                                <path d="M15 10 L35 10 L45 27 L35 44 L15 44 L5 27 Z" fill="none" stroke="#374151" stroke-width="2"/>
+                                                <circle cx="25" cy="27" r="8" fill="none" stroke="#374151" stroke-width="1.5"/>
+                                                <line x1="45" y1="27" x2="60" y2="27" stroke="#374151" stroke-width="2"/>
+                                                <text x="63" y="32" font-family="sans-serif" font-weight="600" fill="#111827">CH</text>
+                                                <text x="86" y="36" font-family="sans-serif" font-size="10" font-weight="600" fill="#111827">2</text>
+                                                <line x1="95" y1="27" x2="110" y2="27" stroke="#374151" stroke-width="2"/>
+                                                <text x="115" y="32" font-family="sans-serif" font-weight="600" fill="#16a34a">X</text>
+                                            </g>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Benzyl Halide</td>
                                     <td class="px-5 py-3 text-stone-500">$C_6H_5CH_2Cl$</td>
                                 </tr>
                                 <!-- 7. Alcohol -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-OH</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="50" viewBox="0 0 100 50">
+                                            <text x="20" y="35" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <line x1="30" y1="30" x2="50" y2="20" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="58" y="20" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <line x1="66" y1="20" x2="80" y2="20" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="90" y="20" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">H</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Alcohol</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3OH$ (Methanol)</td>
                                 </tr>
                                 <!-- 8. Aldehyde -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-CHO</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="60" viewBox="0 0 100 60">
+                                            <line x1="20" y1="35" x2="40" y2="35" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="15" y="40" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="50" y="40" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- Double Bond to O -->
+                                            <line x1="47" y1="25" x2="47" y2="10" stroke="#374151" stroke-width="2"/>
+                                            <line x1="53" y1="25" x2="53" y2="10" stroke="#374151" stroke-width="2"/>
+                                            <text x="50" y="8" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- Bond to H -->
+                                            <line x1="60" y1="35" x2="80" y2="45" stroke="#374151" stroke-width="2"/>
+                                            <text x="88" y="55" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">H</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Aldehyde</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3CHO$ (Ethanal)</td>
                                 </tr>
                                 <!-- 9. Ketone -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-CO-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="60" viewBox="0 0 100 60">
+                                            <line x1="20" y1="35" x2="40" y2="35" stroke="#374151" stroke-width="2" stroke-linecap="round"/>
+                                            <text x="15" y="40" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="50" y="40" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- Double Bond to O -->
+                                            <line x1="47" y1="25" x2="47" y2="10" stroke="#374151" stroke-width="2"/>
+                                            <line x1="53" y1="25" x2="53" y2="10" stroke="#374151" stroke-width="2"/>
+                                            <text x="50" y="8" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- Bond to R' -->
+                                            <line x1="60" y1="35" x2="80" y2="35" stroke="#374151" stroke-width="2"/>
+                                            <text x="85" y="40" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#6b7280">R'</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Ketone</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3COCH_3$ (Propanone)</td>
                                 </tr>
                                 <!-- 10. Carboxylic Acid -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-COOH</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="70" viewBox="0 0 100 70">
+                                            <line x1="25" y1="40" x2="45" y2="40" stroke="#374151" stroke-width="2"/>
+                                            <text x="15" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="55" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- =O -->
+                                            <line x1="52" y1="30" x2="52" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <line x1="58" y1="30" x2="58" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="12" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- -OH -->
+                                            <line x1="63" y1="45" x2="75" y2="55" stroke="#374151" stroke-width="2"/>
+                                            <text x="78" y="68" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#e11d48">OH</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Carboxylic Acid</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3COOH$ (Ethanoic Acid)</td>
                                 </tr>
                                 <!-- 11. Acid Halide -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-COX</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="70" viewBox="0 0 100 70">
+                                            <line x1="25" y1="40" x2="45" y2="40" stroke="#374151" stroke-width="2"/>
+                                            <text x="15" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="55" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- =O -->
+                                            <line x1="52" y1="30" x2="52" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <line x1="58" y1="30" x2="58" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="12" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- -X -->
+                                            <line x1="63" y1="45" x2="75" y2="55" stroke="#374151" stroke-width="2"/>
+                                            <text x="78" y="68" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#16a34a">X</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Acid Halide</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3COCl$ (Ethanoyl chloride)</td>
                                 </tr>
                                 <!-- 12. Ester -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-COO-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="70" viewBox="0 0 100 70">
+                                            <line x1="25" y1="40" x2="45" y2="40" stroke="#374151" stroke-width="2"/>
+                                            <text x="15" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="55" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- =O -->
+                                            <line x1="52" y1="30" x2="52" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <line x1="58" y1="30" x2="58" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="12" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- -O-R -->
+                                            <line x1="63" y1="45" x2="72" y2="52" stroke="#374151" stroke-width="2"/>
+                                            <text x="78" y="65" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <line x1="85" y1="58" x2="92" y2="63" stroke="#374151" stroke-width="2"/>
+                                            <text x="98" y="70" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="600" fill="#6b7280">R'</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Ester</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3COOCH_3$</td>
                                 </tr>
                                 <!-- 13. Ether -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-O-</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <text x="15" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <line x1="20" y1="20" x2="40" y2="20" stroke="#374151" stroke-width="2"/>
+                                            <text x="50" y="25" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <line x1="60" y1="20" x2="80" y2="20" stroke="#374151" stroke-width="2"/>
+                                            <text x="85" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#6b7280">R'</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Ether</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3OCH_3$ (Dimethyl ether)</td>
                                 </tr>
                                 <!-- 14. Amide -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-CONH2</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="70" viewBox="0 0 100 70">
+                                            <line x1="25" y1="40" x2="45" y2="40" stroke="#374151" stroke-width="2"/>
+                                            <text x="15" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <text x="55" y="45" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- =O -->
+                                            <line x1="52" y1="30" x2="52" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <line x1="58" y1="30" x2="58" y2="15" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="12" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#e11d48">O</text>
+                                            <!-- -NH2 -->
+                                            <line x1="63" y1="45" x2="75" y2="55" stroke="#374151" stroke-width="2"/>
+                                            <text x="78" y="68" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#2563eb">NH</text>
+                                            <text x="100" y="70" font-family="sans-serif" font-size="10" font-weight="600" fill="#2563eb">2</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Amide</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3CONH_2$ (Ethanamide)</td>
                                 </tr>
                                 <!-- 15. Amine -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-NH2</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="50" viewBox="0 0 100 50">
+                                            <text x="20" y="30" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <line x1="25" y1="25" x2="45" y2="25" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="30" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#2563eb">N</text>
+                                            <!-- H's -->
+                                            <line x1="60" y1="20" x2="70" y2="10" stroke="#374151" stroke-width="2"/>
+                                            <text x="75" y="12" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#111827">H</text>
+                                            <line x1="60" y1="30" x2="70" y2="40" stroke="#374151" stroke-width="2"/>
+                                            <text x="75" y="45" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#111827">H</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Amine</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3NH_2$ (Methylamine)</td>
                                 </tr>
                                 <!-- 16. Phenol -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">Ar-OH</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="60" viewBox="0 0 100 60">
+                                            <g transform="translate(10,5)">
+                                                <path d="M15 10 L35 10 L45 27 L35 44 L15 44 L5 27 Z" fill="none" stroke="#374151" stroke-width="2"/>
+                                                <circle cx="25" cy="27" r="8" fill="none" stroke="#374151" stroke-width="1.5"/>
+                                                <line x1="45" y1="27" x2="60" y2="27" stroke="#374151" stroke-width="2"/>
+                                                <text x="65" y="32" font-family="sans-serif" font-weight="600" fill="#e11d48">OH</text>
+                                            </g>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Phenol</td>
                                     <td class="px-5 py-3 text-stone-500">$C_6H_5OH$</td>
                                 </tr>
                                 <!-- 17. Nitrile -->
                                 <tr class="hover:bg-stone-50 transition-colors">
-                                    <td class="px-5 py-3 font-mono text-teal-700 font-bold">-CN</td>
+                                    <td class="px-5 py-3">
+                                        <svg width="100" height="40" viewBox="0 0 100 40">
+                                            <text x="20" y="25" text-anchor="end" font-family="sans-serif" font-weight="600" fill="#6b7280">R</text>
+                                            <line x1="25" y1="20" x2="45" y2="20" stroke="#374151" stroke-width="2"/>
+                                            <text x="55" y="25" text-anchor="middle" font-family="sans-serif" font-weight="600" fill="#111827">C</text>
+                                            <!-- Triple Bond -->
+                                            <line x1="62" y1="14" x2="82" y2="14" stroke="#374151" stroke-width="2"/>
+                                            <line x1="62" y1="20" x2="82" y2="20" stroke="#374151" stroke-width="2"/>
+                                            <line x1="62" y1="26" x2="82" y2="26" stroke="#374151" stroke-width="2"/>
+                                            <text x="90" y="25" text-anchor="start" font-family="sans-serif" font-weight="600" fill="#2563eb">N</text>
+                                        </svg>
+                                    </td>
                                     <td class="px-5 py-3 font-medium">Nitrile</td>
                                     <td class="px-5 py-3 text-stone-500">$CH_3CN$ (Ethanenitrile)</td>
                                 </tr>

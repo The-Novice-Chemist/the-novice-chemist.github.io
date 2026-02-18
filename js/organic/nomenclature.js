@@ -1,1 +1,0 @@
-window.registerContent('organic', 'nomenclature', window.AppUtils.underConstructionHTML("IUPAC Nomenclature", "Organic"));

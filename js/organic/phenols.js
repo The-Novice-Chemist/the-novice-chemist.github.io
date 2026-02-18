@@ -1,1 +1,0 @@
-window.registerContent('organic', 'phenols', window.AppUtils.underConstructionHTML("Phenols", "Organic"));

@@ -1,1 +1,0 @@
-window.registerContent('organic', 'halides', window.AppUtils.underConstructionHTML("Organic Halides", "Organic"));

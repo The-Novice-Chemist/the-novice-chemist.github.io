@@ -1,1 +1,0 @@
-window.registerContent('organic', 'alkenes', window.AppUtils.underConstructionHTML("Alkenes / Olefins", "Organic"));

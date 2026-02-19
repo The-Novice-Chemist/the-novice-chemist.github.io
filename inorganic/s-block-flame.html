@@ -34,7 +34,6 @@
         
         /* Prevent scrolling on the lab area for touch devices */
         .touch-none { touch-action: none; }
-        /* Note: scroll-behavior on html often doesn't affect nested overflow containers, handled via JS/Tailwind utility */
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
@@ -94,7 +93,46 @@
                     </button>
                 </div>
 
-                <!-- SUMMARY TABLE SECTION (Moved Up) -->
+                <!-- THEORETICAL BACKGROUND -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Why Graphite? -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-slate-300 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-600">
+                                <i data-lucide="pencil" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Why Graphite Rods?</h3>
+                        </div>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex gap-3">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-emerald-500 shrink-0"></i>
+                                <span><strong>Chemically Inert:</strong> Graphite does not react with the Hydrochloric acid (HCl) or the salt samples, ensuring no contamination of the results.</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <i data-lucide="flame" class="w-5 h-5 text-orange-500 shrink-0"></i>
+                                <span><strong>High Melting Point:</strong> Carbon (Graphite) has an extremely high melting point (~3600°C), so it withstands the Bunsen flame without melting.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Physics of Color -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-purple-200 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-600">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900">Physics of Emission</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                            The heat energy from the flame excites electrons to higher, unstable energy levels. As these electrons relax back to their ground state, they emit the absorbed energy as photons of specific visible wavelengths.
+                        </p>
+                        <div class="flex items-center justify-center bg-slate-900 rounded-lg p-3 shadow-inner">
+                            <span class="text-white font-mono text-sm">$\Delta E = h\nu = \frac{hc}{\lambda}$</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUMMARY TABLE SECTION -->
                 <section class="mt-0">
                      <h2 class="text-2xl font-bold text-slate-900 mb-6">Flame Test Summary</h2>
                      <div class="grid md:grid-cols-2 gap-8">
@@ -158,7 +196,7 @@
                      </div>
                 </section>
 
-                <!-- INTERACTIVE LAB CONTAINER (Moved Down) -->
+                <!-- INTERACTIVE LAB CONTAINER -->
                 <div id="lab-container" class="relative w-full h-[600px] bg-slate-900 rounded-2xl shadow-2xl border-4 border-slate-800 overflow-hidden select-none touch-none group cursor-crosshair">
                     
                     <!-- Background Annotation -->
@@ -200,7 +238,7 @@
                         </div>
                     </div>
 
-                    <!-- Bunsen Burner (Moved UP to bottom-56 to clear shelf for labels) -->
+                    <!-- Bunsen Burner -->
                     <div class="absolute bottom-56 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center group">
                         <div id="flame-hitbox" class="absolute bottom-24 w-20 h-32 rounded-full z-20"></div>
                         <div id="main-flame" class="w-20 h-44 rounded-[50%_50%_35%_35%] blur-md flame-anim origin-bottom transition-colors duration-300 ease-out"
@@ -210,13 +248,13 @@
                         <div class="w-10 h-32 bg-gradient-to-r from-slate-600 via-slate-500 to-slate-600 rounded-t-sm relative -mt-1 shadow-lg border-x border-slate-700"></div>
                         <div class="absolute -bottom-4 w-32 h-6 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded shadow-2xl"></div>
                         
-                        <!-- Added Bunsen Label -->
+                        <!-- Bunsen Label -->
                         <div class="absolute -bottom-10 text-center w-32 opacity-70 group-hover:opacity-100 transition-opacity">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-900/50 px-2 py-1 rounded backdrop-blur-sm">Bunsen Burner</span>
                         </div>
                     </div>
 
-                    <!-- Relocated Acid Bath (Moved UP to bottom-56) -->
+                    <!-- Acid Bath -->
                     <div id="acid-bath-wrapper" class="absolute bottom-56 left-[35%] z-20 transform -translate-x-1/2">
                          <div id="acid-bath" class="acid relative w-16 h-20 bg-blue-50/10 rounded-b-xl border-x-2 border-b-2 border-slate-400/50 flex flex-col justify-end items-center group hover:scale-105 transition-transform cursor-pointer">
                             <div class="absolute bottom-1 w-14 h-12 bg-blue-400/20 rounded-b-lg border-t border-blue-300/30"></div>

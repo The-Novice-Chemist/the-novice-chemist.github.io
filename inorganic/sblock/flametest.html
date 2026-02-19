@@ -6,6 +6,7 @@
     <title>Flame Tests | Inorganic Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -17,106 +18,16 @@
         .custom-scrollbar::-webkit-scrollbar { height: 8px; width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(30, 41, 59, 0.5); }
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; border-radius: 4px; }
-        
-        @keyframes flicker {
-            0%, 100% { transform: scale(1) skewX(0deg); opacity: 0.9; }
-            25% { transform: scale(1.02) skewX(2deg); opacity: 0.8; }
-            50% { transform: scale(0.98) skewX(-1deg); opacity: 1; }
-            75% { transform: scale(1.01) skewX(1deg); opacity: 0.85; }
-        }
+        @keyframes flicker { 0%, 100% { transform: scale(1) skewX(0deg); opacity: 0.9; } 25% { transform: scale(1.02) skewX(2deg); opacity: 0.8; } 50% { transform: scale(0.98) skewX(-1deg); opacity: 1; } 75% { transform: scale(1.01) skewX(1deg); opacity: 0.85; } }
         .flame-anim { animation: flicker 0.1s infinite alternate; }
-
         .cursor-grab { cursor: grab; }
         .cursor-grabbing { cursor: grabbing; }
-        
         .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
         .touch-none { touch-action: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
-    <input type="checkbox" id="sidebar-toggle" class="peer hidden">
-    <label for="sidebar-toggle" class="fixed inset-0 bg-slate-900/20 backdrop-blur-[2px] z-30 hidden peer-checked:block md:peer-checked:hidden cursor-pointer"></label>
-
-    <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 -translate-x-full peer-checked:translate-x-0 md:translate-x-0 md:peer-checked:-translate-x-full">
-        <div class="h-16 flex items-center px-6 border-b border-slate-100">
-            <a href="../../index.html" class="flex items-center gap-2 text-slate-500 hover:text-purple-600 transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i><span class="font-bold text-sm uppercase tracking-wide">Back to Home</span>
-            </a>
-        </div>
-        <div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar space-y-8">
-            <div>
-                <div class="flex items-center gap-3 px-3 mb-6">
-                    <div class="w-8 h-8 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i data-lucide="component" class="w-4 h-4"></i></div>
-                    <span class="font-bold text-lg text-slate-900">s-Block</span>
-                </div>
-                <ul class="space-y-2">
-                    <li class="px-3 pt-2 pb-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Topics</li>
-                    
-                    <!-- Item 1 -->
-                    <li>
-                        <a href="trends.html" class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700 transition-colors">
-                            <span class="mt-0.5 shrink-0">1.</span>
-                            <span class="leading-snug">s-Block Group Trends</span>
-                        </a>
-                    </li>
-
-                    <!-- Item 2 (Active) -->
-                    <li>
-                        <a href="flametest.html" class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium bg-purple-50 text-purple-700 border border-purple-100 shadow-sm">
-                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
-                            <span class="leading-snug">2. Flame Tests</span>
-                        </a>
-                    </li>
-
-                    <!-- Item 3 (Accordion) -->
-                    <li>
-                        <details class="group">
-                            <summary class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700 cursor-pointer list-none transition-colors">
-                                <span class="leading-snug">3. Reactions of s-Block Elements</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 mt-0.5 ml-auto group-open:rotate-180 transition-transform shrink-0"></i>
-                            </summary>
-                            <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 space-y-1">
-                                <li><a href="reactions/acids.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Acids</a></li>
-                                <li><a href="reactions/bases.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Bases</a></li>
-                                <li><a href="reactions/water.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Water</a></li>
-                                <li><a href="reactions/oxygen.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Oxygen</a></li>
-                                <li><a href="reactions/hydrogen.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Hydrogen</a></li>
-                                <li><a href="reactions/nitrogen.html" class="block px-4 py-2 text-sm leading-snug text-slate-500 hover:text-purple-700 hover:bg-slate-50 rounded-r-md transition-colors">Reactions with Nitrogen</a></li>
-                            </ul>
-                        </details>
-                    </li>
-
-                    <!-- Item 4 -->
-                    <li>
-                        <a href="solubility.html" class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700 transition-colors">
-                            <span class="mt-0.5 shrink-0">4.</span>
-                            <span class="leading-snug">Solubility of s-Block Salts</span>
-                        </a>
-                    </li>
-
-                    <!-- Item 5 -->
-                    <li>
-                        <a href="decomposition.html" class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700 transition-colors">
-                            <span class="mt-0.5 shrink-0">5.</span>
-                            <span class="leading-snug">Thermal Decomposition of s-Block Salts</span>
-                        </a>
-                    </li>
-
-                    <!-- Item 6 -->
-                    <li>
-                        <a href="stability.html" class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700 transition-colors">
-                            <span class="mt-0.5 shrink-0">6.</span>
-                            <span class="leading-snug">Thermal Stability of s-Block Salts</span>
-                        </a>
-                    </li>
-
-                    <li class="px-3 pt-6 pb-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Other Blocks</li>
-                    <li><a href="../pblock/index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-400 hover:bg-slate-50 hover:text-slate-600"><i data-lucide="cone" class="w-3 h-3"></i> p-Block</a></li>
-                    <li><a href="../dblock/index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-400 hover:bg-slate-50 hover:text-slate-600"><i data-lucide="cone" class="w-3 h-3"></i> d-Block</a></li>
-                </ul>
-            </div>
-        </div>
-    </aside>
+    <!-- Sidebar injected via JS -->
 
     <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
         <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
@@ -183,7 +94,6 @@
                 <section class="mt-0">
                      <h2 class="text-2xl font-bold text-slate-900 mb-6">Flame Test Summary</h2>
                      <div class="grid md:grid-cols-2 gap-8">
-                         
                          <!-- Group 1 Table -->
                          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                              <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
@@ -191,11 +101,7 @@
                              </div>
                              <table class="w-full text-sm text-left">
                                  <thead class="bg-slate-50/50 text-slate-500 font-medium">
-                                     <tr>
-                                         <th class="px-6 py-3 w-1/4">Symbol</th>
-                                         <th class="px-6 py-3 w-1/3">Element</th>
-                                         <th class="px-6 py-3">Flame Color</th>
-                                     </tr>
+                                     <tr><th class="px-6 py-3 w-1/4">Symbol</th><th class="px-6 py-3 w-1/3">Element</th><th class="px-6 py-3">Flame Color</th></tr>
                                  </thead>
                                  <tbody class="divide-y divide-slate-100">
                                      <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Li</td><td class="px-6 py-3 text-slate-600">Lithium</td><td class="px-6 py-3 font-medium text-red-600">Red</td></tr>
@@ -206,7 +112,6 @@
                                  </tbody>
                              </table>
                          </div>
-
                          <!-- Group 2 Table -->
                          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
                              <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
@@ -214,11 +119,7 @@
                              </div>
                              <table class="w-full text-sm text-left">
                                  <thead class="bg-slate-50/50 text-slate-500 font-medium">
-                                     <tr>
-                                         <th class="px-6 py-3 w-1/4">Symbol</th>
-                                         <th class="px-6 py-3 w-1/3">Element</th>
-                                         <th class="px-6 py-3">Flame Color</th>
-                                     </tr>
+                                     <tr><th class="px-6 py-3 w-1/4">Symbol</th><th class="px-6 py-3 w-1/3">Element</th><th class="px-6 py-3">Flame Color</th></tr>
                                  </thead>
                                  <tbody class="divide-y divide-slate-100">
                                      <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Be</td><td class="px-6 py-3 text-slate-600">Beryllium</td><td class="px-6 py-3 text-slate-400 italic">Colorless</td></tr>
@@ -229,13 +130,9 @@
                                  </tbody>
                              </table>
                          </div>
-
                      </div>
-                     
                      <div class="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-4">
-                        <div class="shrink-0 text-amber-500 pt-1">
-                            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
-                        </div>
+                        <div class="shrink-0 text-amber-500 pt-1"><i data-lucide="alert-triangle" class="w-5 h-5"></i></div>
                         <div class="text-sm text-amber-900">
                             <strong class="font-bold block mb-1">Practical Note:</strong>
                             It is considered difficult and often unreliable to definitively identify Lithium and Strontium using a flame test alone. This is because both elements produce shades of red that can appear very similar to the human eye.
@@ -245,9 +142,7 @@
                 
                 <!-- MOBILE ORIENTATION NOTICE -->
                 <div class="block md:hidden mb-4 p-4 bg-indigo-50 border border-indigo-100 rounded-lg flex items-start gap-3 shadow-sm">
-                    <div class="bg-indigo-100 p-1.5 rounded-full shrink-0">
-                        <i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i>
-                    </div>
+                    <div class="bg-indigo-100 p-1.5 rounded-full shrink-0"><i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i></div>
                     <div>
                         <h4 class="text-sm font-bold text-indigo-900">Mobile User?</h4>
                         <p class="text-xs text-indigo-700 mt-0.5">For the best experience on mobile, please rotate your device to landscape mode.</p>
@@ -256,21 +151,13 @@
 
                 <!-- INTERACTIVE LAB CONTAINER -->
                 <div id="lab-container" class="relative w-full h-[600px] bg-slate-900 rounded-2xl shadow-2xl border-4 border-slate-800 overflow-hidden select-none touch-none group cursor-crosshair">
-                    
-                    <!-- Fullscreen Toggle Button -->
-                    <button id="fullscreen-btn" class="absolute top-4 left-4 z-50 p-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-lg backdrop-blur-sm border border-slate-600 transition-colors shadow-lg" title="Toggle Fullscreen">
-                        <i data-lucide="expand" class="w-5 h-5"></i>
-                    </button>
-
-                    <!-- Background Annotation -->
+                    <button id="fullscreen-btn" class="absolute top-4 left-4 z-50 p-2 bg-slate-800/80 hover:bg-slate-700 text-white rounded-lg backdrop-blur-sm border border-slate-600 transition-colors shadow-lg" title="Toggle Fullscreen"><i data-lucide="expand" class="w-5 h-5"></i></button>
                     <div class="absolute top-4 right-4 z-10 opacity-70 pointer-events-none">
                          <div class="flex flex-col items-end gap-1">
                              <span class="handwritten text-slate-400 text-lg">Dark room for visibility</span>
                              <svg class="w-6 h-6 text-slate-500 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                          </div>
                     </div>
-
-                    <!-- UV CAT REACTION -->
                     <div id="cat-reaction" class="absolute bottom-40 right-20 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none z-20">
                         <div class="relative flex flex-col items-end">
                             <div class="mb-3 w-48 bg-white/95 backdrop-blur p-4 rounded-2xl rounded-br-none shadow-xl text-xs text-slate-700 border border-slate-200 transform origin-bottom-right">
@@ -284,15 +171,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Result Display -->
                     <div id="result-display" class="absolute top-12 left-0 right-0 text-center transition-all duration-500 opacity-0 transform -translate-y-4 z-20 pointer-events-none">
                         <h2 id="element-symbol" class="text-7xl font-bold text-white/10 mb-2 tracking-tighter"></h2>
                         <h3 id="element-name" class="text-4xl font-bold text-white mb-1 drop-shadow-lg"></h3>
                         <p id="flame-desc" class="text-xl text-slate-300 font-mono tracking-wide drop-shadow"></p>
                     </div>
-
-                    <!-- Instructions -->
                     <div id="instructions" class="absolute inset-0 flex items-center justify-center bg-black/60 z-50 pointer-events-none transition-opacity duration-1000">
                         <div class="text-center text-white p-6 border-2 border-dashed border-white/30 rounded-xl bg-black/40 backdrop-blur-sm">
                             <i data-lucide="hand" class="w-12 h-12 mx-auto mb-4 animate-bounce"></i>
@@ -300,41 +183,27 @@
                             <p class="text-slate-300">Drag the rod to a petri dish.<br>Then drag it to the flame.</p>
                         </div>
                     </div>
-
-                    <!-- Bunsen Burner -->
                     <div class="absolute bottom-56 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center group">
                         <div id="flame-hitbox" class="absolute bottom-24 w-20 h-32 rounded-full z-20"></div>
-                        <div id="main-flame" class="w-20 h-44 rounded-[50%_50%_35%_35%] blur-md flame-anim origin-bottom transition-colors duration-300 ease-out"
-                             style="background: radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%); opacity: 0.6;">
-                        </div>
+                        <div id="main-flame" class="w-20 h-44 rounded-[50%_50%_35%_35%] blur-md flame-anim origin-bottom transition-colors duration-300 ease-out" style="background: radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%); opacity: 0.6;"></div>
                         <div class="absolute bottom-0 w-6 h-12 bg-blue-400 blur-[2px] rounded-[50%_50%_20%_20%] opacity-90 mix-blend-screen pointer-events-none flame-anim"></div>
                         <div class="w-10 h-32 bg-gradient-to-r from-slate-600 via-slate-500 to-slate-600 rounded-t-sm relative -mt-1 shadow-lg border-x border-slate-700"></div>
                         <div class="absolute -bottom-4 w-32 h-6 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded shadow-2xl"></div>
-                        
-                        <!-- Bunsen Label -->
                         <div class="absolute -bottom-10 text-center w-32 opacity-70 group-hover:opacity-100 transition-opacity">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-900/50 px-2 py-1 rounded backdrop-blur-sm">Bunsen Burner</span>
                         </div>
                     </div>
-
-                    <!-- Acid Bath -->
                     <div id="acid-bath-wrapper" class="absolute bottom-56 left-[35%] z-20 transform -translate-x-1/2">
                          <div id="acid-bath" class="acid relative w-16 h-20 bg-blue-50/10 rounded-b-xl border-x-2 border-b-2 border-slate-400/50 flex flex-col justify-end items-center group hover:scale-105 transition-transform cursor-pointer">
                             <div class="absolute bottom-1 w-14 h-12 bg-blue-400/20 rounded-b-lg border-t border-blue-300/30"></div>
-                            <!-- Adjusted label position -->
                             <div class="absolute -bottom-10 text-center w-24">
                                 <span class="block text-[10px] font-bold text-amber-500 group-hover:text-amber-400 transition-colors uppercase bg-slate-900/50 px-2 py-1 rounded backdrop-blur-sm inline-block">Conc. HCl</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Bench / Shelf with Samples -->
                     <div class="absolute bottom-0 w-full h-36 bg-slate-800 border-t border-slate-700 shadow-[0_-5px_20px_rgba(0,0,0,0.5)] z-30 flex items-center px-4 overflow-x-auto overflow-y-hidden custom-scrollbar">
-                        <!-- Dishes injected by JS -->
                         <div id="dish-container" class="flex gap-6 min-w-max mx-auto items-center py-2 h-full"></div>
                     </div>
-
-                    <!-- Draggable Graphite Rod -->
                     <div id="rod" class="absolute z-50 cursor-grab active:cursor-grabbing w-64 h-16 origin-right" style="top: 20%; right: 10%;">
                         <div id="rod-status" class="absolute -top-8 left-0 bg-white/95 backdrop-blur text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg border border-slate-200 text-slate-500 whitespace-nowrap pointer-events-none flex items-center gap-2 transition-all">
                             <span id="status-dot" class="w-2 h-2 rounded-full bg-slate-300 shadow-inner"></span>
@@ -354,6 +223,9 @@
     </main>
 
     <script>
+        // Init sidebar with active state
+        renderSidebar({ root: '../../', module: 's-block', active: 'flametest' });
+        
         lucide.createIcons();
         document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {

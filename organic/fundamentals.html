@@ -6,6 +6,7 @@
     <title>Fundamentals | Organic Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -21,51 +22,8 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
+    <!-- Sidebar injected via JS -->
 
-    <!-- 
-      SIDEBAR LOGIC:
-      1. Checkbox Unchecked (Default):
-         - Mobile: Sidebar Hidden (translate-x-full)
-         - Desktop: Sidebar Visible (translate-x-0)
-      2. Checkbox Checked:
-         - Mobile: Sidebar Visible (translate-x-0)
-         - Desktop: Sidebar Hidden (-translate-x-full)
-    -->
-    <input type="checkbox" id="sidebar-toggle" class="peer hidden">
-
-    <!-- OVERLAY: Mobile Only. STRICTLY HIDDEN ON DESKTOP (md:peer-checked:hidden) -->
-    <label for="sidebar-toggle" class="fixed inset-0 bg-slate-900/20 backdrop-blur-[2px] z-30 hidden peer-checked:block md:peer-checked:hidden cursor-pointer transition-opacity"></label>
-
-    <!-- SIDEBAR -->
-    <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 ease-in-out
-        -translate-x-full peer-checked:translate-x-0 
-        md:translate-x-0 md:peer-checked:-translate-x-full">
-        
-        <div class="h-16 flex items-center px-6 border-b border-slate-100">
-            <a href="../index.html" class="flex items-center gap-2 text-slate-500 hover:text-emerald-600 transition-colors">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                <span class="font-bold text-sm uppercase tracking-wide">Back to Home</span>
-            </a>
-        </div>
-        
-        <div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar space-y-8">
-            <div>
-                <div class="flex items-center gap-3 px-3 mb-6">
-                    <div class="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center"><i data-lucide="leaf" class="w-4 h-4"></i></div>
-                    <span class="font-bold text-lg text-slate-900">Organic</span>
-                </div>
-                <ul class="space-y-1">
-                    <li><a href="fundamentals.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-emerald-50 text-emerald-700 border border-emerald-100"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>1. Fundamentals</a></li>
-                    <li><a href="nomenclature.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-emerald-700 transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>2. Nomenclature</a></li>
-                    <li><a href="alkanes.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-emerald-700 transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>3. Alkanes</a></li>
-                    <li><a href="alkenes.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-emerald-700 transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>4. Alkenes</a></li>
-                    <li><a href="benzene.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-emerald-700 transition-colors"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>5. Benzene</a></li>
-                </ul>
-            </div>
-        </div>
-    </aside>
-
-    <!-- CONTENT: Expands (md:ml-0) when checked on desktop -->
     <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
         <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
             <div class="flex items-center gap-4">
@@ -110,6 +68,7 @@
         </div>
     </main>
     <script>
+        renderSidebar({ root: '../', module: 'organic', active: 'fundamentals' });
         lucide.createIcons();
         document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flame Tests | Inorganic Chemistry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; }
+        .handwritten { font-family: 'Kalam', cursive; }
+        .custom-scrollbar::-webkit-scrollbar { height: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(30, 41, 59, 0.5); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; border-radius: 4px; }
+        
+        /* Flame Animation */
+        @keyframes flicker {
+            0%, 100% { transform: scale(1) skewX(0deg); opacity: 0.9; }
+            25% { transform: scale(1.02) skewX(2deg); opacity: 0.8; }
+            50% { transform: scale(0.98) skewX(-1deg); opacity: 1; }
+            75% { transform: scale(1.01) skewX(1deg); opacity: 0.85; }
+        }
+        .flame-anim { animation: flicker 0.1s infinite alternate; }
+
+        .cursor-grab { cursor: grab; }
+        .cursor-grabbing { cursor: grabbing; }
+        
+        .vertical-text { writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
+        
+        /* Prevent scrolling on the lab area for touch devices */
+        .touch-none { touch-action: none; }
+        /* Note: scroll-behavior on html often doesn't affect nested overflow containers, handled via JS/Tailwind utility */
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
+    <input type="checkbox" id="sidebar-toggle" class="peer hidden">
+    <label for="sidebar-toggle" class="fixed inset-0 bg-slate-900/20 backdrop-blur-[2px] z-30 hidden peer-checked:block md:peer-checked:hidden cursor-pointer"></label>
+
+    <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 -translate-x-full peer-checked:translate-x-0 md:translate-x-0 md:peer-checked:-translate-x-full">
+        <div class="h-16 flex items-center px-6 border-b border-slate-100">
+            <a href="../index.html" class="flex items-center gap-2 text-slate-500 hover:text-purple-600 transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i><span class="font-bold text-sm uppercase tracking-wide">Back to Home</span>
+            </a>
+        </div>
+        <div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar space-y-8">
+            <div>
+                <div class="flex items-center gap-3 px-3 mb-6">
+                    <div class="w-8 h-8 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i data-lucide="component" class="w-4 h-4"></i></div>
+                    <span class="font-bold text-lg text-slate-900">Inorganic</span>
+                </div>
+                <ul class="space-y-1">
+                    <li><a href="periodicity.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">1. Periodicity</a></li>
+                    
+                    <li class="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 uppercase tracking-wider">s-Block Elements</li>
+                    <li><a href="s-block-trends.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">1. Group Trends</a></li>
+                    <li><a href="s-block-flame.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-purple-50 text-purple-700 border border-purple-100"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>2. Flame Tests</a></li>
+                    <li><a href="s-block-reactions.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">3. Chemical Reactions</a></li>
+                    <li><a href="s-block-solubility.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">4. Solubility</a></li>
+                    <li><a href="s-block-decomposition.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">5. Thermal Decomposition</a></li>
+                    <li><a href="s-block-stability.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-purple-700">6. Thermal Stability</a></li>
+
+                    <li class="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 uppercase tracking-wider">Other Blocks</li>
+                    <li><a href="p-block.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-400 hover:bg-slate-50 hover:text-slate-600"><i data-lucide="cone" class="w-3 h-3"></i> p-Block</a></li>
+                    <li><a href="d-block.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-400 hover:bg-slate-50 hover:text-slate-600"><i data-lucide="cone" class="w-3 h-3"></i> d-Block</a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-md cursor-pointer"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900">Flame Tests</span></div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24 scroll-smooth">
+            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="max-w-2xl">
+                        <h1 class="text-4xl font-bold text-slate-900 leading-tight mb-2">Flame Test Laboratory</h1>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Drag the graphite rod to a salt sample to coat it, then move it into the flame to observe the emission spectrum. Use HCl to clean the rod.
+                        </p>
+                    </div>
+                    <!-- Action Call for Students -->
+                    <button onclick="document.getElementById('lab-container').scrollIntoView({behavior: 'smooth'})" class="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold shadow-lg hover:bg-purple-700 hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300 whitespace-nowrap">
+                        <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                        Scroll down to Lab
+                        <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce"></i>
+                    </button>
+                </div>
+
+                <!-- SUMMARY TABLE SECTION (Moved Up) -->
+                <section class="mt-0">
+                     <h2 class="text-2xl font-bold text-slate-900 mb-6">Flame Test Summary</h2>
+                     <div class="grid md:grid-cols-2 gap-8">
+                         
+                         <!-- Group 1 Table -->
+                         <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                             <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                                 <h3 class="font-bold text-slate-800">Group I: Alkali Metals</h3>
+                             </div>
+                             <table class="w-full text-sm text-left">
+                                 <thead class="bg-slate-50/50 text-slate-500 font-medium">
+                                     <tr>
+                                         <th class="px-6 py-3 w-1/4">Symbol</th>
+                                         <th class="px-6 py-3 w-1/3">Element</th>
+                                         <th class="px-6 py-3">Flame Color</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="divide-y divide-slate-100">
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Li</td><td class="px-6 py-3 text-slate-600">Lithium</td><td class="px-6 py-3 font-medium text-red-600">Red</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Na</td><td class="px-6 py-3 text-slate-600">Sodium</td><td class="px-6 py-3 font-medium text-yellow-500">Yellow</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">K</td><td class="px-6 py-3 text-slate-600">Potassium</td><td class="px-6 py-3 font-medium text-purple-500">Lilac</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Rb</td><td class="px-6 py-3 text-slate-600">Rubidium</td><td class="px-6 py-3 font-medium text-fuchsia-700">Red-violet</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Cs</td><td class="px-6 py-3 text-slate-600">Cesium</td><td class="px-6 py-3 font-medium text-indigo-500">Blue-violet</td></tr>
+                                 </tbody>
+                             </table>
+                         </div>
+
+                         <!-- Group 2 Table -->
+                         <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                             <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                                 <h3 class="font-bold text-slate-800">Group II: Alkaline Earth Metals</h3>
+                             </div>
+                             <table class="w-full text-sm text-left">
+                                 <thead class="bg-slate-50/50 text-slate-500 font-medium">
+                                     <tr>
+                                         <th class="px-6 py-3 w-1/4">Symbol</th>
+                                         <th class="px-6 py-3 w-1/3">Element</th>
+                                         <th class="px-6 py-3">Flame Color</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody class="divide-y divide-slate-100">
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Be</td><td class="px-6 py-3 text-slate-600">Beryllium</td><td class="px-6 py-3 text-slate-400 italic">Colorless</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Mg</td><td class="px-6 py-3 text-slate-600">Magnesium</td><td class="px-6 py-3 text-slate-400 italic">Colorless</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Ca</td><td class="px-6 py-3 text-slate-600">Calcium</td><td class="px-6 py-3 font-medium text-orange-600">Orange-red</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Sr</td><td class="px-6 py-3 text-slate-600">Strontium</td><td class="px-6 py-3 font-medium text-red-700">Crimson red</td></tr>
+                                     <tr><td class="px-6 py-3 font-mono font-bold text-slate-700">Ba</td><td class="px-6 py-3 text-slate-600">Barium</td><td class="px-6 py-3 font-medium text-lime-600">Yellowish-green</td></tr>
+                                 </tbody>
+                             </table>
+                         </div>
+
+                     </div>
+                     
+                     <div class="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-4">
+                        <div class="shrink-0 text-amber-500 pt-1">
+                            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-sm text-amber-900">
+                            <strong class="font-bold block mb-1">Practical Note:</strong>
+                            It is considered difficult and often unreliable to definitively identify Lithium and Strontium using a flame test alone. This is because both elements produce shades of red that can appear very similar to the human eye.
+                        </div>
+                     </div>
+                </section>
+
+                <!-- INTERACTIVE LAB CONTAINER (Moved Down) -->
+                <div id="lab-container" class="relative w-full h-[600px] bg-slate-900 rounded-2xl shadow-2xl border-4 border-slate-800 overflow-hidden select-none touch-none group cursor-crosshair">
+                    
+                    <!-- Background Annotation -->
+                    <div class="absolute top-4 right-4 z-10 opacity-70 pointer-events-none">
+                         <div class="flex flex-col items-end gap-1">
+                             <span class="handwritten text-slate-400 text-lg">Dark room for visibility</span>
+                             <svg class="w-6 h-6 text-slate-500 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                         </div>
+                    </div>
+
+                    <!-- UV CAT REACTION -->
+                    <div id="cat-reaction" class="absolute bottom-40 right-20 transition-all duration-500 opacity-0 translate-y-8 pointer-events-none z-20">
+                        <div class="relative flex flex-col items-end">
+                            <div class="mb-3 w-48 bg-white/95 backdrop-blur p-4 rounded-2xl rounded-br-none shadow-xl text-xs text-slate-700 border border-slate-200 transform origin-bottom-right">
+                                <p class="font-bold text-purple-600 mb-1">Meow! 🐱</p>
+                                <p>"To your human eyes, this looks colorless. But I can see the emission spectrum in the <strong class="text-purple-600">UV range</strong>!"</p>
+                            </div>
+                            <div class="relative w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center border-4 border-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.5)]">
+                                <i data-lucide="cat" class="w-10 h-10 text-white"></i>
+                                <div class="absolute top-[22px] left-[12px] w-10 h-3 bg-purple-500 border border-purple-300 rounded-sm"></div>
+                                <div class="absolute top-[24px] left-[20px] w-2 h-0.5 bg-purple-300"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Result Display -->
+                    <div id="result-display" class="absolute top-12 left-0 right-0 text-center transition-all duration-500 opacity-0 transform -translate-y-4 z-20 pointer-events-none">
+                        <h2 id="element-symbol" class="text-7xl font-bold text-white/10 mb-2 tracking-tighter"></h2>
+                        <h3 id="element-name" class="text-4xl font-bold text-white mb-1 drop-shadow-lg"></h3>
+                        <p id="flame-desc" class="text-xl text-slate-300 font-mono tracking-wide drop-shadow"></p>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div id="instructions" class="absolute inset-0 flex items-center justify-center bg-black/60 z-50 pointer-events-none transition-opacity duration-1000">
+                        <div class="text-center text-white p-6 border-2 border-dashed border-white/30 rounded-xl bg-black/40 backdrop-blur-sm">
+                            <i data-lucide="hand" class="w-12 h-12 mx-auto mb-4 animate-bounce"></i>
+                            <h3 class="text-2xl font-bold mb-2">Interactive Lab</h3>
+                            <p class="text-slate-300">Drag the rod to a petri dish.<br>Then drag it to the flame.</p>
+                        </div>
+                    </div>
+
+                    <!-- Bunsen Burner (Moved UP to bottom-56 to clear shelf for labels) -->
+                    <div class="absolute bottom-56 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center group">
+                        <div id="flame-hitbox" class="absolute bottom-24 w-20 h-32 rounded-full z-20"></div>
+                        <div id="main-flame" class="w-20 h-44 rounded-[50%_50%_35%_35%] blur-md flame-anim origin-bottom transition-colors duration-300 ease-out"
+                             style="background: radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%); opacity: 0.6;">
+                        </div>
+                        <div class="absolute bottom-0 w-6 h-12 bg-blue-400 blur-[2px] rounded-[50%_50%_20%_20%] opacity-90 mix-blend-screen pointer-events-none flame-anim"></div>
+                        <div class="w-10 h-32 bg-gradient-to-r from-slate-600 via-slate-500 to-slate-600 rounded-t-sm relative -mt-1 shadow-lg border-x border-slate-700"></div>
+                        <div class="absolute -bottom-4 w-32 h-6 bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 rounded shadow-2xl"></div>
+                        
+                        <!-- Added Bunsen Label -->
+                        <div class="absolute -bottom-10 text-center w-32 opacity-70 group-hover:opacity-100 transition-opacity">
+                            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider bg-slate-900/50 px-2 py-1 rounded backdrop-blur-sm">Bunsen Burner</span>
+                        </div>
+                    </div>
+
+                    <!-- Relocated Acid Bath (Moved UP to bottom-56) -->
+                    <div id="acid-bath-wrapper" class="absolute bottom-56 left-[35%] z-20 transform -translate-x-1/2">
+                         <div id="acid-bath" class="acid relative w-16 h-20 bg-blue-50/10 rounded-b-xl border-x-2 border-b-2 border-slate-400/50 flex flex-col justify-end items-center group hover:scale-105 transition-transform cursor-pointer">
+                            <div class="absolute bottom-1 w-14 h-12 bg-blue-400/20 rounded-b-lg border-t border-blue-300/30"></div>
+                            <!-- Adjusted label position -->
+                            <div class="absolute -bottom-10 text-center w-24">
+                                <span class="block text-[10px] font-bold text-amber-500 group-hover:text-amber-400 transition-colors uppercase bg-slate-900/50 px-2 py-1 rounded backdrop-blur-sm inline-block">Conc. HCl</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bench / Shelf with Samples -->
+                    <div class="absolute bottom-0 w-full h-36 bg-slate-800 border-t border-slate-700 shadow-[0_-5px_20px_rgba(0,0,0,0.5)] z-30 flex items-center px-4 overflow-x-auto overflow-y-hidden custom-scrollbar">
+                        <!-- Dishes injected by JS -->
+                        <div id="dish-container" class="flex gap-6 min-w-max mx-auto items-center py-2 h-full"></div>
+                    </div>
+
+                    <!-- Draggable Graphite Rod -->
+                    <div id="rod" class="absolute z-50 cursor-grab active:cursor-grabbing w-64 h-16 origin-right" style="top: 20%; right: 10%;">
+                        <div id="rod-status" class="absolute -top-8 left-0 bg-white/95 backdrop-blur text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg border border-slate-200 text-slate-500 whitespace-nowrap pointer-events-none flex items-center gap-2 transition-all">
+                            <span id="status-dot" class="w-2 h-2 rounded-full bg-slate-300 shadow-inner"></span>
+                            <span id="status-text">Clean</span>
+                        </div>
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-full h-4 bg-gradient-to-b from-zinc-600 to-zinc-800 rounded-l-full shadow-xl flex items-center">
+                            <span class="absolute right-4 text-[10px] text-zinc-400 font-mono tracking-widest pointer-events-none">GRAPHITE</span>
+                        </div>
+                        <div id="rod-tip" class="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-zinc-500 rounded-full border border-zinc-400 transition-colors duration-300"></div>
+                        <div id="rod-residue" class="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full opacity-0 bg-white blur-[2px] transition-opacity duration-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+            initLab();
+        });
+
+        const elements = [
+            // Group 1
+            { 
+                sym: 'Li', name: 'Lithium', group: 1, 
+                color: 'Red', css: 'radial-gradient(ellipse at bottom, #EF4444 10%, #DC2626 40%, transparent 80%)'
+            },
+            { 
+                sym: 'Na', name: 'Sodium', group: 1, 
+                color: 'Yellow', css: 'radial-gradient(ellipse at bottom, #FACC15 10%, #EAB308 40%, transparent 80%)'
+            },
+            { 
+                sym: 'K', name: 'Potassium', group: 1, 
+                color: 'Lilac', css: 'radial-gradient(ellipse at bottom, #E0B0FF 10%, #DA70D6 40%, transparent 80%)'
+            },
+            { 
+                sym: 'Rb', name: 'Rubidium', group: 1, 
+                color: 'Red-violet', css: 'radial-gradient(ellipse at bottom, #C71585 10%, #800080 40%, transparent 80%)'
+            },
+            { 
+                sym: 'Cs', name: 'Cesium', group: 1, 
+                color: 'Blue-violet', css: 'radial-gradient(ellipse at bottom, #67E8F9 15%, #A78BFA 45%, transparent 80%)'
+            },
+            
+            // Group 2
+            { 
+                sym: 'Be', name: 'Beryllium', group: 2, 
+                color: 'Colorless', css: 'radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%)'
+            },
+            { 
+                sym: 'Mg', name: 'Magnesium', group: 2, 
+                color: 'Colorless', css: 'radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%)'
+            },
+            { 
+                sym: 'Ca', name: 'Calcium', group: 2, 
+                color: 'Orange-red', css: 'radial-gradient(ellipse at bottom, #F97316 10%, #EF4444 40%, transparent 80%)'
+            },
+            { 
+                sym: 'Sr', name: 'Strontium', group: 2, 
+                color: 'Crimson red', css: 'radial-gradient(ellipse at bottom, #DC2626 10%, #991B1B 40%, transparent 80%)'
+            },
+            { 
+                sym: 'Ba', name: 'Barium', group: 2, 
+                color: 'Yellowish-green', css: 'radial-gradient(ellipse at bottom, #BEF264 10%, #84CC16 40%, transparent 80%)'
+            },
+        ];
+
+        function initLab() {
+            const container = document.getElementById('lab-container');
+            const dishContainer = document.getElementById('dish-container');
+            const rod = document.getElementById('rod');
+            const rodTip = document.getElementById('rod-tip');
+            const rodResidue = document.getElementById('rod-residue');
+            const rodStatusText = document.getElementById('status-text');
+            const rodStatusDot = document.getElementById('status-dot');
+            const flame = document.getElementById('main-flame');
+            const flameHitbox = document.getElementById('flame-hitbox');
+            const resultDisplay = document.getElementById('result-display');
+            const elSymbol = document.getElementById('element-symbol');
+            const elName = document.getElementById('element-name');
+            const flameDesc = document.getElementById('flame-desc');
+            const instructions = document.getElementById('instructions');
+            const catReaction = document.getElementById('cat-reaction');
+
+            let currentSalt = null;
+            let isDragging = false;
+            let startX, startY, rodInitialLeft, rodInitialTop;
+            let warningTimeout = null;
+
+            // 1. Generate Lab Bench Items (Sample Dishes Only)
+            
+            const createLabel = (text) => {
+                const div = document.createElement('div');
+                div.className = "flex flex-col justify-center h-full px-2 border-r border-slate-600/50 mr-2";
+                div.innerHTML = `<span class="text-slate-500 font-bold text-[10px] uppercase tracking-widest vertical-text select-none">${text}</span>`;
+                return div;
+            };
+
+            const createDish = (el) => {
+                const dish = document.createElement('div');
+                dish.className = "dish relative w-16 h-16 bg-slate-200/90 rounded-full border-4 border-slate-300 shadow-inner flex items-center justify-center shrink-0 cursor-pointer group hover:scale-105 transition-transform";
+                dish.dataset.sym = el.sym;
+                dish.innerHTML = `
+                    <div class="w-12 h-12 bg-white rounded-full opacity-80 border border-slate-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]"></div>
+                    <div class="absolute -bottom-8 text-center w-24">
+                        <span class="block text-xs font-bold text-slate-400 group-hover:text-white transition-colors">${el.sym}</span>
+                    </div>
+                `;
+                return dish;
+            };
+
+            // Build Bench
+            dishContainer.appendChild(createLabel("GROUP I"));
+            elements.filter(e => e.group === 1).forEach(el => dishContainer.appendChild(createDish(el)));
+
+            const spacer2 = document.createElement('div');
+            spacer2.className = "w-px h-12 bg-slate-700 mx-4";
+            dishContainer.appendChild(spacer2);
+
+            dishContainer.appendChild(createLabel("GROUP II"));
+            elements.filter(e => e.group === 2).forEach(el => dishContainer.appendChild(createDish(el)));
+
+
+            // 2. Drag Logic
+            function startDrag(e) {
+                isDragging = true;
+                instructions.style.opacity = '0';
+                
+                const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+                
+                rodInitialLeft = rod.offsetLeft;
+                rodInitialTop = rod.offsetTop;
+                startX = clientX;
+                startY = clientY;
+                
+                rod.style.transition = 'none';
+                rod.classList.add('cursor-grabbing');
+                rod.classList.remove('cursor-grab');
+            }
+
+            function drag(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+
+                const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+                const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+
+                const dx = clientX - startX;
+                const dy = clientY - startY;
+
+                rod.style.left = `${rodInitialLeft + dx}px`;
+                rod.style.top = `${rodInitialTop + dy}px`;
+
+                checkCollisions();
+            }
+
+            function endDrag() {
+                isDragging = false;
+                rod.classList.add('cursor-grab');
+                rod.classList.remove('cursor-grabbing');
+            }
+
+            // 3. Collision Logic
+            function checkCollisions() {
+                const tipRect = rodTip.getBoundingClientRect();
+                const flameRect = flameHitbox.getBoundingClientRect();
+                
+                // Uses the static acid bath element now
+                const acidRect = document.getElementById('acid-bath').getBoundingClientRect();
+                
+                if (isOverlapping(tipRect, acidRect)) {
+                    cleanRod();
+                    return;
+                }
+
+                const dishes = document.querySelectorAll('.dish');
+                let overDish = false;
+
+                dishes.forEach(dish => {
+                    const dishRect = dish.getBoundingClientRect();
+                    if (isOverlapping(tipRect, dishRect)) {
+                        const sym = dish.dataset.sym;
+                        const saltData = elements.find(e => e.sym === sym);
+                        
+                        if (!currentSalt) {
+                            coatRod(saltData);
+                        } else if (currentSalt.sym !== saltData.sym) {
+                            warnDirty();
+                        }
+                        
+                        overDish = true;
+                    }
+                });
+
+                if (isOverlapping(tipRect, flameRect)) {
+                    if (currentSalt) {
+                        igniteFlame();
+                    }
+                } else {
+                    resetFlame();
+                }
+            }
+
+            function warnDirty() {
+                if (rodStatusText.innerText === "Clean First!") return;
+                const originalText = `Coated: ${currentSalt.name}`;
+                rodStatusText.innerText = "Clean First!";
+                rodStatusText.className = "font-bold text-red-500";
+                rodStatusDot.className = "w-2 h-2 rounded-full bg-red-500 shadow-inner";
+
+                if (warningTimeout) clearTimeout(warningTimeout);
+                warningTimeout = setTimeout(() => {
+                    if (currentSalt) {
+                        rodStatusText.innerText = originalText;
+                        rodStatusText.className = "font-bold text-emerald-600";
+                        rodStatusDot.className = "w-2 h-2 rounded-full bg-emerald-500 shadow-inner";
+                    }
+                }, 1000);
+            }
+
+            function coatRod(salt) {
+                currentSalt = salt;
+                rodResidue.style.opacity = '1';
+                rodStatusText.innerText = `Coated: ${salt.name}`;
+                rodStatusText.className = "font-bold text-emerald-600";
+                rodStatusDot.className = "w-2 h-2 rounded-full bg-emerald-500 shadow-inner";
+            }
+
+            function cleanRod() {
+                currentSalt = null;
+                rodResidue.style.opacity = '0';
+                rodStatusText.innerText = 'Clean';
+                rodStatusText.className = "font-bold text-slate-500";
+                rodStatusDot.className = "w-2 h-2 rounded-full bg-slate-300 shadow-inner";
+                resetFlame();
+                if (warningTimeout) clearTimeout(warningTimeout);
+            }
+
+            function igniteFlame() {
+                flame.style.background = currentSalt.css;
+                flame.style.opacity = '1';
+                
+                elSymbol.innerText = currentSalt.sym;
+                elName.innerText = currentSalt.name;
+                flameDesc.innerText = currentSalt.color;
+                
+                resultDisplay.style.opacity = '1';
+                resultDisplay.style.transform = 'translateY(0)';
+
+                // Engagement Feature: Show Cat for UV-Only Elements (Be, Mg)
+                if (currentSalt.sym === 'Be' || currentSalt.sym === 'Mg') {
+                    showCat();
+                } else {
+                    hideCat();
+                }
+            }
+
+            function resetFlame() {
+                flame.style.background = 'radial-gradient(ellipse at bottom, #3b82f6 0%, transparent 70%)';
+                flame.style.opacity = '0.6';
+                resultDisplay.style.opacity = '0';
+                resultDisplay.style.transform = 'translateY(-1rem)';
+                hideCat();
+            }
+
+            // --- Engagement Feature: Cat Visibility ---
+            function showCat() {
+                catReaction.style.opacity = '1';
+                catReaction.style.transform = 'translateY(0)';
+            }
+            
+            function hideCat() {
+                catReaction.style.opacity = '0';
+                catReaction.style.transform = 'translateY(2rem)';
+            }
+
+            function isOverlapping(rect1, rect2) {
+                return !(rect1.right < rect2.left || 
+                         rect1.left > rect2.right || 
+                         rect1.bottom < rect2.top || 
+                         rect1.top > rect2.bottom);
+            }
+
+            // Event Listeners
+            rod.addEventListener('mousedown', startDrag);
+            window.addEventListener('mousemove', drag);
+            window.addEventListener('mouseup', endDrag);
+
+            rod.addEventListener('touchstart', startDrag, {passive: false});
+            window.addEventListener('touchmove', drag, {passive: false});
+            window.addEventListener('touchend', endDrag);
+        }
+    </script>
+</body>
+</html>

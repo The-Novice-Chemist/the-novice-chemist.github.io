@@ -19,11 +19,11 @@ const SIDEBAR_CONFIG = {
         color: 'emerald', // tailwind class: text-emerald-600, etc.
         basePath: 'organic/',
         items: [
-            { type: 'link', label: '1. Fundamentals', href: 'fundamentals.html', id: 'fundamentals' },
-            { type: 'link', label: '2. Nomenclature', href: 'nomenclature.html', id: 'nomenclature' },
-            { type: 'link', label: '3. Alkanes', href: 'alkanes.html', id: 'alkanes' },
-            { type: 'link', label: '4. Alkenes', href: 'alkenes.html', id: 'alkenes' },
-            { type: 'link', label: '5. Benzene', href: 'benzene.html', id: 'benzene' }
+            { type: 'link', label: '1) Fundamentals', href: 'fundamentals.html', id: 'fundamentals' },
+            { type: 'link', label: '2) Nomenclature', href: 'nomenclature.html', id: 'nomenclature' },
+            { type: 'link', label: '3) Alkanes', href: 'alkanes.html', id: 'alkanes' },
+            { type: 'link', label: '4) Alkenes', href: 'alkenes.html', id: 'alkenes' },
+            { type: 'link', label: '5) Benzene', href: 'benzene.html', id: 'benzene' }
         ]
     },
     's-block': {
@@ -33,9 +33,9 @@ const SIDEBAR_CONFIG = {
         basePath: 'inorganic/sblock/',
         items: [
             { type: 'header', label: 'Topics' },
-            { type: 'link', label: '1. s-Block Group Trends', href: 'trends.html', id: 'trends' },
-            { type: 'link', label: '2. Flame Tests', href: 'flametest.html', id: 'flametest' },
-            { type: 'accordion', label: '3. Reactions', id: 'reactions', items: [
+            { type: 'link', label: '1) s-Block Group Trends', href: 'trends.html', id: 'trends' },
+            { type: 'link', label: '2) Flame Tests', href: 'flametest.html', id: 'flametest' },
+            { type: 'accordion', label: '3) Reactions', id: 'reactions', items: [
                 { label: 'Reactions with Acids', href: 'reactions/acids.html', id: 'acids' },
                 { label: 'Reactions with Bases', href: 'reactions/bases.html', id: 'bases' },
                 { label: 'Reactions with Water', href: 'reactions/water.html', id: 'water' },
@@ -43,13 +43,29 @@ const SIDEBAR_CONFIG = {
                 { label: 'Reactions with Hydrogen', href: 'reactions/hydrogen.html', id: 'hydrogen' },
                 { label: 'Reactions with Nitrogen', href: 'reactions/nitrogen.html', id: 'nitrogen' },
             ]},
-            { type: 'link', label: '4. Solubility', href: 'solubility.html', id: 'solubility' },
-            { type: 'link', label: '5. Thermal Decomp.', href: 'decomposition.html', id: 'decomposition' },
-            { type: 'link', label: '6. Thermal Stability', href: 'stability.html', id: 'stability' },
-            { type: 'header', label: 'Other Blocks' },
-            // Absolute paths (relative to root) for cross-module links
-            { type: 'link', label: 'p-Block', href: 'inorganic/pblock/index.html', icon: 'cone', id: 'pblock', absolute: true },
-            { type: 'link', label: 'd-Block', href: 'inorganic/dblock/index.html', icon: 'cone', id: 'dblock', absolute: true },
+            { type: 'link', label: '4) Solubility of s-Block Salts', href: 'solubility.html', id: 'solubility' },
+            { type: 'link', label: '5) Thermal Decomposition of s-Block Salts', href: 'decomposition.html', id: 'decomposition' },
+            { type: 'link', label: '6) Thermal Stability of s-Block Salts', href: 'stability.html', id: 'stability' },
+        ]
+    },
+    'p-block': {
+        title: 'p-Block',
+        icon: 'layout-grid',
+        color: 'indigo',
+        basePath: 'inorganic/pblock/',
+        items: [
+             { type: 'header', label: 'Topics' },
+             { type: 'link', label: 'Overview', href: 'index.html', id: 'pblock-index' }
+        ]
+    },
+    'd-block': {
+        title: 'd-Block',
+        icon: 'hexagon',
+        color: 'rose',
+        basePath: 'inorganic/dblock/',
+        items: [
+             { type: 'header', label: 'Topics' },
+             { type: 'link', label: 'Overview', href: 'index.html', id: 'dblock-index' }
         ]
     },
     'general': {
@@ -58,9 +74,9 @@ const SIDEBAR_CONFIG = {
         color: 'blue',
         basePath: 'general/',
         items: [
-             { type: 'link', label: '1. Atomic Structure', href: 'structure.html', id: 'structure' },
-             { type: 'link', label: '2. Bonding', href: '#', id: 'bonding' },
-             { type: 'link', label: '3. Stoichiometry', href: '#', id: 'stoichiometry' },
+             { type: 'link', label: '1) Atomic Structure', href: 'structure.html', id: 'structure' },
+             { type: 'link', label: '2) Bonding', href: '#', id: 'bonding' },
+             { type: 'link', label: '3) Stoichiometry', href: '#', id: 'stoichiometry' },
         ]
     },
     'physical': {
@@ -69,9 +85,9 @@ const SIDEBAR_CONFIG = {
         color: 'orange',
         basePath: 'physical/',
         items: [
-             { type: 'link', label: '1. Equilibria', href: 'equilibria.html', id: 'equilibria' },
-             { type: 'link', label: '2. Kinetics', href: '#', id: 'kinetics' },
-             { type: 'link', label: '3. Energetics', href: '#', id: 'energetics' },
+             { type: 'link', label: '1) Equilibria', href: 'equilibria.html', id: 'equilibria' },
+             { type: 'link', label: '2) Kinetics', href: '#', id: 'kinetics' },
+             { type: 'link', label: '3) Energetics', href: '#', id: 'energetics' },
         ]
     },
     'industrial': {
@@ -80,8 +96,8 @@ const SIDEBAR_CONFIG = {
         color: 'slate',
         basePath: 'industrial/',
         items: [
-             { type: 'link', label: '1. Nitrogen Industry', href: 'nitrogen.html', id: 'nitrogen' },
-             { type: 'link', label: '2. Sulfur Industry', href: '#', id: 'sulfur' },
+             { type: 'link', label: '1) Nitrogen Industry', href: 'nitrogen.html', id: 'nitrogen' },
+             { type: 'link', label: '2) Sulfur Industry', href: '#', id: 'sulfur' },
         ]
     },
     'inorganic': {
@@ -90,7 +106,7 @@ const SIDEBAR_CONFIG = {
         color: 'purple',
         basePath: 'inorganic/',
         items: [
-            { type: 'link', label: '1. Periodicity', href: 'periodicity.html', id: 'periodicity' },
+            { type: 'link', label: '1) Periodicity', href: 'periodicity.html', id: 'periodicity' },
             { type: 'header', label: 'Blocks' },
             { type: 'link', label: 's-Block', href: 'sblock/trends.html', id: 'sblock' },
             { type: 'link', label: 'p-Block', href: 'pblock/index.html', id: 'pblock' },
@@ -113,6 +129,15 @@ function renderSidebar(config) {
 
     // 2. Build Sidebar HTML
     let listHTML = '';
+
+    // Helper to format label with hanging indent for numbers
+    const formatLabel = (label) => {
+        const match = label.match(/^(\d+\))\s+(.+)$/);
+        if (match) {
+            return `<span class="flex gap-1.5"><span class="shrink-0">${match[1]}</span><span>${match[2]}</span></span>`;
+        }
+        return `<span class="leading-snug">${label}</span>`;
+    };
 
     data.items.forEach(item => {
         if (item.type === 'header') {
@@ -141,15 +166,12 @@ function renderSidebar(config) {
                 <li>
                     <a href="${linkPath}" class="${className}">
                         ${iconHTML}
-                        <span class="leading-snug">${item.label}</span>
+                        ${formatLabel(item.label)}
                     </a>
                 </li>
             `;
         } else if (item.type === 'accordion') {
-            // Check if any child is active to auto-open
-            const hasActiveChild = item.items.some(sub => sub.id === active);
-            const openAttr = hasActiveChild ? 'open' : '';
-            
+            // Render as a flat list with a header, aligned with other items
             let subItemsHTML = '';
             item.items.forEach(sub => {
                 const isSubActive = active === sub.id;
@@ -167,17 +189,18 @@ function renderSidebar(config) {
                 `;
             });
 
+            // Add bullet to align with other links
+            const iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>`;
+
             listHTML += `
                 <li>
-                    <details class="group" ${openAttr}>
-                        <summary class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-${data.color}-700 cursor-pointer list-none transition-colors">
-                            <span class="leading-snug">${item.label}</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 mt-0.5 ml-auto group-open:rotate-180 transition-transform shrink-0"></i>
-                        </summary>
-                        <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 space-y-1">
-                            ${subItemsHTML}
-                        </ul>
-                    </details>
+                    <div class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600">
+                        ${iconHTML}
+                        ${formatLabel(item.label)}
+                    </div>
+                    <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 space-y-1">
+                        ${subItemsHTML}
+                    </ul>
                 </li>
             `;
         }
@@ -209,6 +232,25 @@ function renderSidebar(config) {
     // Inject into DOM
     document.body.insertAdjacentHTML('afterbegin', toggleHTML + asideHTML);
     
+    // 3. Inject Top Nav for Inorganic Blocks
+    if (['s-block', 'p-block', 'd-block'].includes(module)) {
+        const header = document.querySelector('header');
+        if (header) {
+            const switcherHTML = `
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex bg-slate-100 p-1 rounded-lg">
+                    <a href="${root}inorganic/sblock/trends.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 's-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">s-Block</a>
+                    <a href="${root}inorganic/pblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'p-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">p-Block</a>
+                    <a href="${root}inorganic/dblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'd-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">d-Block</a>
+                </div>
+            `;
+            // Ensure header is relative for absolute positioning of the switcher
+            if (getComputedStyle(header).position === 'static') {
+                header.style.position = 'relative';
+            }
+            header.insertAdjacentHTML('beforeend', switcherHTML);
+        }
+    }
+
     // Re-run Lucide to render icons in the new HTML
     if (window.lucide) {
         window.lucide.createIcons();

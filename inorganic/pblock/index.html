@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; }</style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
+<body class="bg-slate-50 font-sans text-slate-600 text-sm md:text-base antialiased h-screen flex overflow-hidden">
     <!-- Sidebar injected via JS -->
 
     <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0 items-center justify-center">
@@ -26,7 +26,7 @@
         </div>
     </main>
     <script>
-        renderSidebar({ root: '../../', module: 'inorganic', active: 'pblock' });
+        renderSidebar({ root: '../../', module: 'p-block', active: 'pblock-index' });
         lucide.createIcons();
     </script>
 </body>

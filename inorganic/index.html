@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inorganic Chemistry | The Novice Chemist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/theme.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-600 dark:text-slate-400 text-sm md:text-base antialiased min-h-screen flex flex-col transition-colors duration-300">
+    
+    <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+         <div class="flex items-center gap-4">
+            <a href="../index.html" class="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                <span class="font-bold text-sm uppercase tracking-wide hidden md:block">Back to Home</span>
+            </a>
+            <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-2 hidden md:block"></div>
+            <span class="font-medium text-slate-900 dark:text-white text-lg">Inorganic Chemistry</span>
+         </div>
+         <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            </button>
+         </div>
+    </header>
+
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300">
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-5xl mx-auto space-y-12 pb-20">
+                
+                <div class="text-center max-w-3xl mx-auto mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Inorganic Chemistry</h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Explore the periodic table through its blocks. Select a section below to begin.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- s-Block -->
+                    <a href="sblock/trends.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-purple-500 dark:hover:border-purple-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                            <i data-lucide="component" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">s-Block Elements</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Group 1 & 2 metals. Trends, reactions, and properties.</p>
+                    </a>
+
+                    <!-- p-Block -->
+                    <a href="pblock/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-indigo-500 dark:hover:border-indigo-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">p-Block Elements</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Groups 13 to 18. Non-metals, metalloids, and metals.</p>
+                    </a>
+
+                    <!-- d-Block -->
+                    <a href="dblock/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-rose-500 dark:hover:border-rose-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-12 h-12 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-rose-600 group-hover:text-white transition-colors">
+                            <i data-lucide="hexagon" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">d-Block Elements</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Transition metals. Complex formation and variable oxidation states.</p>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

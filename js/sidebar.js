@@ -106,6 +106,7 @@ const SIDEBAR_CONFIG = {
         color: 'purple',
         basePath: 'inorganic/',
         items: [
+            { type: 'link', label: 'Overview', href: 'index.html', id: 'inorganic-index' },
             { type: 'link', label: '1) Periodicity', href: 'periodicity.html', id: 'periodicity' },
             { type: 'header', label: 'Blocks' },
             { type: 'link', label: 's-Block', href: 'sblock/trends.html', id: 'sblock' },
@@ -117,7 +118,7 @@ const SIDEBAR_CONFIG = {
 
 // Theme Logic
 function initTheme() {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (localStorage.theme === 'dark') {
         document.documentElement.classList.add('dark');
     } else {
         document.documentElement.classList.remove('dark');

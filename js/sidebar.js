@@ -115,6 +115,28 @@ const SIDEBAR_CONFIG = {
     }
 };
 
+// Theme Logic
+function initTheme() {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+}
+
+function toggleTheme() {
+    if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+    }
+}
+
+// Initialize theme immediately
+initTheme();
+
 function renderSidebar(config) {
     const { root, module, active } = config;
     const data = SIDEBAR_CONFIG[module];
@@ -141,15 +163,15 @@ function renderSidebar(config) {
 
     data.items.forEach(item => {
         if (item.type === 'header') {
-            listHTML += `<li class="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 uppercase tracking-wider">${item.label}</li>`;
+            listHTML += `<li class="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">${item.label}</li>`;
         } else if (item.type === 'link') {
             const isActive = active === item.id;
             const linkPath = item.absolute ? root + item.href : root + data.basePath + item.href;
             
             // Color classes based on active state
             const baseClass = "flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors";
-            const activeClass = `bg-${data.color}-50 text-${data.color}-700 border border-${data.color}-100 shadow-sm`;
-            const inactiveClass = `text-slate-600 hover:bg-slate-50 hover:text-${data.color}-700`;
+            const activeClass = `bg-${data.color}-50 dark:bg-${data.color}-900/20 text-${data.color}-700 dark:text-${data.color}-400 border border-${data.color}-100 dark:border-${data.color}-800 shadow-sm`;
+            const inactiveClass = `text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-${data.color}-700 dark:hover:text-${data.color}-400`;
             const className = `${baseClass} ${isActive ? activeClass : inactiveClass}`;
 
             // Icon or Bullet logic
@@ -159,7 +181,7 @@ function renderSidebar(config) {
             } else if (isActive) {
                  iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-${data.color}-500 shrink-0"></span>`;
             } else {
-                 iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>`; // Default bullet
+                 iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 shrink-0"></span>`; // Default bullet
             }
 
             listHTML += `
@@ -177,8 +199,8 @@ function renderSidebar(config) {
                 const isSubActive = active === sub.id;
                 const subLink = root + data.basePath + sub.href;
                 const subClass = isSubActive 
-                    ? `font-bold text-${data.color}-700 bg-${data.color}-50` 
-                    : `text-slate-500 hover:text-${data.color}-700 hover:bg-slate-50`;
+                    ? `font-bold text-${data.color}-700 dark:text-${data.color}-400 bg-${data.color}-50 dark:bg-${data.color}-900/20` 
+                    : `text-slate-500 dark:text-slate-400 hover:text-${data.color}-700 dark:hover:text-${data.color}-400 hover:bg-slate-50 dark:hover:bg-slate-800`;
                 
                 subItemsHTML += `
                     <li>
@@ -190,15 +212,15 @@ function renderSidebar(config) {
             });
 
             // Add bullet to align with other links
-            const iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></span>`;
+            const iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 shrink-0"></span>`;
 
             listHTML += `
                 <li>
-                    <div class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600">
+                    <div class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-400">
                         ${iconHTML}
                         ${formatLabel(item.label)}
                     </div>
-                    <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 space-y-1">
+                    <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 dark:border-slate-800 space-y-1">
                         ${subItemsHTML}
                     </ul>
                 </li>
@@ -207,19 +229,19 @@ function renderSidebar(config) {
     });
 
     const asideHTML = `
-    <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 flex flex-col transition-transform duration-300 -translate-x-full peer-checked:translate-x-0 md:translate-x-0 md:peer-checked:-translate-x-full">
-        <div class="h-16 flex items-center px-6 border-b border-slate-100">
-            <a href="${root}index.html" class="flex items-center gap-2 text-slate-500 hover:text-${data.color}-600 transition-colors">
+    <aside class="fixed inset-y-0 left-0 z-40 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-transform duration-300 -translate-x-full peer-checked:translate-x-0 md:translate-x-0 md:peer-checked:-translate-x-full">
+        <div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
+            <a href="${root}index.html" class="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-${data.color}-600 dark:hover:text-${data.color}-400 transition-colors">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i><span class="font-bold text-sm uppercase tracking-wide">Back to Home</span>
             </a>
         </div>
         <div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar space-y-8">
             <div>
                 <div class="flex items-center gap-3 px-3 mb-6">
-                    <div class="w-8 h-8 bg-${data.color}-50 text-${data.color}-600 rounded-lg flex items-center justify-center">
+                    <div class="w-8 h-8 bg-${data.color}-50 dark:bg-${data.color}-900/20 text-${data.color}-600 dark:text-${data.color}-400 rounded-lg flex items-center justify-center">
                         <i data-lucide="${data.icon}" class="w-4 h-4"></i>
                     </div>
-                    <span class="font-bold text-lg text-slate-900">${data.title}</span>
+                    <span class="font-bold text-lg text-slate-900 dark:text-white">${data.title}</span>
                 </div>
                 <ul class="space-y-2">
                     ${listHTML}
@@ -237,10 +259,10 @@ function renderSidebar(config) {
         const header = document.querySelector('header');
         if (header) {
             const switcherHTML = `
-                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex bg-slate-100 p-1 rounded-lg">
-                    <a href="${root}inorganic/sblock/trends.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 's-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">s-Block</a>
-                    <a href="${root}inorganic/pblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'p-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">p-Block</a>
-                    <a href="${root}inorganic/dblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'd-block' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'}">d-Block</a>
+                <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                    <a href="${root}inorganic/sblock/trends.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 's-block' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}">s-Block</a>
+                    <a href="${root}inorganic/pblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'p-block' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}">p-Block</a>
+                    <a href="${root}inorganic/dblock/index.html" class="px-4 py-1.5 text-sm font-medium rounded-md transition-all ${module === 'd-block' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}">d-Block</a>
                 </div>
             `;
             // Ensure header is relative for absolute positioning of the switcher
@@ -248,6 +270,33 @@ function renderSidebar(config) {
                 header.style.position = 'relative';
             }
             header.insertAdjacentHTML('beforeend', switcherHTML);
+        }
+    }
+
+    // 4. Inject Theme Toggle into Header
+    const header = document.querySelector('header');
+    if (header) {
+        const themeToggleHTML = `
+            <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            </button>
+        `;
+        // Find the container inside header to append to
+        const headerContainer = header.querySelector('.flex.items-center.gap-4');
+        if (headerContainer) {
+             // If container exists (left side), append to header itself (right side)
+             // Wait, structure.html header has justify-between.
+             // Left side is .flex.items-center.gap-4
+             // Right side is empty.
+             // So I can just appendChild to header.
+             const rightDiv = document.createElement('div');
+             rightDiv.className = 'flex items-center gap-2';
+             rightDiv.innerHTML = themeToggleHTML;
+             header.appendChild(rightDiv);
+        } else {
+             // Fallback
+             header.insertAdjacentHTML('beforeend', themeToggleHTML);
         }
     }
 

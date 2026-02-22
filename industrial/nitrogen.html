@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nitrogen | Industrial Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -13,21 +18,21 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; } .custom-scrollbar::-webkit-scrollbar { width: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }</style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden">
     <!-- Sidebar injected via JS -->
 
-    <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
-             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-md cursor-pointer"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900">Nitrogen Industry</span></div>
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md cursor-pointer"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Nitrogen Industry</span></div>
         </header>
         <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
             <div class="max-w-3xl mx-auto space-y-12 pb-20">
-                <h1 class="text-4xl font-bold text-slate-900">Nitrogen Industry</h1>
-                <p class="text-lg text-slate-600">Production of Ammonia and Nitric Acid.</p>
-                <div class="p-6 bg-slate-50 border border-slate-200 rounded-lg">
-                    <h3 class="font-bold text-slate-900 mb-2">Haber Process</h3>
-                    <p class="font-mono text-sm bg-white p-2 rounded border border-slate-200 mb-2">$N_{2(g)} + 3H_{2(g)} \rightleftharpoons 2NH_{3(g)}$</p>
-                    <ul class="list-disc pl-5 text-slate-700">
+                <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Nitrogen Industry</h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400">Production of Ammonia and Nitric Acid.</p>
+                <div class="p-6 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                    <h3 class="font-bold text-slate-900 dark:text-white mb-2">Haber Process</h3>
+                    <p class="font-mono text-sm bg-white dark:bg-slate-900 p-2 rounded border border-slate-200 dark:border-slate-700 mb-2">$N_{2(g)} + 3H_{2(g)} \rightleftharpoons 2NH_{3(g)}$</p>
+                    <ul class="list-disc pl-5 text-slate-700 dark:text-slate-300">
                         <li>Catalyst: Iron (Fe)</li>
                         <li>Temp: 450°C</li>
                         <li>Pressure: 200 atm</li>

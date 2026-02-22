@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flame Tests | Inorganic Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
@@ -31,20 +36,20 @@
         .attention-anim { animation: attention-flash 1.5s infinite ease-in-out; }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-600 text-sm md:text-base antialiased h-screen flex overflow-hidden">
+<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-600 dark:text-slate-400 text-sm md:text-base antialiased h-screen flex overflow-hidden transition-colors duration-300">
     <!-- Sidebar injected via JS -->
 
-    <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
-             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-md cursor-pointer"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900">Flame Tests</span></div>
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Flame Tests</span></div>
         </header>
         <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24 scroll-smooth">
             <div class="max-w-4xl mx-auto space-y-12 pb-20">
                 
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div class="max-w-2xl">
-                        <h1 class="text-4xl font-bold text-slate-900 leading-tight mb-2">Flame Test</h1>
-                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                        <h1 class="text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-2">Flame Test</h1>
+                        <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                             Drag the graphite rod to a salt sample to coat it, then move it into the flame to observe the emission spectrum. Use HCl to clean the rod.
                         </p>
                     </div>
@@ -52,54 +57,54 @@
 
                 <!-- SUMMARY TABLE SECTION -->
                 <section class="mt-0">
-                     <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6">Flame Test Summary</h2>
-                     <div class="bg-white border border-slate-200 rounded-xl shadow-sm max-w-3xl mx-auto">
+                     <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Flame Test Summary</h2>
+                     <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm max-w-3xl mx-auto overflow-hidden">
                          <table class="w-full text-xs md:text-sm text-left">
-                             <thead class="bg-slate-50/50 text-slate-500 font-medium border-b border-slate-100">
+                             <thead class="bg-slate-50/50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 font-medium border-b border-slate-100 dark:border-slate-700">
                                  <tr>
                                      <th class="px-2 py-2 w-[15%]">Grp 1</th>
                                      <th class="px-2 py-2 w-[35%]">Color</th>
-                                     <th class="px-2 py-2 w-[15%] border-l border-slate-100">Grp 2</th>
+                                     <th class="px-2 py-2 w-[15%] border-l border-slate-100 dark:border-slate-700">Grp 2</th>
                                      <th class="px-2 py-2 w-[35%]">Color</th>
                                  </tr>
                              </thead>
-                             <tbody class="divide-y divide-slate-100">
+                             <tbody class="divide-y divide-slate-100 dark:divide-slate-700">
                                  <tr>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono">Li</td>
-                                     <td class="px-2 py-2 font-medium text-red-600">Red</td>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono border-l border-slate-100">Be</td>
-                                     <td class="px-2 py-2 text-slate-400 italic">Colorless</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono">Li</td>
+                                     <td class="px-2 py-2 font-medium text-red-600 dark:text-red-400">Red</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono border-l border-slate-100 dark:border-slate-700">Be</td>
+                                     <td class="px-2 py-2 text-slate-400 dark:text-slate-500 italic">Colorless</td>
                                  </tr>
                                  <tr>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono">Na</td>
-                                     <td class="px-2 py-2 font-medium text-yellow-500">Yellow</td>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono border-l border-slate-100">Mg</td>
-                                     <td class="px-2 py-2 text-slate-400 italic">Colorless</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono">Na</td>
+                                     <td class="px-2 py-2 font-medium text-yellow-500 dark:text-yellow-400">Yellow</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono border-l border-slate-100 dark:border-slate-700">Mg</td>
+                                     <td class="px-2 py-2 text-slate-400 dark:text-slate-500 italic">Colorless</td>
                                  </tr>
                                  <tr>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono">K</td>
-                                     <td class="px-2 py-2 font-medium text-purple-500">Lilac</td>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono border-l border-slate-100">Ca</td>
-                                     <td class="px-2 py-2 font-medium text-orange-600">Orange-red</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono">K</td>
+                                     <td class="px-2 py-2 font-medium text-purple-500 dark:text-purple-400">Lilac</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono border-l border-slate-100 dark:border-slate-700">Ca</td>
+                                     <td class="px-2 py-2 font-medium text-orange-600 dark:text-orange-400">Orange-red</td>
                                  </tr>
                                  <tr>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono">Rb</td>
-                                     <td class="px-2 py-2 font-medium text-fuchsia-700">Red-violet</td>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono border-l border-slate-100">Sr</td>
-                                     <td class="px-2 py-2 font-medium text-red-700">Crimson red</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono">Rb</td>
+                                     <td class="px-2 py-2 font-medium text-fuchsia-700 dark:text-fuchsia-400">Red-violet</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono border-l border-slate-100 dark:border-slate-700">Sr</td>
+                                     <td class="px-2 py-2 font-medium text-red-700 dark:text-red-500">Crimson red</td>
                                  </tr>
                                  <tr>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono">Cs</td>
-                                     <td class="px-2 py-2 font-medium text-indigo-500">Blue-violet</td>
-                                     <td class="px-2 py-2 text-slate-700 font-bold font-mono border-l border-slate-100">Ba</td>
-                                     <td class="px-2 py-2 font-medium text-lime-600">Yellow-green</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono">Cs</td>
+                                     <td class="px-2 py-2 font-medium text-indigo-500 dark:text-indigo-400">Blue-violet</td>
+                                     <td class="px-2 py-2 text-slate-700 dark:text-slate-300 font-bold font-mono border-l border-slate-100 dark:border-slate-700">Ba</td>
+                                     <td class="px-2 py-2 font-medium text-lime-600 dark:text-lime-400">Yellow-green</td>
                                  </tr>
                              </tbody>
                          </table>
                      </div>
-                     <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-4">
-                        <div class="shrink-0 text-amber-500 pt-1"><i data-lucide="alert-triangle" class="w-5 h-5"></i></div>
-                        <div class="text-sm text-amber-900">
+                     <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50 rounded-lg flex gap-4">
+                        <div class="shrink-0 text-amber-500 dark:text-amber-400 pt-1"><i data-lucide="alert-triangle" class="w-5 h-5"></i></div>
+                        <div class="text-sm text-amber-900 dark:text-amber-200">
                             <strong class="font-bold block mb-1">Practical Note:</strong>
                             <span class="font-bold">Li</span> and <span class="font-bold">Sr</span> are difficult to identify <span class="font-bold">only</span> using flame test as they have very similar shades of red.
                         </div>
@@ -110,7 +115,7 @@
                 <details class="group mt-12">
                     <summary class="list-none">
                         <div class="flex items-center justify-center w-full">
-                            <div class="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-indigo-100 rounded-full shadow-sm hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer select-none text-indigo-700 font-bold">
+                            <div class="inline-flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 border-2 border-indigo-100 dark:border-indigo-900 rounded-full shadow-sm hover:border-indigo-300 dark:hover:border-indigo-700 hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer select-none text-indigo-700 dark:text-indigo-300 font-bold">
                                 <i data-lucide="flask-conical" class="w-5 h-5"></i>
                                 <span>Open Virtual Lab & Concepts</span>
                                 <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300 group-open:rotate-180"></i>
@@ -122,14 +127,14 @@
                 <!-- THEORETICAL BACKGROUND -->
                 <div class="grid md:grid-cols-2 gap-6">
                     <!-- Why Graphite? -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-slate-300 transition-colors">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-600">
+                            <div class="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300">
                                 <i data-lucide="pencil" class="w-5 h-5"></i>
                             </div>
-                            <h3 class="text-lg font-bold text-slate-900">Why Graphite Rods?</h3>
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Why Graphite Rods?</h3>
                         </div>
-                        <ul class="space-y-4 text-sm text-slate-600">
+                        <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-400">
                             <li class="flex gap-3 items-start">
                                 <i data-lucide="shield-check" class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"></i>
                                 <span><strong>Chemically Inert:</strong> Unreactive with HCl or salts. Zero contamination.</span>
@@ -142,7 +147,7 @@
                     </div>
 
                     <!-- Physics of Color -->
-                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-purple-200 transition-colors relative" id="emission-card">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-purple-200 dark:hover:border-purple-900 transition-colors relative" id="emission-card">
                         <style>
                             /* Single Diagram Cycle Animation */
                             @keyframes cycle-electron {
@@ -172,30 +177,30 @@
 
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-600">
+                                <div class="w-10 h-10 bg-purple-50 dark:bg-purple-900/30 rounded-full flex items-center justify-center text-purple-600 dark:text-purple-400">
                                     <i data-lucide="zap" class="w-5 h-5"></i>
                                 </div>
-                                <h3 class="text-lg font-bold text-slate-900">Physics of Emission</h3>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Physics of Emission</h3>
                             </div>
                             <!-- Info Tooltip -->
                             <div class="relative w-fit">
                                 <div class="peer p-2 transition-colors attention-anim cursor-help">
                                     <i data-lucide="info" class="w-5 h-5"></i>
                                 </div>
-                                <div class="absolute right-0 top-full mt-2 w-64 bg-slate-900 text-white text-xs rounded-xl p-4 shadow-xl opacity-0 invisible peer-hover:opacity-100 peer-hover:visible transition-all duration-200 z-20 pointer-events-none transform origin-top-right scale-95 peer-hover:scale-100">
+                                <div class="absolute right-0 top-full mt-2 w-64 bg-slate-900 dark:bg-slate-800 text-white text-xs rounded-xl p-4 shadow-xl opacity-0 invisible peer-hover:opacity-100 peer-hover:visible transition-all duration-200 z-20 pointer-events-none transform origin-top-right scale-95 peer-hover:scale-100 border border-slate-700">
                                     <div class="font-bold text-purple-300 mb-2 border-b border-slate-700 pb-2">How it works</div>
                                     <p class="leading-relaxed text-slate-300">
                                         Heat energy is absorbed, causing an electron to jump to a higher <strong class="text-yellow-400">Excited State</strong>. As it relaxes back to the <strong class="text-emerald-400">Ground State</strong>, it releases the excess energy as a visible photon (color).
                                     </p>
-                                    <div class="absolute -top-1.5 right-3 w-3 h-3 bg-slate-900 rotate-45"></div>
+                                    <div class="absolute -top-1.5 right-3 w-3 h-3 bg-slate-900 dark:bg-slate-800 rotate-45 border-l border-t border-slate-700"></div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Animation Stage -->
-                        <div class="bg-slate-50 rounded-lg border border-slate-100 relative overflow-hidden mb-4 select-none flex flex-col items-center justify-center py-8" id="anim-stage">
+                        <div class="bg-slate-50 dark:bg-slate-900/50 rounded-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden mb-4 select-none flex flex-col items-center justify-center py-8" id="anim-stage">
                             <!-- Element Label (Moved to Top) -->
-                            <div id="element-label" class="text-center font-bold text-slate-700 text-lg mb-4 transition-colors duration-300">Lithium</div>
+                            <div id="element-label" class="text-center font-bold text-slate-700 dark:text-slate-300 text-lg mb-4 transition-colors duration-300">Lithium</div>
 
                             <svg viewBox="0 0 300 180" class="w-full h-48">
                                 <defs>
@@ -207,25 +212,25 @@
                                 <!-- Single Atom Centered -->
                                 <g transform="translate(150, 130)">
                                     <!-- Nucleus -->
-                                    <circle r="8" fill="#0f172a" />
+                                    <circle r="8" fill="#0f172a" class="dark:fill-slate-200" />
                                     
                                     <!-- Ground Shell (Fixed) -->
-                                    <path d="M-30,0 A30,30 0 0,1 30,0" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" />
-                                    <text x="35" y="-5" font-size="9" fill="#64748b" font-weight="bold">Ground State</text>
+                                    <path d="M-30,0 A30,30 0 0,1 30,0" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-linecap="round" class="dark:stroke-slate-600" />
+                                    <text x="35" y="-5" font-size="9" fill="#64748b" font-weight="bold" class="dark:fill-slate-400">Ground State</text>
                                     
                                     <!-- Excited Shell (Dynamic) -->
-                                    <path id="shell-excited" class="shell-transition" d="M-50,0 A50,50 0 0,1 50,0" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round" />
-                                    <text id="label-excited" class="label-transition" x="55" y="-35" font-size="9" fill="#94a3b8" font-weight="bold">Excited State</text>
+                                    <path id="shell-excited" class="shell-transition" d="M-50,0 A50,50 0 0,1 50,0" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round" class="dark:stroke-slate-500" />
+                                    <text id="label-excited" class="label-transition" x="55" y="-35" font-size="9" fill="#94a3b8" font-weight="bold" class="dark:fill-slate-500">Excited State</text>
                                     
                                     <!-- Electron (Constant Color) -->
-                                    <circle class="anim-cycle-e" r="6" fill="#475569" cx="0" cy="-30" />
+                                    <circle class="anim-cycle-e" r="6" fill="#475569" cx="0" cy="-30" class="dark:fill-slate-300" />
                                     
                                     <!-- Heat Arrows (Straight Grey) -->
                                     <g class="anim-cycle-heat">
                                         <line x1="-80" y1="-10" x2="-40" y2="-25" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-grey)" />
                                         <line x1="-80" y1="5" x2="-40" y2="-10" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-grey)" />
                                         <line x1="-80" y1="20" x2="-40" y2="5" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow-grey)" />
-                                        <text x="-90" y="35" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold">Heat Energy</text>
+                                        <text x="-90" y="35" text-anchor="middle" font-size="10" fill="#64748b" font-weight="bold" class="dark:fill-slate-400">Heat Energy</text>
                                     </g>
                                     
                                     <!-- Photon Wave Out (Right, No Arrowhead) -->
@@ -244,7 +249,7 @@
                                 </div>
                                 <!-- Full Visible Spectrum Gradient -->
                                 <div class="relative h-4 rounded-full shadow-inner ring-1 ring-black/5" style="background: linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #a855f7);">
-                                    <div id="spectrum-cursor" class="absolute -top-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-800 transition-all duration-500 drop-shadow-md" style="left: 10%"></div>
+                                    <div id="spectrum-cursor" class="absolute -top-1.5 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-slate-800 dark:border-t-slate-200 transition-all duration-500 drop-shadow-md" style="left: 10%"></div>
                                 </div>
                             </div>
                         </div>
@@ -299,11 +304,11 @@
                 </div>
                 
                 <!-- MOBILE ORIENTATION NOTICE -->
-                <div class="block md:hidden mb-4 p-4 bg-indigo-50 border border-indigo-100 rounded-lg flex items-start gap-3 shadow-sm">
-                    <div class="bg-indigo-100 p-1.5 rounded-full shrink-0"><i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i></div>
+                <div class="block md:hidden mb-4 p-4 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-lg flex items-start gap-3 shadow-sm">
+                    <div class="bg-indigo-100 dark:bg-indigo-800 p-1.5 rounded-full shrink-0"><i data-lucide="smartphone" class="w-4 h-4 text-indigo-600 dark:text-indigo-300"></i></div>
                     <div>
-                        <h4 class="text-sm font-bold text-indigo-900">Mobile User?</h4>
-                        <p class="text-xs text-indigo-700 mt-0.5">For the best experience on mobile, please rotate your device to landscape mode.</p>
+                        <h4 class="text-sm font-bold text-indigo-900 dark:text-indigo-200">Mobile User?</h4>
+                        <p class="text-xs text-indigo-700 dark:text-indigo-300 mt-0.5">For the best experience on mobile, please rotate your device to landscape mode.</p>
                     </div>
                 </div>
 

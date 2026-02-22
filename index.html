@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Novice Chemist | Student Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="js/theme.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,21 +27,26 @@
     </style>
 <link rel="stylesheet" href="/index.css">
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-900">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900 dark:selection:text-emerald-100">
 
     <!-- Navigation Bar -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold serif">C</div>
-                    <span class="font-bold text-lg text-slate-900 tracking-tight">Novice Chemist</span>
+                    <div class="flex flex-col items-center justify-center w-10 h-10 bg-slate-900 dark:bg-slate-800 rounded-lg border border-slate-700 shadow-inner">
+                        <span class="text-[8px] text-slate-500 font-mono leading-none">1</span>
+                        <span class="text-lg font-bold text-white leading-none">Nc</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-base text-slate-900 dark:text-white tracking-tight leading-none">The Novice Chemist</span>
+                    </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <div class="hidden md:flex items-center gap-2 text-sm text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        A-Level Syllabus 2025
-                    </div>
+                    <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -45,8 +56,12 @@
     <main class="flex-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">Master Chemistry. <br/><span class="text-emerald-600 italic">One concept at a time.</span></h1>
-                <p class="text-xl text-slate-600 leading-relaxed font-light">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 dark:bg-slate-800 text-white mb-8 shadow-xl shadow-slate-200 dark:shadow-none border border-transparent dark:border-slate-700 transition-all">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">A-Level Srilanka</span>
+                    <span class="text-[10px] font-bold text-emerald-400 italic">#TogetherWeWin</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Master Chemistry. <br/><span class="text-emerald-600 dark:text-emerald-400 italic">One concept at a time.</span></h1>
+                <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                     A comprehensive, static study companion. Select a module below to begin your focused revision session.
                 </p>
             </div>
@@ -55,71 +70,71 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 
                 <!-- 1. GENERAL -->
-                <a href="general/structure.html" class="group relative bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
+                <a href="general/structure.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
                     <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="microscope" class="w-24 h-24"></i>
+                        <i data-lucide="microscope" class="w-24 h-24 dark:text-white"></i>
                     </div>
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                         <i data-lucide="atom" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">General</h3>
-                    <p class="text-sm text-slate-500">Atomic Structure, Bonding & Stoichiometry.</p>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">General</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Atomic Structure, Bonding & Stoichiometry.</p>
                 </a>
 
                 <!-- 2. INORGANIC -->
-                <a href="inorganic/sblock/trends.html" class="group relative bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
+                <a href="inorganic/sblock/trends.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
                     <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="layout-grid" class="w-24 h-24"></i>
+                        <i data-lucide="layout-grid" class="w-24 h-24 dark:text-white"></i>
                     </div>
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
                         <i data-lucide="component" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">Inorganic</h3>
-                    <p class="text-sm text-slate-500">s, p, d Blocks & Periodic Trends.</p>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Inorganic</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">s, p, d Blocks & Periodic Trends.</p>
                 </a>
 
                 <!-- 3. ORGANIC -->
-                <a href="organic/fundamentals.html" class="group relative bg-white rounded-xl p-6 border-2 border-emerald-500/20 shadow-lg hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
+                <a href="organic/fundamentals.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border-2 border-emerald-500/20 dark:border-emerald-500/10 shadow-lg hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
                     <div class="absolute top-4 right-4 flex gap-1">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                     </div>
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                         <i data-lucide="leaf" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">Organic</h3>
-                    <p class="text-sm text-slate-500">Hydrocarbons, Mechanisms & Synthesis.</p>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Organic</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Hydrocarbons, Mechanisms & Synthesis.</p>
                 </a>
 
                 <!-- 4. PHYSICAL -->
-                <a href="physical/equilibria.html" class="group relative bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
+                <a href="physical/equilibria.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
                     <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="activity" class="w-24 h-24"></i>
+                        <i data-lucide="activity" class="w-24 h-24 dark:text-white"></i>
                     </div>
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
                         <i data-lucide="zap" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">Physical</h3>
-                    <p class="text-sm text-slate-500">Energetics, Kinetics & Equilibria.</p>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Physical</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Energetics, Kinetics & Equilibria.</p>
                 </a>
 
                 <!-- 5. INDUSTRIAL -->
-                <a href="industrial/nitrogen.html" class="group relative bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
+                <a href="industrial/nitrogen.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
                     <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="factory" class="w-24 h-24"></i>
+                        <i data-lucide="factory" class="w-24 h-24 dark:text-white"></i>
                     </div>
-                    <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center mb-4 group-hover:bg-slate-800 group-hover:text-white transition-colors">
+                    <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-slate-800 dark:group-hover:bg-slate-700 group-hover:text-white transition-colors">
                         <i data-lucide="wrench" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-1">Industrial</h3>
-                    <p class="text-sm text-slate-500">Chemical Industry & Environment.</p>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Industrial</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Chemical Industry & Environment.</p>
                 </a>
 
             </div>
 
             <!-- Footer Quote -->
-            <div class="mt-20 text-center border-t border-slate-200 pt-8">
-                <p class="font-serif italic text-slate-400">"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."</p>
-                <p class="text-xs text-slate-400 mt-2 font-bold uppercase tracking-wider">— Marie Curie</p>
+            <div class="mt-20 text-center border-t border-slate-200 dark:border-slate-800 pt-8">
+                <p class="font-serif italic text-slate-400 dark:text-slate-500">"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."</p>
+                <p class="text-xs text-slate-400 dark:text-slate-500 mt-2 font-bold uppercase tracking-wider">— Marie Curie</p>
             </div>
         </div>
     </main>

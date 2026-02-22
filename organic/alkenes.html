@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alkenes | Organic Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -28,19 +33,26 @@
         /* Animation for Pi Bond electron cloud */
         .pi-cloud { fill: #10b981; opacity: 0.1; animation: pulse 3s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.2; } }
+
+        /* Dark Mode SVG Overrides */
+        .dark .bond, .dark .bond-double { stroke: #94a3b8; }
+        .dark .atom-text { fill: #e2e8f0; }
+        .dark .atom-h { fill: #94a3b8; }
+        .dark .atom-c { fill: #34d399; }
+        .dark .pi-cloud { fill: #34d399; opacity: 0.15; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased h-screen flex overflow-hidden">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-300">
     <!-- Sidebar injected via JS -->
 
-    <main class="flex-1 flex flex-col min-w-0 bg-white relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
             <div class="flex items-center gap-4">
-                <label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700 rounded-md cursor-pointer transition-colors">
+                <label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors">
                     <i data-lucide="panel-left" class="w-5 h-5"></i>
                 </label>
-                <nav class="flex items-center gap-2 text-sm text-slate-500">
-                    <span class="hidden sm:inline">Organic</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-300"></i><span class="font-medium text-slate-900">Alkenes</span>
+                <nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <span class="hidden sm:inline">Organic</span><i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i><span class="font-medium text-slate-900 dark:text-white">Alkenes</span>
                 </nav>
             </div>
              <div class="text-xs font-medium text-slate-400 uppercase tracking-widest hidden sm:block">Chapter 4</div>
@@ -49,26 +61,26 @@
         <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
             <div class="max-w-3xl mx-auto space-y-12 pb-20">
                 <section>
-                    <h1 class="text-4xl font-bold text-slate-900 leading-tight mb-6">Alkenes</h1>
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6 font-light">
-                        Alkenes are unsaturated hydrocarbons containing at least one <strong class="text-emerald-700 font-medium">Carbon-Carbon Double Bond ($C=C$)</strong>.
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-6">Alkenes</h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6 font-light">
+                        Alkenes are unsaturated hydrocarbons containing at least one <strong class="text-emerald-700 dark:text-emerald-400 font-medium">Carbon-Carbon Double Bond ($C=C$)</strong>.
                     </p>
-                    <div class="inline-flex items-center gap-3 px-4 py-3 bg-slate-100 rounded-md border border-slate-200">
-                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">General Formula</span>
-                        <span class="text-xl font-mono text-slate-900 font-medium">$C_nH_{2n}$</span>
+                    <div class="inline-flex items-center gap-3 px-4 py-3 bg-slate-100 dark:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-700">
+                        <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">General Formula</span>
+                        <span class="text-xl font-mono text-slate-900 dark:text-white font-medium">$C_nH_{2n}$</span>
                     </div>
                 </section>
                 
-                <hr class="border-slate-100" />
+                <hr class="border-slate-100 dark:border-slate-800" />
 
                 <!-- STRUCTURE DIAGRAMS -->
                 <section>
-                    <div class="mb-6"><span class="text-emerald-600 font-bold tracking-wider text-sm uppercase mb-1 block">4.1 Structure</span><h2 class="text-2xl font-bold text-slate-900">Ethene & Bonding</h2></div>
+                    <div class="mb-6"><span class="text-emerald-600 dark:text-emerald-400 font-bold tracking-wider text-sm uppercase mb-1 block">4.1 Structure</span><h2 class="text-2xl font-bold text-slate-900 dark:text-white">Ethene & Bonding</h2></div>
                     
                     <div class="grid md:grid-cols-2 gap-6">
                         <!-- Ethene Diagram -->
-                        <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:border-emerald-200 transition-colors">
-                            <h3 class="font-bold text-slate-800 mb-4">Ethene ($C_2H_4$)</h3>
+                        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 text-center shadow-sm hover:border-emerald-200 dark:hover:border-emerald-700 transition-colors">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-4">Ethene ($C_2H_4$)</h3>
                             <div class="flex justify-center">
                                 <svg width="240" height="180" viewBox="0 0 240 180">
                                     <!-- Double Bond: Two lines offset -->
@@ -88,30 +100,30 @@
                                     <line x1="150" y1="90" x2="185" y2="130" class="bond" />
 
                                     <!-- Left Atoms -->
-                                    <circle cx="90" cy="90" r="16" fill="white" />
+                                    <circle cx="90" cy="90" r="16" class="fill-white dark:fill-slate-800" />
                                     <text x="90" y="92" class="atom-text atom-c">C</text>
                                     
-                                    <circle cx="55" cy="50" r="10" fill="white" />
+                                    <circle cx="55" cy="50" r="10" class="fill-white dark:fill-slate-800" />
                                     <text x="55" y="52" class="atom-text atom-h">H</text>
-                                    <circle cx="55" cy="130" r="10" fill="white" />
+                                    <circle cx="55" cy="130" r="10" class="fill-white dark:fill-slate-800" />
                                     <text x="55" y="132" class="atom-text atom-h">H</text>
                                     
                                     <!-- Right Atoms -->
-                                    <circle cx="150" cy="90" r="16" fill="white" />
+                                    <circle cx="150" cy="90" r="16" class="fill-white dark:fill-slate-800" />
                                     <text x="150" y="92" class="atom-text atom-c">C</text>
                                     
-                                    <circle cx="185" cy="50" r="10" fill="white" />
+                                    <circle cx="185" cy="50" r="10" class="fill-white dark:fill-slate-800" />
                                     <text x="185" y="52" class="atom-text atom-h">H</text>
-                                    <circle cx="185" cy="130" r="10" fill="white" />
+                                    <circle cx="185" cy="130" r="10" class="fill-white dark:fill-slate-800" />
                                     <text x="185" y="132" class="atom-text atom-h">H</text>
                                 </svg>
                             </div>
-                            <p class="text-xs text-slate-500 mt-2">Planar Molecule ($120^{\circ}$ Angles)</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Planar Molecule ($120^{\circ}$ Angles)</p>
                         </div>
 
                         <!-- Pi Bond Viz -->
-                        <div class="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:border-emerald-200 transition-colors">
-                            <h3 class="font-bold text-slate-800 mb-4">Orbital View ($\pi$-bond)</h3>
+                        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 text-center shadow-sm hover:border-emerald-200 dark:hover:border-emerald-700 transition-colors">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-4">Orbital View ($\pi$-bond)</h3>
                             <div class="flex justify-center relative">
                                 <svg width="240" height="180" viewBox="0 0 240 180">
                                     <!-- Pi Orbital Clouds (Above and Below) -->
@@ -129,23 +141,23 @@
                                     <text x="160" y="94" fill="white" font-weight="bold" font-size="12" text-anchor="middle">C</text>
                                     
                                     <!-- Labels -->
-                                    <text x="120" y="65" fill="#047857" font-size="10" text-anchor="middle" font-weight="bold">$\pi$ Overlap</text>
+                                    <text x="120" y="65" fill="#047857" class="dark:fill-emerald-400" font-size="10" text-anchor="middle" font-weight="bold">$\pi$ Overlap</text>
                                 </svg>
                             </div>
-                             <p class="text-xs text-slate-500 mt-2">Side-on overlap of p-orbitals</p>
+                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Side-on overlap of p-orbitals</p>
                         </div>
                     </div>
                 </section>
                 
-                <hr class="border-slate-100" />
+                <hr class="border-slate-100 dark:border-slate-800" />
                 
                 <section>
-                    <div class="mb-6"><span class="text-emerald-600 font-bold tracking-wider text-sm uppercase mb-1 block">4.2 Reactions</span><h2 class="text-2xl font-bold text-slate-900">Electrophilic Addition</h2></div>
-                    <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
-                        <h4 class="font-bold text-slate-900 mb-2">Bromination Test</h4>
-                        <p class="text-slate-700 mb-4 text-sm">Alkenes decolorize bromine water (Orange $\to$ Colorless).</p>
-                        <div class="px-4 py-3 bg-white border border-slate-200 rounded font-mono text-sm text-center">
-                            $C_2H_4 + Br_2 \to C_2H_4Br_2$ <span class="text-slate-400 ml-2">(1,2-dibromoethane)</span>
+                    <div class="mb-6"><span class="text-emerald-600 dark:text-emerald-400 font-bold tracking-wider text-sm uppercase mb-1 block">4.2 Reactions</span><h2 class="text-2xl font-bold text-slate-900 dark:text-white">Electrophilic Addition</h2></div>
+                    <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-6">
+                        <h4 class="font-bold text-slate-900 dark:text-white mb-2">Bromination Test</h4>
+                        <p class="text-slate-700 dark:text-slate-300 mb-4 text-sm">Alkenes decolorize bromine water (Orange $\to$ Colorless).</p>
+                        <div class="px-4 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded font-mono text-sm text-center text-slate-900 dark:text-slate-200">
+                            $C_2H_4 + Br_2 \to C_2H_4Br_2$ <span class="text-slate-400 dark:text-slate-500 ml-2">(1,2-dibromoethane)</span>
                         </div>
                     </div>
                 </section>

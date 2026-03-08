@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Concept | Chemical Kinetics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; }</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-300">
+    
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">The Concept</span></div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+                
+                <!-- 1. Concept -->
+                <section class="space-y-6">
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Concept</h1>
+                    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+                        In the study of any chemical reaction, we try to find out the following two things:
+                    </p>
+                </section>
+
+                <!-- 1.1 Feasibility -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">1.1</span>
+                        Feasibility of a Reaction
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+                        <p>This determines whether a chemical reaction is energetically possible under given conditions.</p>
+                        
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-lg border border-slate-200 dark:border-slate-700 my-4">
+                            <div class="space-y-3 font-mono text-sm">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-emerald-600 dark:text-emerald-400 font-bold">$\Delta G &lt; 0$</span>
+                                    <span class="text-slate-400">→</span>
+                                    <span class="text-slate-700 dark:text-slate-300">Thermodynamically favorable (Feasible)</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-rose-600 dark:text-rose-400 font-bold">$\Delta G &gt; 0$</span>
+                                    <span class="text-slate-400">→</span>
+                                    <span class="text-slate-700 dark:text-slate-300">Thermodynamically unfavorable (Not Feasible)</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 dark:text-slate-500 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+                                * $\Delta G$ represents Gibbs Free Energy
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Infographic: Energy Diagrams -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <!-- Feasible -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center">
+                            <h4 class="font-bold text-emerald-600 dark:text-emerald-400 mb-4">Feasible ($\Delta G &lt; 0$)</h4>
+                            <svg viewBox="0 0 200 150" class="w-full max-w-[200px] stroke-slate-700 dark:stroke-slate-300 fill-none" stroke-width="2">
+                                <!-- Axes -->
+                                <line x1="20" y1="130" x2="20" y2="20" stroke-opacity="0.5" />
+                                <line x1="20" y1="130" x2="180" y2="130" stroke-opacity="0.5" />
+                                <!-- Curve -->
+                                <path d="M 30 40 Q 80 10, 100 60 T 170 100" class="stroke-emerald-500" />
+                                <!-- Labels -->
+                                <text x="30" y="30" class="fill-slate-600 dark:fill-slate-400 text-xs border-none">Reactants</text>
+                                <text x="140" y="120" class="fill-slate-600 dark:fill-slate-400 text-xs border-none">Products</text>
+                                <!-- Arrow -->
+                                <line x1="170" y1="40" x2="170" y2="100" class="stroke-slate-400" stroke-dasharray="4" marker-end="url(#arrowhead)" />
+                                <text x="175" y="70" class="fill-slate-500 text-xs">Energy Released</text>
+                            </svg>
+                        </div>
+                        <!-- Not Feasible -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center">
+                            <h4 class="font-bold text-rose-600 dark:text-rose-400 mb-4">Not Feasible ($\Delta G &gt; 0$)</h4>
+                            <svg viewBox="0 0 200 150" class="w-full max-w-[200px] stroke-slate-700 dark:stroke-slate-300 fill-none" stroke-width="2">
+                                <!-- Axes -->
+                                <line x1="20" y1="130" x2="20" y2="20" stroke-opacity="0.5" />
+                                <line x1="20" y1="130" x2="180" y2="130" stroke-opacity="0.5" />
+                                <!-- Curve -->
+                                <path d="M 30 100 Q 80 10, 100 60 T 170 40" class="stroke-rose-500" />
+                                <!-- Labels -->
+                                <text x="30" y="120" class="fill-slate-600 dark:fill-slate-400 text-xs border-none">Reactants</text>
+                                <text x="140" y="30" class="fill-slate-600 dark:fill-slate-400 text-xs border-none">Products</text>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1.2 Extent -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">1.2</span>
+                        Extent of a Reaction
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+                        <p>This tells us how far a reaction proceeds.</p>
+                        <p>The extent of a reaction can be determined using chemical equilibrium.</p>
+                        <p class="text-sm italic text-slate-500">(Refer to Unit 12 – Chemical Equilibrium.)</p>
+                    </div>
+
+                    <!-- Infographic: Equilibrium Extent -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <div class="relative h-4 bg-slate-200 dark:bg-slate-700 rounded-full mb-8">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full shadow"></div>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-orange-500 rounded-full shadow"></div>
+                            <!-- Equilibrium Marker -->
+                            <div class="absolute left-[60%] top-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col items-center">
+                                <div class="w-1 h-6 bg-slate-800 dark:bg-white mb-2"></div>
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">Equilibrium Position</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm font-bold">
+                            <span class="text-blue-600 dark:text-blue-400">Reactants (0%)</span>
+                            <div class="flex items-center gap-2 text-slate-400">
+                                <span>⇌</span>
+                            </div>
+                            <span class="text-orange-600 dark:text-orange-400">Products (100%)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1.3 Requirements -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">1.3</span>
+                        Thermodynamic and Kinetic Requirements
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400">For a reaction to occur, it must satisfy two conditions:</p>
+
+                    <!-- Infographic: Split Diagram -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-sm">
+                        <!-- Thermodynamics -->
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-700">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2 bg-blue-100 dark:bg-blue-800 rounded-lg text-blue-600 dark:text-blue-300">
+                                    <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Thermodynamically Favored</h3>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">"Can it happen?"</p>
+                            <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>
+                                    The reaction must be energetically feasible.
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1.5 w-1.5 h-1.5 bg-blue-500 rounded-full shrink-0"></span>
+                                    It must be able to form the desired amount of products.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Kinetics -->
+                        <div class="bg-orange-50 dark:bg-orange-900/20 p-8">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="p-2 bg-orange-100 dark:bg-orange-800 rounded-lg text-orange-600 dark:text-orange-300">
+                                    <i data-lucide="timer" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Kinetically Favored</h3>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">"How fast does it happen?"</p>
+                            <p class="text-slate-700 dark:text-slate-300 mb-2">The reaction must occur within the desired time.</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Depends on:</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-xs font-medium">Rate of reaction</span>
+                                <span class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-xs font-medium">Temperature</span>
+                                <span class="px-2 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded text-xs font-medium">Activation energy</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1.4 Ionic Reactions -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">1.4</span>
+                        Ionic Reactions
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                        <div class="md:col-span-2 prose dark:prose-invert text-slate-600 dark:text-slate-400">
+                            <p>Ionic reactions are relatively fast.</p>
+                            <p>This is because bonds do not need to be broken.</p>
+                            <p>The ions are already separated and interact mainly through electrostatic charges.</p>
+                        </div>
+                        <!-- Infographic: Ions -->
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex justify-center items-center gap-4">
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900/50 border-2 border-purple-500 flex items-center justify-center text-purple-700 dark:text-purple-300 font-bold text-lg shadow-sm">+</div>
+                                <span class="text-xs text-slate-500">Cation</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <i data-lucide="zap" class="w-6 h-6 text-yellow-500 fill-yellow-500 animate-pulse"></i>
+                                <span class="text-[10px] text-slate-400 mt-1">Attraction</span>
+                            </div>
+                            <div class="flex flex-col items-center gap-1">
+                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/50 border-2 border-green-500 flex items-center justify-center text-green-700 dark:text-green-300 font-bold text-lg shadow-sm">-</div>
+                                <span class="text-xs text-slate-500">Anion</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 1.5 Classification -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">1.5</span>
+                        Classification of Reactions by Speed
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400">Reactions can be categorized into three types based on their speed:</p>
+                    
+                    <!-- Infographic: Speed Timeline -->
+                    <div class="relative pt-8 pb-4 px-4">
+                        <!-- Line -->
+                        <div class="absolute top-12 left-0 right-0 h-1 bg-gradient-to-r from-slate-300 via-blue-400 to-rose-500 rounded-full"></div>
+                        
+                        <div class="grid grid-cols-3 gap-4 relative">
+                            <!-- Slow -->
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-4 h-4 bg-slate-500 rounded-full border-4 border-white dark:border-slate-900 shadow mb-4 z-10"></div>
+                                <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 w-full hover:-translate-y-1 transition-transform">
+                                    <h4 class="font-bold text-slate-700 dark:text-slate-300 mb-1">Slow</h4>
+                                    <p class="text-xs text-slate-500">Rusting of Iron</p>
+                                    <p class="text-[10px] text-slate-400 mt-1">Days / Years</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Moderate -->
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 shadow mb-4 z-10"></div>
+                                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-200 dark:border-blue-800 w-full hover:-translate-y-1 transition-transform">
+                                    <h4 class="font-bold text-blue-700 dark:text-blue-300 mb-1">Moderate</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Hydrolysis of Starch</p>
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1">Minutes / Hours</p>
+                                </div>
+                            </div>
+
+                            <!-- Instantaneous -->
+                            <div class="flex flex-col items-center text-center group">
+                                <div class="w-4 h-4 bg-rose-500 rounded-full border-4 border-white dark:border-slate-900 shadow mb-4 z-10"></div>
+                                <div class="bg-rose-50 dark:bg-rose-900/20 p-4 rounded-xl border border-rose-200 dark:border-rose-800 w-full hover:-translate-y-1 transition-transform">
+                                    <h4 class="font-bold text-rose-700 dark:text-rose-300 mb-1">Instantaneous</h4>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Precipitation</p>
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1">Microseconds</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        renderSidebar({ root: '../../', module: 'kinetics', active: 'concept' });
+        lucide.createIcons();
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

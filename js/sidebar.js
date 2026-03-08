@@ -85,9 +85,34 @@ const SIDEBAR_CONFIG = {
         color: 'orange',
         basePath: 'physical/',
         items: [
-             { type: 'link', label: '1) Equilibria', href: 'equilibria.html', id: 'equilibria' },
-             { type: 'link', label: '2) Kinetics', href: '#', id: 'kinetics' },
-             { type: 'link', label: '3) Energetics', href: '#', id: 'energetics' },
+             { type: 'link', label: 'Overview', href: 'index.html', id: 'physical-index' },
+             { type: 'link', label: '1) Energetics', href: 'energetics/index.html', id: 'energetics' },
+             { type: 'link', label: '2) Gases', href: 'gases/index.html', id: 'gases' },
+             { type: 'link', label: '3) Chemical Kinetics', href: 'kinetics/index.html', id: 'kinetics' },
+             { type: 'link', label: '4) Chemical Equilibrium', href: 'equilibrium/index.html', id: 'equilibrium' },
+             { type: 'link', label: '5) Electrochemistry', href: 'electrochemistry/index.html', id: 'electrochemistry' },
+        ]
+    },
+    'equilibrium': {
+        title: 'Equilibrium',
+        icon: 'scale',
+        color: 'orange',
+        basePath: 'physical/equilibrium/',
+        items: [
+             { type: 'header', label: 'Topics' },
+             { type: 'link', label: 'Introduction', href: 'index.html', id: 'intro' },
+        ]
+    },
+    'kinetics': {
+        title: 'Chemical Kinetics',
+        icon: 'timer',
+        color: 'red',
+        basePath: 'physical/kinetics/',
+        items: [
+             { type: 'header', label: 'Topics' },
+             { type: 'link', label: '1) The Concept', href: 'index.html', id: 'concept' },
+             { type: 'link', label: '2) Rate of Reaction', href: 'rate.html', id: 'rate' },
+             { type: 'link', label: '3) Activation Energy', href: 'activation.html', id: 'activation' },
         ]
     },
     'industrial': {

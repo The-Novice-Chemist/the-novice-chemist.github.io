@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Equilibria | Physical Chemistry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; } .custom-scrollbar::-webkit-scrollbar { width: 4px; } .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-300">
+    <!-- Sidebar injected via JS -->
+
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Introduction</span></div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+                
+                <!-- Introduction Text -->
+                <div class="space-y-6">
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Introduction to Equilibrium</h1>
+                    <p class="text-xl text-slate-700 dark:text-slate-300 font-medium">Equilibrium is a game played <span class="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 px-1 rounded">only by reversible reactions</span>.</p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        At equilibrium, <span class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-1 rounded">concentrations remain constant</span>, but the system is <span class="font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1 rounded">dynamic</span>: <span class="text-slate-400 dark:text-slate-500 italic">(forward and reverse reactions continuously occur at the exact same rate, as shown below.)</span>
+                    </p>
+                </div>
+
+                <!-- Reaction Equation -->
+                <div class="flex justify-center py-8">
+                    <div class="text-3xl font-mono font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 px-8 py-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                        <span class="text-blue-600 dark:text-blue-400">A</span> 
+                        <span class="mx-4 text-slate-400">⇌</span> 
+                        <span class="text-orange-600 dark:text-orange-400">B</span> + <span class="text-orange-600 dark:text-orange-400">C</span>
+                    </div>
+                </div>
+
+                <!-- Visualizations Grid -->
+                <div class="grid grid-cols-2 gap-2 md:gap-8">
+                    
+                    <!-- Simulation 1: Macroscopic View -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative w-full aspect-[4/5] md:aspect-square max-w-[140px] md:max-w-[200px] bg-white dark:bg-slate-900 border-x-2 border-b-2 border-slate-300 dark:border-slate-600 rounded-b-2xl md:rounded-b-3xl overflow-hidden mb-2 shadow-sm" id="sim-macro">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700"></div> <!-- Rim -->
+                            <canvas id="canvas-macro" class="w-full h-full"></canvas>
+                        </div>
+                        <h3 class="text-sm md:text-lg font-bold text-center text-slate-900 dark:text-white mb-1">How it seems</h3>
+                        <p class="text-xs text-center text-slate-500 dark:text-slate-400">Macroscopic view: Concentrations appear constant.</p>
+                    </div>
+
+                    <!-- Simulation 2: Microscopic View -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative w-full aspect-[4/5] md:aspect-square max-w-[140px] md:max-w-[200px] bg-white dark:bg-slate-900 border-x-2 border-b-2 border-slate-300 dark:border-slate-600 rounded-b-2xl md:rounded-b-3xl overflow-hidden mb-2 shadow-sm" id="sim-micro">
+                            <div class="absolute top-0 left-0 right-0 h-1 bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700"></div> <!-- Rim -->
+                            <canvas id="canvas-micro" class="w-full h-full"></canvas>
+                        </div>
+                        <h3 class="text-sm md:text-lg font-bold text-center text-slate-900 dark:text-white mb-1">What actually happens</h3>
+                        <p class="text-xs text-center text-slate-500 dark:text-slate-400 mb-2">Microscopic level: Dynamic equilibrium.</p>
+                        
+                        <div class="flex items-center justify-center gap-1.5 text-[10px] md:text-sm font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 py-1 px-2 rounded-lg border border-emerald-100 dark:border-emerald-800 whitespace-nowrap">
+                            <i data-lucide="refresh-cw" class="w-3 h-3 animate-spin-slow"></i>
+                            <span>Rate(Forward) = Rate(Backward)</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        renderSidebar({ root: '../../', module: 'equilibrium', active: 'intro' });
+        lucide.createIcons();
+        
+        // --- Simulation Logic ---
+        
+        class Particle {
+            constructor(canvas, type, x, y) {
+                this.canvas = canvas;
+                this.type = type; // 'A', 'B', or 'C'
+                this.r = type === 'A' ? 10 : 7; 
+                
+                // If x,y provided use them, else random
+                this.x = x !== undefined ? x : Math.random() * (canvas.width - 2 * this.r) + this.r;
+                this.y = y !== undefined ? y : Math.random() * (canvas.height - 2 * this.r) + this.r;
+                
+                // Smooth slow movement
+                const speed = 0.3;
+                const angle = Math.random() * Math.PI * 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                
+                this.color = type === 'A' ? '#3b82f6' : '#f97316'; // Blue-500 or Orange-500
+                this.target = null; // For guided movement
+            }
+
+            update() {
+                // If guided towards a target (for reaction)
+                if (this.target) {
+                    const dx = this.target.x - this.x;
+                    const dy = this.target.y - this.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    // Move towards target
+                    if (dist > 0) {
+                        const speed = 1.5; // Move faster when reacting
+                        this.vx = (dx / dist) * speed;
+                        this.vy = (dy / dist) * speed;
+                    }
+                }
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off walls (only if not reacting/guided)
+                if (!this.target) {
+                    if (this.x - this.r < 0) { this.x = this.r; this.vx *= -1; }
+                    if (this.x + this.r > this.canvas.width) { this.x = this.canvas.width - this.r; this.vx *= -1; }
+                    if (this.y - this.r < 0) { this.y = this.r; this.vy *= -1; }
+                    if (this.y + this.r > this.canvas.height) { this.y = this.canvas.height - this.r; this.vy *= -1; }
+                }
+            }
+
+            draw(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+                ctx.stroke();
+                
+                // Add label
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.type, this.x, this.y);
+            }
+        }
+
+        function initSim(canvasId, isDynamic) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Set actual canvas size to match display size for sharpness
+            const rect = canvas.parentElement.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            let particles = [];
+            
+            // Initial Population: Exactly 1 A, 1 B, 1 C
+            particles.push(new Particle(canvas, 'A'));
+            particles.push(new Particle(canvas, 'B'));
+            particles.push(new Particle(canvas, 'C'));
+
+            // Reaction Control
+            let lastReactionTime = 0;
+            let nextReactionDelay = 3000 + Math.random() * 2000; // 3-5 seconds
+            let reactingPair = null; // { b: Particle, c: Particle }
+
+            function handleReactions(timestamp) {
+                if (!lastReactionTime) lastReactionTime = timestamp;
+
+                // 1. Trigger new reaction if time is up and no reaction is currently happening
+                if (!reactingPair && (timestamp - lastReactionTime > nextReactionDelay)) {
+                    const bParticles = particles.filter(p => p.type === 'B');
+                    const cParticles = particles.filter(p => p.type === 'C');
+                    
+                    if (bParticles.length > 0 && cParticles.length > 0) {
+                        // Find NEAREST pair
+                        let minDist = Infinity;
+                        let bestPair = null;
+
+                        for (let b of bParticles) {
+                            for (let c of cParticles) {
+                                const dx = b.x - c.x;
+                                const dy = b.y - c.y;
+                                const dist = Math.sqrt(dx*dx + dy*dy);
+                                if (dist < minDist) {
+                                    minDist = dist;
+                                    bestPair = { b, c };
+                                }
+                            }
+                        }
+
+                        if (bestPair) {
+                            reactingPair = bestPair;
+                            // Guide them towards each other
+                            reactingPair.b.target = reactingPair.c;
+                            reactingPair.c.target = reactingPair.b;
+                        }
+                    }
+                }
+
+                // 2. Process active reaction
+                if (reactingPair) {
+                    const { b, c } = reactingPair;
+                    const dx = b.x - c.x;
+                    const dy = b.y - c.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    // Collision threshold
+                    if (dist < (b.r + c.r)) {
+                        // EXECUTE REACTION
+                        
+                        // 1. Create new A at midpoint
+                        const newAx = (b.x + c.x) / 2;
+                        const newAy = (b.y + c.y) / 2;
+                        const newA = new Particle(canvas, 'A', newAx, newAy);
+                        
+                        // 2. Find an OLD A to dissociate (ensure we don't pick the one we just made, though it's not in array yet)
+                        const existingAs = particles.filter(p => p.type === 'A');
+                        const oldA = existingAs[Math.floor(Math.random() * existingAs.length)];
+                        
+                        // 3. Update Particles Array
+                        // Remove reacting B and C
+                        particles = particles.filter(p => p !== b && p !== c);
+                        // Remove old A
+                        particles = particles.filter(p => p !== oldA);
+                        
+                        // Add new A
+                        particles.push(newA);
+                        
+                        // Dissociate old A into new B and C
+                        const newB = new Particle(canvas, 'B', oldA.x - 5, oldA.y);
+                        const newC = new Particle(canvas, 'C', oldA.x + 5, oldA.y);
+                        // Push them apart
+                        newB.vx = -0.5; newC.vx = 0.5;
+                        newB.vy = (Math.random() - 0.5); newC.vy = (Math.random() - 0.5);
+                        
+                        particles.push(newB);
+                        particles.push(newC);
+
+                        // Reset
+                        reactingPair = null;
+                        lastReactionTime = timestamp;
+                        nextReactionDelay = 3000 + Math.random() * 2000; // Reset timer 3-5s
+                    }
+                }
+            }
+
+            function animate(timestamp) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                if (isDynamic) {
+                    handleReactions(timestamp);
+                }
+
+                particles.forEach(p => {
+                    p.update();
+                    p.draw(ctx);
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            requestAnimationFrame(animate);
+            
+            // Handle resizing to prevent distortion
+            const resizeObserver = new ResizeObserver(entries => {
+                for (const entry of entries) {
+                    const { width, height } = entry.contentRect;
+                    // Only update if dimensions actually changed to avoid loop
+                    if (canvas.width !== width || canvas.height !== height) {
+                        canvas.width = width;
+                        canvas.height = height;
+                        // Ensure particles stay within bounds after resize
+                        particles.forEach(p => {
+                            p.x = Math.min(p.x, width - p.r);
+                            p.y = Math.min(p.y, height - p.r);
+                        });
+                    }
+                }
+            });
+            resizeObserver.observe(canvas.parentElement);
+        }
+
+        // Initialize simulations when DOM is ready
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+            
+            initSim('canvas-macro', false); // Static (just movement)
+            initSim('canvas-micro', true);  // Dynamic (reactions)
+        });
+        
+        // Handle resize
+        window.addEventListener('resize', () => {
+             // Reload page to reset canvas sizes or implement complex resize logic
+             // For prototype, simple reload or ignore is acceptable
+        });
+
+    </script>
+</body>
+</html>

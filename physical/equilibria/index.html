@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equilibria | Physical Chemistry</title>
+    <title>Chemical Equilibria | Physical Chemistry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,7 +11,7 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="../js/sidebar.js"></script>
+    <script src="../../js/sidebar.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -27,6 +27,15 @@
         </header>
         <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
             <div class="max-w-3xl mx-auto space-y-12 pb-20">
+                <div class="flex items-center gap-4 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-amber-800 dark:text-amber-300 mb-8">
+                    <div class="shrink-0 w-10 h-10 bg-amber-100 dark:bg-amber-800/40 rounded-full flex items-center justify-center">
+                        <i data-lucide="construction" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm uppercase tracking-wider mb-0.5">Under Construction</p>
+                        <p class="text-sm opacity-90">We are currently building this section. Check back soon for detailed notes and examples!</p>
+                    </div>
+                </div>
                 <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Chemical Equilibria</h1>
                 <p class="text-lg text-slate-600 dark:text-slate-400">In a reversible reaction, equilibrium is reached when the rates of forward and backward reactions are equal.</p>
                 <div class="p-6 bg-orange-50 dark:bg-orange-900/20 border border-orange-100 dark:border-orange-900/50 rounded-lg">
@@ -37,7 +46,7 @@
         </div>
     </main>
     <script>
-        renderSidebar({ root: '../', module: 'physical', active: 'equilibria' });
+        renderSidebar({ root: '../../', module: 'physical', active: 'equilibria' });
         lucide.createIcons();
         document.addEventListener("DOMContentLoaded", function() {
             renderMathInElement(document.body, {

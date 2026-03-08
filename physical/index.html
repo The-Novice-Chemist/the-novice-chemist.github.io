@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Chemistry | The Novice Chemist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/theme.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-600 dark:text-slate-400 text-sm md:text-base antialiased min-h-screen flex flex-col transition-colors duration-300">
+    
+    <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+         <div class="flex items-center gap-4">
+            <a href="../index.html" class="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                <span class="font-bold text-sm uppercase tracking-wide hidden md:block">Back to Home</span>
+            </a>
+            <div class="h-6 w-px bg-slate-200 dark:bg-slate-700 mx-2 hidden md:block"></div>
+            <span class="font-medium text-slate-900 dark:text-white text-lg">Physical Chemistry</span>
+         </div>
+         <div class="flex items-center gap-4">
+            <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
+                <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            </button>
+         </div>
+    </header>
+
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300">
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-5xl mx-auto space-y-12 pb-20">
+                
+                <div class="text-center max-w-3xl mx-auto mb-8">
+                    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Physical Chemistry</h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Master the principles of matter and energy. Select a section below to begin your study.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+                    
+                    <!-- Energetics -->
+                    <a href="energetics/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i data-lucide="flame" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Energetics</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Thermodynamics, enthalpy changes, and entropy.</p>
+                    </a>
+
+                    <!-- Gases -->
+                    <a href="gases/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i data-lucide="wind" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Gases</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Gas laws, ideal gas equation, and kinetic theory.</p>
+                    </a>
+
+                    <!-- Chemical Kinetics -->
+                    <a href="kinetics/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i data-lucide="timer" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Chemical<br>Kinetics</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Reaction rates, order of reaction, and catalysis.</p>
+                    </a>
+
+                    <!-- Chemical Equilibrium -->
+                    <a href="equilibrium/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i data-lucide="scale" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Chemical<br>Equilibrium</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Dynamic equilibrium, Kc, Kp, and Le Chatelier's principle.</p>
+                    </a>
+
+                    <!-- Electrochemistry -->
+                    <a href="electrochemistry/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-orange-500 dark:hover:border-orange-500 hover:-translate-y-1 transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Electro-<br>chemistry</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">Electrolysis, electrode potentials, and fuel cells.</p>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

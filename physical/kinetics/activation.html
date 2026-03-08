@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activation Energy | Chemical Kinetics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; }</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-300">
+    
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Activation Energy</span></div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+                
+                <!-- 3.1 Activation Energy -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">3.1</span>
+                        Activation Energy
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+                        <p>Activation energy is the energy difference between the reactants and the transition state.</p>
+                        
+                        <div class="my-6 p-4 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-center">
+                            <p class="text-lg">$$ E_a = E_{\text{transition state}} - E_{\text{reactants}} $$</p>
+                        </div>
+                    </div>
+
+                    <!-- Infographic: Energy Profile -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-center">
+                        <h4 class="font-bold text-slate-700 dark:text-slate-300 mb-4">Energy Profile Diagram</h4>
+                        <svg viewBox="0 0 300 200" class="w-full max-w-[400px] stroke-slate-700 dark:stroke-slate-300 fill-none" stroke-width="2">
+                            <!-- Axes -->
+                            <line x1="40" y1="180" x2="40" y2="20" stroke-opacity="0.5" />
+                            <line x1="40" y1="180" x2="280" y2="180" stroke-opacity="0.5" />
+                            <text x="160" y="195" class="fill-slate-500 text-xs border-none" text-anchor="middle">Reaction Coordinate</text>
+                            <text x="25" y="100" class="fill-slate-500 text-xs border-none" text-anchor="middle" transform="rotate(-90, 25, 100)">Energy</text>
+                            
+                            <!-- Curve -->
+                            <path d="M 40 120 Q 150 20, 260 150" class="stroke-blue-500" stroke-width="3" fill="none" />
+                            
+                            <!-- Labels -->
+                            <text x="50" y="115" class="fill-slate-600 dark:fill-slate-400 text-xs font-bold">Reactants</text>
+                            <text x="220" y="145" class="fill-slate-600 dark:fill-slate-400 text-xs font-bold">Products</text>
+                            <text x="150" y="60" class="fill-slate-600 dark:fill-slate-400 text-xs font-bold text-center">Transition State</text>
+                            
+                            <!-- Ea Marker -->
+                            <line x1="40" y1="120" x2="150" y2="120" stroke-dasharray="4" class="stroke-slate-400" />
+                            <line x1="150" y1="120" x2="150" y2="70" class="stroke-rose-500" marker-end="url(#arrowhead)" marker-start="url(#arrowhead)" />
+                            <text x="160" y="100" class="fill-rose-600 dark:fill-rose-400 text-sm font-bold">$E_a$</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl border border-amber-200 dark:border-amber-800">
+                        <h3 class="font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-2">
+                            <i data-lucide="alert-circle" class="w-5 h-5"></i> Important Point
+                        </h3>
+                        <p class="text-slate-700 dark:text-slate-300 mb-2">Rate is indirectly proportional to activation energy.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-up" class="w-4 h-4 text-rose-500"></i>
+                                <span>Higher activation energy → <strong>Slower reaction</strong></span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i data-lucide="arrow-down" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Lower activation energy → <strong>Faster reaction</strong></span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 3.2 Elementary Reactions -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-sans font-bold px-2 py-1 rounded">3.2</span>
+                        Elementary Reactions
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+                        <p>Elementary reactions are reactions that occur in a single step and cannot be simplified further.</p>
+                        <p>Two types of mechanisms:</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Simple Mechanism -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col">
+                            <h3 class="font-bold text-emerald-600 dark:text-emerald-400 mb-2">Simple Mechanism</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Occurs in one elementary step.</p>
+                            
+                            <!-- Infographic: One Step -->
+                            <div class="flex-1 flex items-center justify-center mt-2">
+                                <svg viewBox="0 0 150 100" class="w-full max-w-[150px] stroke-slate-700 dark:stroke-slate-300 fill-none" stroke-width="2">
+                                    <path d="M 10 80 Q 75 10, 140 80" class="stroke-emerald-500" />
+                                    <text x="75" y="95" class="fill-slate-500 text-[10px] border-none" text-anchor="middle">1 Step</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Complex Mechanism -->
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col">
+                            <h3 class="font-bold text-purple-600 dark:text-purple-400 mb-2">Complex Mechanism</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Occurs in multiple elementary steps.</p>
+                            
+                            <!-- Infographic: Multi Step -->
+                            <div class="flex-1 flex items-center justify-center mt-2">
+                                <svg viewBox="0 0 150 100" class="w-full max-w-[150px] stroke-slate-700 dark:stroke-slate-300 fill-none" stroke-width="2">
+                                    <path d="M 10 80 Q 40 20, 75 60 Q 110 20, 140 80" class="stroke-purple-500" />
+                                    <text x="75" y="95" class="fill-slate-500 text-[10px] border-none" text-anchor="middle">Multiple Steps</text>
+                                    <text x="75" y="55" class="fill-slate-400 text-[8px] border-none" text-anchor="middle">Intermediate</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        renderSidebar({ root: '../../', module: 'kinetics', active: 'activation' });
+        lucide.createIcons();
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

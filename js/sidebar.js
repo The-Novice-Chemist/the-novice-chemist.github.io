@@ -121,8 +121,7 @@ const SIDEBAR_CONFIG = {
         color: 'slate',
         basePath: 'industrial/',
         items: [
-             { type: 'link', label: '1) Nitrogen Industry', href: 'nitrogen.html', id: 'nitrogen' },
-             { type: 'link', label: '2) Sulfur Industry', href: '#', id: 'sulfur' },
+             { type: 'link', label: 'Mg Production', href: 'mg-production.html', id: 'mg-production' },
         ]
     },
     'inorganic': {

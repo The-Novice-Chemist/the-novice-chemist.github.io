@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extraction of Magnesium | Industrial Chemistry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/sidebar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>body { font-family: 'Inter', sans-serif; } h1,h2,h3 { font-family: 'Merriweather', serif; }</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-300">
+    
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
+             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Mg Production</span></div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
+            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+                
+                <div class="space-y-4">
+                    <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Extraction of Magnesium (Dow Process)</h1>
+                </div>
+
+                <!-- 1. Introduction and Raw Materials -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-sans font-bold px-2 py-1 rounded">1</span>
+                        Introduction and Raw Materials
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                        <div class="flex flex-col gap-3">
+                            <div class="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mb-2">
+                                <i data-lucide="plane" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Why Magnesium?</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Essential for lightweight alloys in aerospace and automotive sectors. Extracting from seawater is more cost-effective than mining crust minerals.</p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-full flex items-center justify-center mb-2">
+                                <i data-lucide="waves" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Primary Source</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Seawater! Mg²⁺ is the 2nd most abundant cation (after Na⁺), making up ~0.13% by weight.</p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mb-2">
+                                <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Raw Materials</h3>
+                            <ul class="text-sm text-slate-600 dark:text-slate-400 list-disc pl-4 space-y-2">
+                                <li><strong>Bittern:</strong> Leftover solution from salt production (rich in Mg²⁺).</li>
+                                <li><strong>Disposable brine:</strong> From reverse-osmosis seawater.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Infographic: Abundance -->
+                    <div class="py-8 flex flex-col items-center mt-6">
+                        <h4 class="font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-sm mb-8 text-center">Cation Abundance in Seawater</h4>
+                        <div class="flex items-end justify-center gap-12 h-48 w-full max-w-md">
+                            <div class="flex flex-col items-center gap-3 h-full justify-end">
+                                <div class="w-16 bg-blue-500/20 dark:bg-blue-500/10 rounded-t-full relative flex items-end justify-center pb-4 transition-all hover:bg-blue-500/30" style="height: 100%;">
+                                    <span class="text-blue-600 dark:text-blue-400 font-bold text-sm">~1.08%</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block font-bold text-slate-700 dark:text-slate-300">Sodium (Na⁺)</span>
+                                    <span class="text-xs text-slate-500">1st Most Abundant</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 h-full justify-end">
+                                <div class="w-16 bg-emerald-500/20 dark:bg-emerald-500/10 rounded-t-full relative flex items-end justify-center pb-2 transition-all hover:bg-emerald-500/30" style="height: 12.5%;">
+                                    <span class="text-emerald-600 dark:text-emerald-400 font-bold text-sm">0.13%</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block font-bold text-slate-700 dark:text-slate-300">Magnesium (Mg²⁺)</span>
+                                    <span class="text-xs text-slate-500">2nd Most Abundant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Process Overview & Interactive Steps -->
+                <section class="space-y-8">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-sans font-bold px-2 py-1 rounded">2</span>
+                        The Dow Process Overview
+                    </h2>
+                    
+                    <!-- Animated Process Overview -->
+                    <div class="relative w-full bg-slate-900 dark:bg-slate-950 rounded-3xl p-6 md:p-10 border border-slate-800 mb-12 shadow-2xl">
+                        
+                        <!-- Animated SVG Pipes (Desktop only for precise alignment) -->
+                        <svg class="absolute inset-0 w-full h-full z-0 hidden md:block" preserveAspectRatio="none">
+                            <style>
+                                .pipe-anim {
+                                    stroke-dasharray: 12;
+                                    animation: dash 30s linear infinite;
+                                }
+                                @keyframes dash {
+                                    to { stroke-dashoffset: -1000; }
+                                }
+                            </style>
+                            <!-- Limestone to Factory (Orange) -->
+                            <path d="M 16.66% 25% L 50% 25% L 50% 50%" fill="none" stroke="#f97316" stroke-width="3" class="pipe-anim" opacity="0.6"/>
+                            <!-- Seawater to Factory (Blue) -->
+                            <path d="M 16.66% 75% L 50% 75% L 50% 50%" fill="none" stroke="#3b82f6" stroke-width="3" class="pipe-anim" opacity="0.6"/>
+                            <!-- Factory to Electrolysis (Indigo) -->
+                            <path d="M 50% 50% L 83.33% 50%" fill="none" stroke="#8b5cf6" stroke-width="3" class="pipe-anim" opacity="0.6"/>
+                            <!-- Electrolysis to Output (Silver/White) -->
+                            <path d="M 83.33% 50% L 100% 50%" fill="none" stroke="#f8fafc" stroke-width="4" class="pipe-anim" opacity="0.9"/>
+                        </svg>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative z-10">
+                            
+                            <!-- Stage 1: Inputs -->
+                            <div class="flex flex-col justify-start gap-8">
+                                <h3 class="text-center text-slate-400 font-bold tracking-widest uppercase text-xs mb-2">Step 1</h3>
+                                <div class="flex flex-col justify-between h-[240px] py-2">
+                                    <!-- Limestone -->
+                                    <div class="flex flex-col items-center group">
+                                        <div class="w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center border border-orange-500/50 shadow-[0_0_20px_rgba(249,115,22,0.2)] group-hover:scale-110 transition-transform">
+                                            <i data-lucide="mountain" class="w-8 h-8 text-orange-400"></i>
+                                        </div>
+                                        <div class="mt-3 text-center bg-slate-800/90 px-4 py-2 rounded-xl border border-slate-700 backdrop-blur-sm">
+                                            <span class="text-xs text-orange-300 font-bold uppercase tracking-wider block">Limestone</span>
+                                            <span class="text-[10px] text-slate-400">Heated to CaO</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Seawater -->
+                                    <div class="flex flex-col items-center group">
+                                        <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center border border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.2)] group-hover:scale-110 transition-transform">
+                                            <i data-lucide="waves" class="w-8 h-8 text-blue-400"></i>
+                                        </div>
+                                        <div class="mt-3 text-center bg-slate-800/90 px-4 py-2 rounded-xl border border-slate-700 backdrop-blur-sm">
+                                            <span class="text-xs text-blue-300 font-bold uppercase tracking-wider block">Seawater</span>
+                                            <span class="text-[10px] text-slate-400">Source of Mg²⁺</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Accordion 1 -->
+                                <div class="mt-auto">
+                                    <button class="w-full px-4 py-3 flex items-center justify-between bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-colors text-left" onclick="toggleAccordion('step1')">
+                                        <span class="font-bold text-white text-sm">View Details</span>
+                                        <i data-lucide="chevron-down" id="icon-step1" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Stage 2: Factory -->
+                            <div class="flex flex-col justify-start gap-8">
+                                <h3 class="text-center text-slate-400 font-bold tracking-widest uppercase text-xs mb-2">Steps 2 & 3</h3>
+                                <div class="flex flex-col items-center justify-center h-[240px]">
+                                    <div class="w-36 h-36 bg-slate-800 rounded-3xl border-2 border-slate-600 flex flex-col items-center justify-center relative shadow-2xl z-10 group hover:border-slate-400 transition-colors">
+                                        <i data-lucide="factory" class="w-14 h-14 text-slate-300 mb-3"></i>
+                                        <div class="flex gap-2">
+                                            <i data-lucide="settings" class="w-6 h-6 text-blue-400 animate-[spin_4s_linear_infinite]"></i>
+                                            <i data-lucide="settings" class="w-6 h-6 text-orange-400 animate-[spin_4s_linear_infinite]" style="animation-direction: reverse;"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-6 text-center bg-slate-800/90 px-5 py-3 rounded-xl border border-slate-700 backdrop-blur-sm">
+                                        <h4 class="font-bold text-white text-sm">The Factory</h4>
+                                        <p class="text-xs text-slate-400 mt-1">Precipitation & Conversion</p>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion 2 -->
+                                <div class="mt-auto">
+                                    <button class="w-full px-4 py-3 flex items-center justify-between bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-colors text-left" onclick="toggleAccordion('step2')">
+                                        <span class="font-bold text-white text-sm">View Details</span>
+                                        <i data-lucide="chevron-down" id="icon-step2" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Stage 3: Electrolysis -->
+                            <div class="flex flex-col justify-start gap-8">
+                                <h3 class="text-center text-slate-400 font-bold tracking-widest uppercase text-xs mb-2">Step 4</h3>
+                                <div class="flex flex-col items-center justify-center h-[240px] relative">
+                                    <div class="w-32 h-32 bg-indigo-900/40 rounded-full border-4 border-indigo-500/50 flex items-center justify-center relative shadow-[0_0_40px_rgba(99,102,241,0.4)] z-10 group">
+                                        <i data-lucide="zap" class="w-14 h-14 text-indigo-400 animate-pulse"></i>
+                                        <div class="absolute inset-0 rounded-full border-2 border-indigo-400/30 animate-ping" style="animation-duration: 3s;"></div>
+                                    </div>
+                                    <div class="mt-6 text-center bg-slate-800/90 px-5 py-3 rounded-xl border border-slate-700 backdrop-blur-sm">
+                                        <h4 class="font-bold text-white text-sm">Electrolysis</h4>
+                                        <p class="text-xs text-slate-400 mt-1">Pure Mg Extracted</p>
+                                    </div>
+                                    
+                                    <!-- Mg Ingot Output -->
+                                    <div class="absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2 animate-pulse">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-slate-100 to-slate-400 rounded-sm shadow-[0_0_20px_rgba(255,255,255,0.6)] transform rotate-12 flex items-center justify-center">
+                                            <span class="text-[10px] font-bold text-slate-800">Mg</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion 3 -->
+                                <div class="mt-auto">
+                                    <button class="w-full px-4 py-3 flex items-center justify-between bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-xl transition-colors text-left" onclick="toggleAccordion('step3')">
+                                        <span class="font-bold text-white text-sm">View Details</span>
+                                        <i data-lucide="chevron-down" id="icon-step3" class="w-4 h-4 text-slate-400 transition-transform duration-300"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Hidden Content Areas for Accordions -->
+                    <div id="content-step1" class="hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 mb-8 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="md:col-span-2">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-3">1. Production of CaO</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">We need cheap OH⁻ ions to precipitate Mg²⁺. We get them by heating limestone/dolomite to make CaO.</p>
+                                <div class="space-y-3 pl-4 border-l-2 border-orange-200 dark:border-orange-800/50">
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ CaCO_3(s) \xrightarrow{\Delta} CaO(s) + CO_2(g) $$</p>
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ CaCO_3 \cdot MgCO_3(s) \xrightarrow{\Delta} CaO(s) + MgO(s) + 2CO_2(g) $$</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl text-sm">
+                                <h5 class="font-bold text-slate-700 dark:text-slate-300 mb-2">Key Point</h5>
+                                <p class="text-slate-600 dark:text-slate-400">Incomplete heating leaves unreacted CaCO₃, contaminating the CaO.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-step2" class="hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 mb-8 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="md:col-span-2">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-3">2 & 3. Precipitation & Conversion</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">CaO reacts with water to form Ca(OH)₂, which pulls Mg²⁺ out as solid Mg(OH)₂. We then add HCl to convert it to a meltable chloride salt.</p>
+                                <div class="space-y-3 pl-4 border-l-2 border-blue-200 dark:border-blue-800/50">
+                                    <p class="text-xs font-bold text-slate-400 uppercase">Precipitation</p>
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ Mg^{2+}(aq) + 2OH^-(aq) \rightleftharpoons Mg(OH)_2(s) \downarrow $$</p>
+                                    <p class="text-xs font-bold text-slate-400 uppercase mt-4">Conversion</p>
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ Mg(OH)_2(s) + 2HCl(aq) \rightarrow MgCl_2(aq) + 2H_2O(l) $$</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl text-sm space-y-4">
+                                <div>
+                                    <h5 class="font-bold text-slate-700 dark:text-slate-300 mb-1">Risk</h5>
+                                    <p class="text-slate-600 dark:text-slate-400 text-xs">Ca(OH)₂ might co-precipitate, reducing purity.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-700 dark:text-slate-300 mb-1">Dolomite Bonus</h5>
+                                    <p class="text-slate-600 dark:text-slate-400 text-xs">Insoluble MgO from step 1 reacts directly with HCl here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-step3" class="hidden bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 mb-8 shadow-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="md:col-span-2">
+                                <h4 class="font-bold text-slate-900 dark:text-white mb-3">4. Drying & Electrolysis</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Evaporate the water, melt the MgCl₂, and use electricity (700-800°C) to force Mg²⁺ to gain electrons and become pure metal.</p>
+                                <div class="space-y-3 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800/50">
+                                    <p class="text-xs font-bold text-slate-400 uppercase">Anode (+)</p>
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ 2Cl^-(l) \rightarrow Cl_2(g) + 2e^- $$</p>
+                                    <p class="text-xs font-bold text-slate-400 uppercase mt-4">Cathode (-)</p>
+                                    <p class="font-mono text-sm text-slate-800 dark:text-slate-200">$$ Mg^{2+}(l) + 2e^- \rightarrow Mg(l) $$</p>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl text-sm space-y-4">
+                                <div>
+                                    <h5 class="font-bold text-slate-700 dark:text-slate-300 mb-1">Separation</h5>
+                                    <p class="text-slate-600 dark:text-slate-400 text-xs">Molten Mg floats on the denser MgCl₂ melt.</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-slate-700 dark:text-slate-300 mb-1">Recycling</h5>
+                                    <p class="text-slate-600 dark:text-slate-400 text-xs">Cl₂ gas is collected to regenerate HCl.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Electrochemical Cell Structure & Additional Details -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-sans font-bold px-2 py-1 rounded">6</span>
+                        Electrochemical Cell Structure & Additional Details
+                    </h2>
+                    
+                    <div class="mb-12">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="box" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-xl">Cell Structure</h3>
+                        </div>
+                        <ul class="text-slate-600 dark:text-slate-400 list-disc pl-5 space-y-3">
+                            <li>The cell consists of a steel container, a graphite anode, and a steel cathode with openings for molten Mg to travel through.</li>
+                            <li>Fuel gases are supplied to maintain extreme heat required for the electrolysis process.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Infographic: Electrolysis Cell -->
+                    <div class="py-12 flex flex-col items-center">
+                        <h4 class="font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-sm mb-10 text-center">Electrolysis Cell Setup</h4>
+                        <div class="relative w-full max-w-md h-64 rounded-b-[3rem] overflow-hidden border-b-8 border-x-8 border-slate-200 dark:border-slate-800">
+                            <!-- Fused MgCl2 -->
+                            <div class="absolute bottom-0 w-full h-40 bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center">
+                                <span class="text-blue-400 dark:text-blue-500 font-mono text-sm">Fused $MgCl_2$ (1.68 g/cm³)</span>
+                            </div>
+                            
+                            <!-- Molten Mg floating -->
+                            <div class="absolute top-16 w-full h-8 bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
+                                <span class="text-slate-600 dark:text-slate-300 font-mono text-sm font-bold">Molten Mg (1.584 g/cm³)</span>
+                            </div>
+
+                            <!-- Graphite Anode -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-48 bg-slate-800 dark:bg-slate-950 rounded-b-xl flex flex-col items-center pt-4">
+                                <span class="text-white text-xs font-bold">Anode (+)</span>
+                                <span class="text-slate-400 text-[10px] mt-1">Graphite</span>
+                            </div>
+
+                            <!-- Steel Cathode (simplified) -->
+                            <div class="absolute top-0 left-1/4 w-4 h-48 bg-slate-300 dark:bg-slate-600 rounded-b-full"></div>
+                            <div class="absolute top-0 right-1/4 w-4 h-48 bg-slate-300 dark:bg-slate-600 rounded-b-full"></div>
+                            
+                            <!-- Cl2 Gas Bubbles -->
+                            <div class="absolute top-24 left-1/2 -translate-x-1/2 flex gap-2">
+                                <div class="w-2 h-2 bg-emerald-300 dark:bg-emerald-500 rounded-full animate-bounce"></div>
+                                <div class="w-2 h-2 bg-emerald-300 dark:bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                                <div class="w-2 h-2 bg-emerald-300 dark:bg-emerald-500 rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                            </div>
+                            <span class="absolute top-10 left-1/2 ml-8 text-emerald-500 dark:text-emerald-400 font-mono text-xs font-bold">$Cl_2 \uparrow$</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+                        <div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <i data-lucide="rocket" class="w-6 h-6 text-indigo-500"></i>
+                                <h3 class="font-bold text-slate-900 dark:text-white text-xl">Industrial Applications</h3>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Magnesium alloys are highly valued in industries, especially in the aerospace and automobile sectors, due to their strength and lightness.</p>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-4 mb-4">
+                                <i data-lucide="leaf-off" class="w-6 h-6 text-rose-500"></i>
+                                <h3 class="font-bold text-slate-900 dark:text-white text-xl">Environmental Disadvantages</h3>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed">A major drawback of the Dow Process is the emission of CO₂ during the decomposition of limestone/dolomite and the combustion of petroleum fuels required for high-temperature electrolysis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Infographic: Environmental Impact -->
+                    <div class="py-16">
+                        <h4 class="font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-sm mb-12 text-center">Environmental Impact: CO₂ Emissions</h4>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                            <div class="flex flex-col items-center text-center max-w-xs">
+                                <div class="w-16 h-16 rounded-full bg-rose-50 dark:bg-rose-900/20 flex items-center justify-center mb-6">
+                                    <i data-lucide="factory" class="w-8 h-8 text-rose-500"></i>
+                                </div>
+                                <span class="font-bold text-slate-900 dark:text-white text-lg mb-3">Dow Process Sources</span>
+                                <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-2">
+                                    <li>Decomposition of Limestone/Dolomite</li>
+                                    <li>Combustion of fuels for heat (700-800°C)</li>
+                                </ul>
+                                <div class="mt-6 px-4 py-1.5 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-400 rounded-full text-sm font-bold flex items-center gap-2">
+                                    <i data-lucide="cloud-fog" class="w-4 h-4"></i> High $CO_2$
+                                </div>
+                            </div>
+                            <div class="hidden md:block text-slate-300 dark:text-slate-700 font-serif italic text-xl">vs</div>
+                            <div class="flex flex-col items-center text-center max-w-xs opacity-80">
+                                <div class="w-16 h-16 rounded-full bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center mb-6">
+                                    <i data-lucide="leaf" class="w-8 h-8 text-emerald-500"></i>
+                                </div>
+                                <span class="font-bold text-slate-900 dark:text-white text-lg mb-3">Eco-Friendly Alternatives</span>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">
+                                    Future methods aim to use renewable energy and alternative reduction processes.
+                                </p>
+                                <div class="mt-6 px-4 py-1.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-full text-sm font-bold flex items-center gap-2">
+                                    <i data-lucide="arrow-down" class="w-4 h-4"></i> Lower $CO_2$
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+            
+            // Close all other accordions
+            ['step1', 'step2', 'step3', 'step4'].forEach(step => {
+                if (step !== id) {
+                    const otherContent = document.getElementById(`content-${step}`);
+                    const otherIcon = document.getElementById(`icon-${step}`);
+                    if (otherContent && !otherContent.classList.contains('hidden')) {
+                        otherContent.classList.add('hidden');
+                        otherIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+
+            // Toggle current accordion
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        renderSidebar({ root: '../', module: 'industrial', active: 'mg-production' });
+        lucide.createIcons();
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

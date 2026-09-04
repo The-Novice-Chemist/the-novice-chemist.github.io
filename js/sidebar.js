@@ -69,26 +69,40 @@ const SIDEBAR_CONFIG = {
         ]
     },
     'atomic-structure': {
-        title: 'Atomic Structure',
-        icon: 'atom',
+        title: '',
+        icon: '',
+        hideHeader: true,
         color: 'blue',
         basePath: 'general/u1/',
         items: [
              { type: 'header', label: 'Topics' },
-             { type: 'link', label: '1. Discovery & Atomic Basics', href: 'index.html', id: 'discovery' },
+             { type: 'accordion', label: '1. Discoveries', href: 'intro.html', id: 'discoveries', items: [
+                 { label: 'Introduction', href: 'intro.html', id: 'intro' },
+                 { label: 'The Electron', href: 'electron.html', id: 'electron' },
+                 { label: 'The Proton', href: 'proton.html', id: 'proton' },
+                 { label: 'The Nucleus', href: 'nucleus.html', id: 'nucleus' },
+                 { label: 'Aspects of an Atom', href: 'aspects.html', id: 'aspects' },
+             ]},
              { type: 'link', label: '2. Waves, Spectra & Orbitals', href: '#', id: 'waves' },
              { type: 'link', label: '3. Electronic Configuration', href: '#', id: 'configuration' },
              { type: 'link', label: '4. Periodic Table & Trends', href: '#', id: 'trends' },
         ]
     },
     'u1': {
-        title: 'Atomic Structure',
-        icon: 'atom',
+        title: '',
+        icon: '',
+        hideHeader: true,
         color: 'blue',
         basePath: 'general/u1/',
         items: [
              { type: 'header', label: 'Topics' },
-             { type: 'link', label: '1. Discovery & Atomic Basics', href: 'index.html', id: 'discovery' },
+             { type: 'accordion', label: '1. Discoveries', href: 'intro.html', id: 'discoveries', items: [
+                 { label: 'Introduction', href: 'intro.html', id: 'intro' },
+                 { label: 'The Electron', href: 'electron.html', id: 'electron' },
+                 { label: 'The Proton', href: 'proton.html', id: 'proton' },
+                 { label: 'The Nucleus', href: 'nucleus.html', id: 'nucleus' },
+                 { label: 'Aspects of an Atom', href: 'aspects.html', id: 'aspects' },
+             ]},
              { type: 'link', label: '2. Waves, Spectra & Orbitals', href: '#', id: 'waves' },
              { type: 'link', label: '3. Electronic Configuration', href: '#', id: 'configuration' },
              { type: 'link', label: '4. Periodic Table & Trends', href: '#', id: 'trends' },
@@ -278,9 +292,12 @@ function renderSidebar(config) {
         return `<span class="leading-snug">${label}</span>`;
     };
 
-    data.items.forEach(item => {
+    const showTitleBlock = Boolean(data.title && !data.hideHeader && !config.hideHeader);
+
+    data.items.forEach((item, index) => {
         if (item.type === 'header') {
-            listHTML += `<li class="px-3 pt-4 pb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">${item.label}</li>`;
+            const ptClass = (index === 0 && !showTitleBlock) ? 'pt-1' : 'pt-4';
+            listHTML += `<li class="px-3 ${ptClass} pb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">${item.label}</li>`;
         } else if (item.type === 'link') {
             const isActive = active === item.id;
             const linkPath = item.absolute ? root + item.href : root + data.basePath + item.href;
@@ -291,14 +308,10 @@ function renderSidebar(config) {
             const inactiveClass = `text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-${data.color}-700 dark:hover:text-${data.color}-400`;
             const className = `${baseClass} ${isActive ? activeClass : inactiveClass}`;
 
-            // Icon or Bullet logic
+            // Icon logic (no bullet dot)
             let iconHTML = '';
             if (item.icon) {
                 iconHTML = `<i data-lucide="${item.icon}" class="w-4 h-4 shrink-0 mt-0.5"></i>`;
-            } else if (isActive) {
-                 iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-${data.color}-500 shrink-0"></span>`;
-            } else {
-                 iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 shrink-0"></span>`; // Default bullet
             }
 
             listHTML += `
@@ -328,14 +341,10 @@ function renderSidebar(config) {
                 `;
             });
 
-            // Add bullet to align with other links
-            const iconHTML = `<span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 shrink-0"></span>`;
-
             listHTML += `
                 <li>
-                    <div class="flex items-start gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-600 dark:text-slate-400">
-                        ${iconHTML}
-                        ${formatLabel(item.label)}
+                    <div class="flex items-start px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300">
+                        ${item.href ? `<a href="${root + data.basePath + item.href}" class="hover:text-${data.color}-700 dark:hover:text-${data.color}-400 transition-colors w-full">${formatLabel(item.label)}</a>` : `<span class="w-full">${formatLabel(item.label)}</span>`}
                     </div>
                     <ul class="pl-3 mt-1 ml-3 border-l-2 border-slate-100 dark:border-slate-800 space-y-1">
                         ${subItemsHTML}
@@ -352,14 +361,15 @@ function renderSidebar(config) {
                 <i data-lucide="arrow-left" class="w-4 h-4"></i><span class="font-bold text-sm uppercase tracking-wide">${backText}</span>
             </a>
         </div>
-        <div class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar space-y-8">
+        <div class="flex-1 overflow-y-auto ${showTitleBlock ? 'py-6' : 'py-3'} px-4 custom-scrollbar space-y-6">
             <div>
+                ${showTitleBlock ? `
                 <div class="flex items-center gap-3 px-3 mb-6">
                     <div class="w-8 h-8 bg-${data.color}-50 dark:bg-${data.color}-900/20 text-${data.color}-600 dark:text-${data.color}-400 rounded-lg flex items-center justify-center">
                         <i data-lucide="${data.icon}" class="w-4 h-4"></i>
                     </div>
                     <span class="font-bold text-lg text-slate-900 dark:text-white">${data.title}</span>
-                </div>
+                </div>` : ''}
                 <ul class="space-y-2">
                     ${listHTML}
                 </ul>
@@ -390,9 +400,9 @@ function renderSidebar(config) {
         }
     }
 
-    // 4. Inject Theme Toggle into Header
+    // 4. Inject Theme Toggle into Header if not already present
     const header = document.querySelector('header');
-    if (header) {
+    if (header && !header.querySelector('button[onclick*="toggleTheme"]')) {
         const themeToggleHTML = `
             <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
                 <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>

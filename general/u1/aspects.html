@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspects of an Atom · Atomic Structure | The Novice Chemist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="../../js/theme.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <!-- Top Sticky Header -->
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
+             <div class="flex items-center gap-3">
+                 <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
+                     <i data-lucide="panel-left" class="w-4 h-4"></i>
+                 </label>
+                 <nav class="flex items-center gap-2 text-xs text-slate-400">
+                     <a href="../../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <span>General Chemistry</span>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <a href="intro.html" class="font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Atomic Structure</a>
+                 </nav>
+             </div>
+             <div class="flex items-center gap-2">
+                 <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
+                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                 </button>
+             </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto px-6 py-6 md:px-12 md:py-8 lg:px-16 custom-scrollbar">
+            <div class="max-w-3xl mx-auto space-y-6 pb-16">
+                <!-- Title -->
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2 text-xs font-mono text-slate-400 dark:text-slate-500">
+                        <span class="font-semibold text-blue-600 dark:text-blue-400 uppercase">Discoveries · 04</span>
+                        <span>·</span>
+                        <span>Atomic Structure</span>
+                    </div>
+                    <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
+                        Aspects of an Atom
+                    </h1>
+                </div>
+
+                <!-- Under Construction Notice -->
+                <div class="p-8 rounded-xl border border-dashed border-slate-300 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 text-center space-y-3">
+                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-900/60">
+                        <i data-lucide="construction" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-semibold text-slate-800 dark:text-slate-200">Under Construction</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+                            Content for Aspects of an Atom is currently being prepared.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        renderSidebar({ 
+            root: '../../', 
+            module: 'atomic-structure', 
+            active: 'aspects', 
+            backHref: 'index.html', 
+            backText: 'Home' 
+        });
+        lucide.createIcons();
+    </script>
+</body>
+</html>

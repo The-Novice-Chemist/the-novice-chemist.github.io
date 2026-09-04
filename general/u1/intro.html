@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction · Atomic Structure | The Novice Chemist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <script src="../../js/theme.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/sidebar.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <!-- Top Sticky Header -->
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
+             <div class="flex items-center gap-3">
+                 <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
+                     <i data-lucide="panel-left" class="w-4 h-4"></i>
+                 </label>
+                 <nav class="flex items-center gap-2 text-xs text-slate-400">
+                     <a href="../../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <span>General Chemistry</span>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <span class="font-semibold text-slate-900 dark:text-white">Atomic Structure</span>
+                 </nav>
+             </div>
+             <div class="flex items-center gap-2">
+                 <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
+                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                 </button>
+             </div>
+        </header>
+
+        <!-- Main Content (Open Layout, No Outer Border Card) -->
+        <div class="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12 lg:px-16 custom-scrollbar">
+            <div class="max-w-3xl mx-auto space-y-8 pb-16">
+                <!-- Lesson Heading -->
+                <div class="space-y-2">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-white">
+                        Dalton's Atomic Theory
+                    </h1>
+                </div>
+
+                <!-- Photo of Dalton right after the topic -->
+                <div class="flex flex-col items-center justify-center pt-2">
+                    <div class="flex flex-col items-center p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <img src="../../images/john-dalton.jpg" alt="John Dalton" class="w-48 sm:w-56 h-auto object-cover rounded-xl" />
+                        <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400">John Dalton</span>
+                    </div>
+                </div>
+
+                <!-- Introductory Text -->
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
+                    John Dalton was one of the scientists who started the modern story of the atom. <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">He doesn't need much attention</span>, but unfortunately, exam questions do appear from him occasionally. 😭
+                </p>
+
+                <!-- 4 Main Ideas (Pale Blue Box) -->
+                <div class="bg-blue-50/70 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 p-6 rounded-2xl space-y-3.5 shadow-sm">
+                    <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
+                        Dalton proposed 4 main ideas about atoms:
+                    </h2>
+                    <ol class="space-y-2.5 pl-6 list-decimal text-slate-700 dark:text-slate-300 text-base leading-relaxed marker:text-blue-600 dark:marker:text-blue-400 marker:font-semibold">
+                        <li>Atoms are the smallest particles that make up an element.</li>
+                        <li>Atoms of the same element are identical in mass and size.</li>
+                        <li>Atoms cannot be created or destroyed.</li>
+                        <li>Compounds are formed when atoms combine in simple whole-number ratios.</li>
+                    </ol>
+                </div>
+
+                <!-- Rejection Note -->
+                <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed pt-1">
+                    these ideas were <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">rejected</span> as later discoveries proved that these <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">weren't completely correct</span>
+                </p>
+
+                <!-- Golf Ball Model -->
+                <div class="pt-4 flex flex-col items-center justify-center">
+                    <div class="flex flex-col items-center p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
+                        <img src="../../images/golf-ball-model.png" alt="Golf Ball model" class="w-48 sm:w-56 h-auto object-cover rounded-xl" />
+                        <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400">Golf Ball model</span>
+                    </div>
+                    <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 text-center max-w-sm">
+                        this is how Dalton said the atom looked like - just like a golf ball.
+                    </p>
+                </div>
+
+                <!-- Navigation Footer -->
+                <div class="flex items-center justify-end pt-8 border-t border-slate-200 dark:border-slate-800 text-sm">
+                    <a href="electron.html" class="inline-flex items-center gap-2 font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+                        <span>The Electron</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        renderSidebar({ 
+            root: '../../', 
+            module: 'atomic-structure', 
+            active: 'intro', 
+            backHref: 'index.html', 
+            backText: 'Home' 
+        });
+        lucide.createIcons();
+    </script>
+</body>
+</html>

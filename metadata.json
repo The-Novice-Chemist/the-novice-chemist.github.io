@@ -1,5 +1,8 @@
 {
   "name": "The Novice Chemist",
   "description": "A comprehensive guide to General, Inorganic, Organic, Physical, and Industrial Chemistry.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

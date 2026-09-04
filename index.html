@@ -14,38 +14,35 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
     </style>
 <link rel="stylesheet" href="/index.css">
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased min-h-screen flex flex-col selection:bg-emerald-100 selection:text-emerald-900 dark:selection:bg-emerald-900 dark:selection:text-emerald-100">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased min-h-screen flex flex-col selection:bg-slate-200 selection:text-slate-900 dark:selection:bg-slate-800 dark:selection:text-slate-100">
 
     <!-- Navigation Bar -->
-    <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+    <nav class="bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <div class="flex flex-col items-center justify-center w-10 h-10 bg-slate-900 dark:bg-slate-800 rounded-lg border border-slate-700 shadow-inner">
-                        <span class="text-[8px] text-slate-500 font-mono leading-none">1</span>
-                        <span class="text-lg font-bold text-white leading-none">Nc</span>
+                    <div class="flex flex-col items-center justify-center w-9 h-9 bg-slate-900 dark:bg-slate-800 rounded-lg border border-slate-700/60 shadow-sm">
+                        <span class="text-[8px] text-slate-400 font-mono leading-none">1</span>
+                        <span class="text-base font-bold text-white leading-none">Nc</span>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="font-bold text-base text-slate-900 dark:text-white tracking-tight leading-none">The Novice Chemist</span>
+                    <div class="flex items-baseline gap-2">
+                        <span class="font-bold text-base text-slate-900 dark:text-white tracking-tight">The Novice Chemist</span>
+                        <span class="text-[11px] font-mono font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider hidden sm:inline">A-Level</span>
                     </div>
                 </div>
-                <div class="flex items-center gap-4">
-                    <button onclick="toggleTheme()" class="p-2 rounded-md text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Dark Mode">
-                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleTheme()" class="p-2 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
+                        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
                     </button>
                 </div>
             </div>
@@ -54,93 +51,204 @@
 
     <!-- Hero Section -->
     <main class="flex-1">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 dark:bg-slate-800 text-white mb-8 shadow-xl shadow-slate-200 dark:shadow-none border border-transparent dark:border-slate-700 transition-all">
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">A-Level Srilanka</span>
-                    <span class="text-[10px] font-bold text-emerald-400 italic">#TogetherWeWin</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 mb-6 text-slate-600 dark:text-slate-400 text-xs font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span class="tracking-wide">Sri Lankan G.C.E. A/L Chemistry</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight">Master Chemistry. <br/><span class="text-emerald-600 dark:text-emerald-400 italic">One concept at a time.</span></h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                    A comprehensive, static study companion. Select a module below to begin your focused revision session.
-                </p>
+                <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-medium text-slate-900 dark:text-white tracking-tight leading-[1.15]">
+                    Master Chemistry, <br class="hidden sm:inline"/><span class="italic text-slate-500 dark:text-slate-400 font-normal">one concept at a time.</span>
+                </h1>
             </div>
 
             <!-- MODULE TILES GRID -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 
-                <!-- 1. GENERAL -->
-                <a href="general/structure.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="microscope" class="w-24 h-24 dark:text-white"></i>
+                <!-- 1. GENERAL (Interactive Dropdown for 3 units) -->
+                <div class="relative" id="general-tile-container">
+                    <button type="button" id="general-tile-btn" onclick="toggleGeneralDropdown(event)" aria-expanded="false" class="w-full text-left group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-slate-400/40 cursor-pointer h-full flex flex-col justify-between">
+                        <div class="w-full">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-10 h-10 bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                                    <i data-lucide="atom" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500 tracking-wider">01</span>
+                            </div>
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">General</h3>
+                                <i id="general-chevron" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-transform duration-200"></i>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Atomic Structure, Bonding & Chemical Calculations.</p>
+                        </div>
+                        <div class="text-[11px] font-semibold text-blue-600 dark:text-blue-400 flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-slate-800/80 w-full">
+                            <span>Select Unit</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-mono font-medium">3 Units</span>
+                        </div>
+                    </button>
+
+                    <!-- Units Dropdown Menu -->
+                    <div id="general-dropdown-menu" class="hidden absolute top-full left-0 w-72 sm:w-80 mt-2 z-50 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl p-2 transition-all">
+                        <div class="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 mb-1 flex items-center justify-between">
+                            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">General Chemistry Units</span>
+                            <span class="text-[10px] font-medium text-slate-400 dark:text-slate-500">Pick unit</span>
+                        </div>
+
+                        <!-- Unit 01 -->
+                        <a href="general/u1/index.html" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-blue-50/70 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-100 dark:hover:border-blue-900/40 transition-all group/item mb-1">
+                            <div class="flex items-center gap-2.5">
+                                <span class="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400">Unit 01</span>
+                                <div class="text-xs font-semibold text-slate-900 dark:text-white group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors">
+                                    Atomic Structure
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 group-hover/item:translate-x-0.5 transition-transform"></i>
+                        </a>
+
+                        <!-- Unit 02 -->
+                        <a href="general/u2/index.html" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-blue-50/70 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-100 dark:hover:border-blue-900/40 transition-all group/item mb-1">
+                            <div class="flex items-center gap-2.5">
+                                <span class="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Unit 02</span>
+                                <div class="text-xs font-semibold text-slate-900 dark:text-white group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors">
+                                    Structure & Bonding
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 group-hover/item:translate-x-0.5 transition-transform"></i>
+                        </a>
+
+                        <!-- Unit 03 -->
+                        <a href="general/u3/index.html" class="flex items-center justify-between p-2.5 rounded-lg hover:bg-blue-50/70 dark:hover:bg-blue-950/40 border border-transparent hover:border-blue-100 dark:hover:border-blue-900/40 transition-all group/item">
+                            <div class="flex items-center gap-2.5">
+                                <span class="font-mono text-xs font-semibold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Unit 03</span>
+                                <div class="text-xs font-semibold text-slate-900 dark:text-white group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors">
+                                    Chemical Calculations
+                                </div>
+                            </div>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 group-hover/item:translate-x-0.5 transition-transform"></i>
+                        </a>
                     </div>
-                    <div class="w-12 h-12 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i data-lucide="atom" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">General</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">Atomic Structure, Bonding & Stoichiometry.</p>
-                </a>
+                </div>
 
                 <!-- 2. INORGANIC -->
-                <a href="inorganic/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="layout-grid" class="w-24 h-24 dark:text-white"></i>
+                <a href="inorganic/index.html" class="group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md transition-all duration-150 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <i data-lucide="component" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500 tracking-wider">02</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Inorganic</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">s, p, d Blocks & Periodic Trends.</p>
                     </div>
-                    <div class="w-12 h-12 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                        <i data-lucide="component" class="w-6 h-6"></i>
+                    <div class="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-slate-800/80">
+                        <span>Explore</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Inorganic</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">s, p, d Blocks & Periodic Trends.</p>
                 </a>
 
                 <!-- 3. ORGANIC -->
-                <a href="organic/fundamentals.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border-2 border-emerald-500/20 dark:border-emerald-500/10 shadow-lg hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
-                    <div class="absolute top-4 right-4 flex gap-1">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <a href="organic/fundamentals.html" class="group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md transition-all duration-150 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <i data-lucide="leaf" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500 tracking-wider">03</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Organic</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Hydrocarbons, Mechanisms & Synthesis.</p>
                     </div>
-                    <div class="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                    <div class="text-[11px] font-semibold text-purple-600 dark:text-purple-400 flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-slate-800/80">
+                        <span>Explore</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Organic</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">Hydrocarbons, Mechanisms & Synthesis.</p>
                 </a>
 
                 <!-- 4. PHYSICAL -->
-                <a href="physical/index.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="activity" class="w-24 h-24 dark:text-white"></i>
+                <a href="physical/index.html" class="group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md transition-all duration-150 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500 tracking-wider">04</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Physical</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Energetics, Kinetics & Equilibria.</p>
                     </div>
-                    <div class="w-12 h-12 bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    <div class="text-[11px] font-semibold text-amber-600 dark:text-amber-400 flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-slate-800/80">
+                        <span>Explore</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Physical</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">Energetics, Kinetics & Equilibria.</p>
                 </a>
 
                 <!-- 5. INDUSTRIAL -->
-                <a href="industrial/mg-production.html" class="group relative bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:border-emerald-500 dark:hover:border-emerald-500 hover:-translate-y-1 transition-all duration-300">
-                    <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <i data-lucide="factory" class="w-24 h-24 dark:text-white"></i>
+                <a href="industrial/mg-production.html" class="group relative bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:border-slate-400 dark:hover:border-slate-600 hover:shadow-md transition-all duration-150 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
+                                <i data-lucide="factory" class="w-5 h-5"></i>
+                            </div>
+                            <span class="font-mono text-[10px] font-semibold text-slate-400 dark:text-slate-500 tracking-wider">05</span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">Industrial</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Chemical Industry & Environment.</p>
                     </div>
-                    <div class="w-12 h-12 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-lg flex items-center justify-center mb-4 group-hover:bg-slate-800 dark:group-hover:bg-slate-700 group-hover:text-white transition-colors">
-                        <i data-lucide="wrench" class="w-6 h-6"></i>
+                    <div class="text-[11px] font-semibold text-slate-600 dark:text-slate-400 flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-slate-800/80">
+                        <span>Explore</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Industrial</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">Chemical Industry & Environment.</p>
                 </a>
 
             </div>
 
             <!-- Footer Quote -->
-            <div class="mt-20 text-center border-t border-slate-200 dark:border-slate-800 pt-8">
-                <p class="font-serif italic text-slate-400 dark:text-slate-500">"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."</p>
-                <p class="text-xs text-slate-400 dark:text-slate-500 mt-2 font-bold uppercase tracking-wider">— Marie Curie</p>
+            <div class="mt-16 text-center border-t border-slate-200/80 dark:border-slate-800/80 pt-8 max-w-xl mx-auto">
+                <p class="font-serif italic text-sm sm:text-base text-slate-500 dark:text-slate-400 leading-relaxed">"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."</p>
+                <p class="text-[11px] font-mono text-slate-400 dark:text-slate-500 mt-2 tracking-wider uppercase">— Marie Curie</p>
             </div>
         </div>
     </main>
 
     <script>
         lucide.createIcons();
+
+        function toggleGeneralDropdown(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            const dropdown = document.getElementById('general-dropdown-menu');
+            const btn = document.getElementById('general-tile-btn');
+            const chevron = document.getElementById('general-chevron');
+            if (!dropdown) return;
+
+            const isHidden = dropdown.classList.contains('hidden');
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+                if (chevron) chevron.classList.add('rotate-180');
+            } else {
+                dropdown.classList.add('hidden');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                if (chevron) chevron.classList.remove('rotate-180');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('general-tile-container');
+            if (container && !container.contains(e.target)) {
+                const dropdown = document.getElementById('general-dropdown-menu');
+                const btn = document.getElementById('general-tile-btn');
+                const chevron = document.getElementById('general-chevron');
+                if (dropdown && !dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                    if (chevron) chevron.classList.remove('rotate-180');
+                }
+            }
+        });
     </script>
 <script type="module" src="/index.tsx"></script>
 </body>

@@ -28,7 +28,6 @@
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
     <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <!-- Top Sticky Header -->
         <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
              <div class="flex items-center gap-3">
                  <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
@@ -50,30 +49,34 @@
              </div>
         </header>
 
-        <!-- Main Content (Open Layout, No Outer Border Card) -->
         <div class="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12 lg:px-16 custom-scrollbar">
             <div class="max-w-3xl mx-auto space-y-8 pb-16">
-                <!-- Lesson Heading -->
                 <div class="space-y-2">
                     <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-white">
                         Dalton's Atomic Theory
                     </h1>
                 </div>
 
-                <!-- Photo of Dalton right after the topic -->
-                <div class="flex flex-col items-center justify-center pt-2">
-                    <div class="flex flex-col items-center p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
-                        <img src="../../images/john-dalton.jpg" alt="John Dalton" class="w-48 sm:w-56 h-auto object-cover rounded-xl" />
-                        <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400">John Dalton</span>
+                <div class="flex flex-col items-center gap-3 pt-2">
+                    <div class="flex flex-row items-center justify-center gap-3 sm:gap-6 w-full">
+                        <div class="flex flex-col items-center p-2 sm:p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-1/2 max-w-[220px]">
+                            <img src="../../images/john-dalton.jpg" alt="John Dalton" class="w-full h-36 sm:h-48 object-cover rounded-xl" />
+                            <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400 text-center">John Dalton</span>
+                        </div>
+                        <div class="flex flex-col items-center p-2 sm:p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-1/2 max-w-[220px]">
+                            <img src="../../images/golf-ball-model.png" alt="Golf Ball model" class="w-full h-36 sm:h-48 object-cover rounded-xl" />
+                            <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400 text-center">Golf Ball model</span>
+                        </div>
                     </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 text-center max-w-sm">
+                        This is how Dalton described the atom—just like a solid golf ball.
+                    </p>
                 </div>
 
-                <!-- Introductory Text -->
                 <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
-                    John Dalton was one of the scientists who started the modern story of the atom. <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">He doesn't need much attention</span>, but unfortunately, exam questions do appear from him occasionally. 😭
+                    John Dalton was one of the scientists who started the modern story of the atom. <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">You do not have to know much about him</span>, but unfortunately, exam questions do appear from him occasionally. 😭
                 </p>
 
-                <!-- 4 Main Ideas (Pale Blue Box) -->
                 <div class="bg-blue-50/70 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 p-6 rounded-2xl space-y-3.5 shadow-sm">
                     <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
                         Dalton proposed 4 main ideas about atoms:
@@ -86,23 +89,10 @@
                     </ol>
                 </div>
 
-                <!-- Rejection Note -->
                 <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed pt-1">
-                    these ideas were <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">rejected</span> as later discoveries proved that these <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">weren't completely correct</span>
+                    These ideas were <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">rejected</span> as later discoveries proved that these <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">weren't completely correct</span>.
                 </p>
 
-                <!-- Golf Ball Model -->
-                <div class="pt-4 flex flex-col items-center justify-center">
-                    <div class="flex flex-col items-center p-2.5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm">
-                        <img src="../../images/golf-ball-model.png" alt="Golf Ball model" class="w-48 sm:w-56 h-auto object-cover rounded-xl" />
-                        <span class="mt-2 text-xs font-medium text-slate-600 dark:text-slate-400">Golf Ball model</span>
-                    </div>
-                    <p class="mt-2.5 text-sm text-slate-600 dark:text-slate-400 text-center max-w-sm">
-                        this is how Dalton said the atom looked like - just like a golf ball.
-                    </p>
-                </div>
-
-                <!-- Navigation Footer -->
                 <div class="flex items-center justify-end pt-8 border-t border-slate-200 dark:border-slate-800 text-sm">
                     <a href="electron.html" class="inline-flex items-center gap-2 font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
                         <span>The Electron</span>

@@ -81,7 +81,7 @@
 
                     <!-- Centered Cathode Ray Tube Animation -->
                     <div class="flex justify-center items-center w-full py-2">
-                        <canvas id="crtCanvas" width="960" height="500" class="w-full max-w-2xl h-auto object-contain"></canvas>
+                        <canvas id="crtCanvas" width="960" height="500" class="w-full max-w-2xl h-auto object-contain mx-auto"></canvas>
                     </div>
 
                     <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
@@ -103,10 +103,27 @@
                 <hr class="border-slate-200/80 dark:border-slate-800/80">
 
                 <!-- 3. J. J. Thomson -->
-                <div class="space-y-2">
+                <div class="space-y-4">
                     <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
                         3. J. J. Thomson
                     </h2>
+
+                    <!-- Centered Profile Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto py-2 justify-items-center">
+                        <div class="bg-slate-50/80 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-3 flex flex-col items-center justify-center gap-3 w-full">
+                            <div class="w-full aspect-square flex items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                                <img src="../../images/jj_thompson.jpg" alt="J. J. Thomson" class="w-full h-full object-cover rounded-xl mx-auto">
+                            </div>
+                            <span class="text-sm font-medium text-slate-600 dark:text-slate-400 pb-1 text-center">J. J. Thomson</span>
+                        </div>
+                        <div class="bg-slate-50/80 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-3 flex flex-col items-center justify-center gap-3 w-full">
+                            <div class="w-full aspect-square flex items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
+                                <img src="../../images/plum_pudding_model.jpg" alt="Plum Pudding model" class="w-full h-full object-contain rounded-xl mx-auto">
+                            </div>
+                            <span class="text-sm font-medium text-slate-600 dark:text-slate-400 pb-1 text-center">Plum Pudding model</span>
+                        </div>
+                    </div>
+
                     <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
                         J. J. Thomson carried out many experiments with cathode ray tubes. By studying how cathode rays behave, he proved they are made of particles and <span class="text-red-600 dark:text-red-400 font-semibold">discovered the electron.</span>
                     </p>
@@ -140,7 +157,7 @@
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
                                     <td class="py-4 px-4 sm:px-6 leading-relaxed">
-                                        Have mass and kinetic energy (PADDLEWHEEL Experiment: they can turn a light paddle wheel placed in their path)
+                                        Have mass and kinetic energy (they can turn a light paddle wheel placed in their path)
                                     </td>
                                     <td class="py-4 px-4 sm:px-6">
                                         <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">

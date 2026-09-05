@@ -29,12 +29,12 @@
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
     <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
         <!-- Header -->
-        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-4 sm:px-6 sticky top-0 z-20 transition-colors duration-200">
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
              <div class="flex items-center gap-3">
                  <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
-                     <i data-lucide="panel-left" class="w-5 h-5"></i>
+                     <i data-lucide="panel-left" class="w-4 h-4"></i>
                  </label>
-                 <nav class="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-400 overflow-x-auto whitespace-nowrap">
+                 <nav class="flex items-center gap-2 text-xs text-slate-400 overflow-x-auto whitespace-nowrap">
                      <a href="../../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
                      <span class="text-slate-300 dark:text-slate-700">/</span>
                      <span>General Chemistry</span>
@@ -44,57 +44,57 @@
              </div>
              <div class="flex items-center gap-2">
                  <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
-                     <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                     <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
                  </button>
              </div>
         </header>
 
         <!-- Main Content -->
-        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 custom-scrollbar">
-            <div class="max-w-4xl mx-auto space-y-8 pb-16">
+        <div class="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-10 lg:px-16 custom-scrollbar">
+            <div class="max-w-3xl mx-auto space-y-6 pb-16">
                 
                 <!-- Lesson Heading -->
                 <div class="space-y-2">
-                    <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-white">
+                    <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
                         Discovery of the Electron
                     </h1>
                 </div>
 
                 <!-- 1. Johnstone G. Stoney -->
-                <div class="space-y-2 pt-2">
-                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                <div class="space-y-2 pt-1">
+                    <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
                         1. Johnstone G. Stoney
                     </h2>
-                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
-                        Johnstone G. Stoney suggested that electricity is made of tiny fundamental units and named them "electrons." However, he only <span class="text-red-600 dark:text-red-400 font-semibold">predicted them</span> in theory and did not prove their existence through experiments.
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Johnstone G. Stoney suggested that electricity is made of tiny fundamental units and named them "electrons." However, he only <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">predicted them</span> in theory and did not prove their existence through experiments.
                     </p>
                 </div>
 
                 <hr class="border-slate-200/80 dark:border-slate-800/80">
 
                 <!-- 2. William Crookes -->
-                <div class="space-y-4">
-                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                <div class="space-y-3">
+                    <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
                         2. William Crookes
                     </h2>
 
                     <!-- Centered Cathode Ray Tube Animation -->
-                    <div class="flex justify-center items-center w-full py-2">
+                    <div class="flex justify-center items-center w-full py-1">
                         <canvas id="crtCanvas" width="960" height="500" class="w-full max-w-2xl h-auto object-contain mx-auto"></canvas>
                     </div>
 
-                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
-                        William Crookes invented the cathode ray tube. He passed electricity between two electrodes under <span class="text-red-600 dark:text-red-400 font-semibold">low pressure and high voltage.</span>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                        William Crookes invented the cathode ray tube. He passed electricity between two electrodes under <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">low pressure and high voltage.</span>
                     </p>
 
                     <!-- Fluorescent Note -->
-                    <div class="p-4 bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 rounded-xl space-y-1.5">
-                        <div class="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 text-sm font-semibold">
+                    <div class="p-4 bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 rounded-xl space-y-1">
+                        <div class="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-semibold">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
                             <span>Note</span>
                         </div>
-                        <p class="text-emerald-950 dark:text-emerald-200 text-sm sm:text-base leading-relaxed">
+                        <p class="text-emerald-950 dark:text-emerald-200 text-xs sm:text-sm leading-relaxed">
                             Cathode rays are invisible to the eye, but they can be detected using a fluorescent material that glows green when hit by the rays.
                         </p>
                     </div>
@@ -103,101 +103,101 @@
                 <hr class="border-slate-200/80 dark:border-slate-800/80">
 
                 <!-- 3. J. J. Thomson -->
-                <div class="space-y-4">
-                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                <div class="space-y-3">
+                    <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
                         3. J. J. Thomson
                     </h2>
 
-                    <!-- Centered Profile Cards -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto py-2 justify-items-center">
-                        <div class="bg-slate-50/80 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-3 flex flex-col items-center justify-center gap-3 w-full">
+                    <!-- Profile Cards forced side-by-side on all screens -->
+                    <div class="grid grid-cols-2 gap-2.5 sm:gap-4 max-w-lg mx-auto py-1 justify-items-center">
+                        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-2 sm:p-2.5 flex flex-col items-center justify-center gap-2 w-full shadow-sm">
                             <div class="w-full aspect-square flex items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
                                 <img src="../../images/jj_thompson.jpg" alt="J. J. Thomson" class="w-full h-full object-cover rounded-xl mx-auto">
                             </div>
-                            <span class="text-sm font-medium text-slate-600 dark:text-slate-400 pb-1 text-center">J. J. Thomson</span>
+                            <span class="text-xs font-medium text-slate-600 dark:text-slate-400 text-center">J. J. Thomson</span>
                         </div>
-                        <div class="bg-slate-50/80 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-3 flex flex-col items-center justify-center gap-3 w-full">
+                        <div class="bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-2 sm:p-2.5 flex flex-col items-center justify-center gap-2 w-full shadow-sm">
                             <div class="w-full aspect-square flex items-center justify-center overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800">
                                 <img src="../../images/plum_pudding_model.jpg" alt="Plum Pudding model" class="w-full h-full object-contain rounded-xl mx-auto">
                             </div>
-                            <span class="text-sm font-medium text-slate-600 dark:text-slate-400 pb-1 text-center">Plum Pudding model</span>
+                            <span class="text-xs font-medium text-slate-600 dark:text-slate-400 text-center">Plum Pudding model</span>
                         </div>
                     </div>
 
-                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
-                        J. J. Thomson carried out many experiments with cathode ray tubes. By studying how cathode rays behave, he proved they are made of particles and <span class="text-red-600 dark:text-red-400 font-semibold">discovered the electron.</span>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+                        J. J. Thomson carried out many experiments with cathode ray tubes. By studying how cathode rays behave, he proved they are made of particles and <span class="text-red-600 dark:text-red-400 font-semibold bg-red-50 dark:bg-red-950/40 px-1 py-0.5 rounded">discovered the electron.</span>
                     </p>
                 </div>
 
                 <hr class="border-slate-200/80 dark:border-slate-800/80">
 
                 <!-- Characteristics Section Table -->
-                <div class="space-y-4">
-                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                        <i data-lucide="list-checks" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                <div class="space-y-3">
+                    <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="list-checks" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
                         <span>Characteristics of Cathode Rays</span>
                     </h2>
 
                     <div class="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
-                        <table class="w-full text-left border-collapse min-w-[500px]">
+                        <table class="w-full text-left border-collapse min-w-[480px]">
                             <thead>
-                                <tr class="bg-slate-100 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white text-sm sm:text-base font-semibold">
-                                    <th class="py-3 px-4 sm:px-6 w-1/2">Characteristic</th>
-                                    <th class="py-3 px-4 sm:px-6 w-1/2">Experiment Demo</th>
+                                <tr class="bg-slate-100 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white text-xs sm:text-sm font-semibold">
+                                    <th class="py-2.5 px-3.5 sm:px-5 w-1/2">Characteristic</th>
+                                    <th class="py-2.5 px-3.5 sm:px-5 w-1/2">Experiment Demo</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm">
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Travel in straight lines
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                    <td class="py-3 px-3.5 sm:px-5 text-center font-semibold text-slate-400 dark:text-slate-500">
                                         —
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Have mass and kinetic energy (they can turn a light paddle wheel placed in their path)
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6">
+                                    <td class="py-3 px-3.5 sm:px-5">
                                         <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                                             <iframe src="https://www.youtube.com/embed/K2G6M3cYJZs" title="Paddlewheel Experiment" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Bend toward the positive plate in an electric field
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6">
+                                    <td class="py-3 px-3.5 sm:px-5">
                                         <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                                             <iframe src="https://www.youtube.com/embed/nhvqVrvoUro" title="Electric Field Deflection" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Bend sideways when exposed to a magnetic field
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6">
+                                    <td class="py-3 px-3.5 sm:px-5">
                                         <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
                                             <iframe src="https://www.youtube.com/embed/IkcHPmuDw7A" title="Magnetic Field Deflection" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </div>
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Their properties do not change with different gases inside the tube
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                    <td class="py-3 px-3.5 sm:px-5 text-center font-semibold text-slate-400 dark:text-slate-500">
                                         —
                                     </td>
                                 </tr>
                                 <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
-                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                    <td class="py-3 px-3.5 sm:px-5 leading-relaxed">
                                         Their charge-to-mass (e/m) ratio is always constant
                                     </td>
-                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                    <td class="py-3 px-3.5 sm:px-5 text-center font-semibold text-slate-400 dark:text-slate-500">
                                         —
                                     </td>
                                 </tr>
@@ -207,7 +207,7 @@
                 </div>
 
                 <!-- Navigation Footer -->
-                <div class="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800 text-sm sm:text-base">
+                <div class="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800 text-xs sm:text-sm">
                     <a href="intro.html" class="inline-flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i>
                         <span>Introduction</span>

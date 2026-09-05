@@ -26,57 +26,181 @@
         .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden transition-colors duration-200">
     <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <!-- Top Sticky Header -->
-        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
+        <!-- Header -->
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-4 sm:px-6 sticky top-0 z-20 transition-colors duration-200">
              <div class="flex items-center gap-3">
                  <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
-                     <i data-lucide="panel-left" class="w-4 h-4"></i>
+                     <i data-lucide="panel-left" class="w-5 h-5"></i>
                  </label>
-                 <nav class="flex items-center gap-2 text-xs text-slate-400">
+                 <nav class="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-400 overflow-x-auto whitespace-nowrap">
                      <a href="../../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
                      <span class="text-slate-300 dark:text-slate-700">/</span>
                      <span>General Chemistry</span>
                      <span class="text-slate-300 dark:text-slate-700">/</span>
-                     <a href="intro.html" class="font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Atomic Structure</a>
+                     <span class="font-semibold text-slate-900 dark:text-white">The Electron</span>
                  </nav>
              </div>
              <div class="flex items-center gap-2">
                  <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
-                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
-                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                     <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                     <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
                  </button>
              </div>
         </header>
 
         <!-- Main Content -->
-        <div class="flex-1 overflow-y-auto px-6 py-6 md:px-12 md:py-8 lg:px-16 custom-scrollbar">
-            <div class="max-w-3xl mx-auto space-y-6 pb-16">
-                <!-- Title -->
-                <div class="space-y-1">
-                    <div class="flex items-center gap-2 text-xs font-mono text-slate-400 dark:text-slate-500">
-                        <span class="font-semibold text-blue-600 dark:text-blue-400 uppercase">Discoveries · 01</span>
-                        <span>·</span>
-                        <span>Atomic Structure</span>
-                    </div>
-                    <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
-                        The Electron
+        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 lg:px-16 custom-scrollbar">
+            <div class="max-w-4xl mx-auto space-y-8 pb-16">
+                
+                <!-- Lesson Heading -->
+                <div class="space-y-2">
+                    <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-white">
+                        Discovery of the Electron
                     </h1>
                 </div>
 
-                <!-- Under Construction Notice -->
-                <div class="p-8 rounded-xl border border-dashed border-slate-300 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/40 text-center space-y-3">
-                    <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200/80 dark:border-amber-900/60">
-                        <i data-lucide="construction" class="w-5 h-5"></i>
+                <!-- 1. Johnstone G. Stoney -->
+                <div class="space-y-2 pt-2">
+                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                        1. Johnstone G. Stoney
+                    </h2>
+                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+                        Johnstone G. Stoney suggested that electricity is made of tiny fundamental units and named them "electrons." However, he only <span class="text-red-600 dark:text-red-400 font-semibold">predicted them</span> in theory and did not prove their existence through experiments.
+                    </p>
+                </div>
+
+                <hr class="border-slate-200/80 dark:border-slate-800/80">
+
+                <!-- 2. William Crookes -->
+                <div class="space-y-4">
+                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                        2. William Crookes
+                    </h2>
+
+                    <!-- Centered Cathode Ray Tube Animation -->
+                    <div class="flex justify-center items-center w-full py-2">
+                        <canvas id="crtCanvas" width="960" height="500" class="w-full max-w-2xl h-auto object-contain"></canvas>
                     </div>
-                    <div>
-                        <h2 class="text-sm font-semibold text-slate-800 dark:text-slate-200">Under Construction</h2>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-                            Content for The Electron is currently being prepared.
+
+                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+                        William Crookes invented the cathode ray tube. He passed electricity between two electrodes under <span class="text-red-600 dark:text-red-400 font-semibold">low pressure and high voltage.</span>
+                    </p>
+
+                    <!-- Fluorescent Note -->
+                    <div class="p-4 bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 rounded-xl space-y-1.5">
+                        <div class="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 text-sm font-semibold">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            <span>Note</span>
+                        </div>
+                        <p class="text-emerald-950 dark:text-emerald-200 text-sm sm:text-base leading-relaxed">
+                            Cathode rays are invisible to the eye, but they can be detected using a fluorescent material that glows green when hit by the rays.
                         </p>
                     </div>
                 </div>
+
+                <hr class="border-slate-200/80 dark:border-slate-800/80">
+
+                <!-- 3. J. J. Thomson -->
+                <div class="space-y-2">
+                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white">
+                        3. J. J. Thomson
+                    </h2>
+                    <p class="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+                        J. J. Thomson carried out many experiments with cathode ray tubes. By studying how cathode rays behave, he proved they are made of particles and <span class="text-red-600 dark:text-red-400 font-semibold">discovered the electron.</span>
+                    </p>
+                </div>
+
+                <hr class="border-slate-200/80 dark:border-slate-800/80">
+
+                <!-- Characteristics Section Table -->
+                <div class="space-y-4">
+                    <h2 class="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i data-lucide="list-checks" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+                        <span>Characteristics of Cathode Rays</span>
+                    </h2>
+
+                    <div class="overflow-x-auto border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm">
+                        <table class="w-full text-left border-collapse min-w-[500px]">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white text-sm sm:text-base font-semibold">
+                                    <th class="py-3 px-4 sm:px-6 w-1/2">Characteristic</th>
+                                    <th class="py-3 px-4 sm:px-6 w-1/2">Experiment Demo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Travel in straight lines
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                        —
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Have mass and kinetic energy (PADDLEWHEEL Experiment: they can turn a light paddle wheel placed in their path)
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                            <iframe src="https://www.youtube.com/embed/K2G6M3cYJZs" title="Paddlewheel Experiment" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Bend toward the positive plate in an electric field
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                            <iframe src="https://www.youtube.com/embed/nhvqVrvoUro" title="Electric Field Deflection" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Bend sideways when exposed to a magnetic field
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6">
+                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                            <iframe src="https://www.youtube.com/embed/IkcHPmuDw7A" title="Magnetic Field Deflection" class="absolute top-0 left-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Their properties do not change with different gases inside the tube
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                        —
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-900/30 transition-colors">
+                                    <td class="py-4 px-4 sm:px-6 leading-relaxed">
+                                        Their charge-to-mass (e/m) ratio is always constant
+                                    </td>
+                                    <td class="py-4 px-4 sm:px-6 text-center font-semibold text-slate-400 dark:text-slate-500">
+                                        —
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Navigation Footer -->
+                <div class="flex items-center justify-between pt-6 border-t border-slate-200 dark:border-slate-800 text-sm sm:text-base">
+                    <a href="intro.html" class="inline-flex items-center gap-2 font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Introduction</span>
+                    </a>
+                    <a href="proton.html" class="inline-flex items-center gap-2 font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+                        <span>The Proton</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </main>
@@ -90,6 +214,323 @@
             backText: 'Home' 
         });
         lucide.createIcons();
+
+        // Cathode Ray Tube Canvas Script
+        const canvas = document.getElementById('crtCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const tubeX = 210;
+        const tubeY = 150;
+        const tubeWidth = 540;
+        const tubeHeight = 80;
+        const tubeCenterY = tubeY + tubeHeight / 2;
+
+        let animationFrame = 0;
+
+        function isDarkMode() {
+            return document.documentElement.classList.contains('dark');
+        }
+
+        function drawStand() {
+            ctx.save();
+            
+            const baseGrad = ctx.createLinearGradient(400, 360, 560, 360);
+            baseGrad.addColorStop(0, '#2b1810');
+            baseGrad.addColorStop(0.3, '#5c3a21');
+            baseGrad.addColorStop(0.7, '#3d2314');
+            baseGrad.addColorStop(1, '#1a0e0a');
+
+            ctx.fillStyle = baseGrad;
+            ctx.beginPath();
+            ctx.ellipse(480, 390, 110, 24, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#1a0a05';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.ellipse(480, 380, 95, 18, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(465, 380);
+            ctx.bezierCurveTo(460, 340, 450, 320, 455, 290);
+            ctx.bezierCurveTo(450, 270, 465, 255, 468, 240);
+            ctx.lineTo(492, 240);
+            ctx.bezierCurveTo(495, 255, 510, 270, 505, 290);
+            ctx.bezierCurveTo(510, 320, 500, 340, 495, 380);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            const brassGrad = ctx.createLinearGradient(465, 230, 495, 230);
+            brassGrad.addColorStop(0, '#855d14');
+            brassGrad.addColorStop(0.5, '#fef08a');
+            brassGrad.addColorStop(1, '#714e10');
+
+            ctx.fillStyle = brassGrad;
+            ctx.fillRect(468, 225, 24, 16);
+            ctx.strokeRect(468, 225, 24, 16);
+
+            ctx.fillStyle = 'rgba(200, 220, 230, 0.7)';
+            ctx.strokeStyle = 'rgba(100, 120, 140, 0.5)';
+            ctx.lineWidth = 1.5;
+            ctx.fillRect(472, 215, 16, 20);
+            ctx.strokeRect(472, 215, 16, 20);
+
+            ctx.restore();
+        }
+
+        function drawGlassTube() {
+            ctx.save();
+
+            ctx.fillStyle = isDarkMode() ? 'rgba(30, 41, 59, 0.3)' : 'rgba(241, 245, 249, 0.4)';
+            ctx.fillRect(tubeX + 30, tubeY + 4, tubeWidth - 60, tubeHeight - 8);
+
+            const leftEndGrad = ctx.createRadialGradient(tubeX + 40, tubeCenterY, 5, tubeX + 40, tubeCenterY, 40);
+            leftEndGrad.addColorStop(0, isDarkMode() ? 'rgba(51, 65, 85, 0.4)' : 'rgba(226, 232, 240, 0.6)');
+            leftEndGrad.addColorStop(1, isDarkMode() ? 'rgba(15, 23, 42, 0.1)' : 'rgba(241, 245, 249, 0.2)');
+            ctx.fillStyle = leftEndGrad;
+            ctx.beginPath();
+            ctx.arc(tubeX + 40, tubeCenterY, 40, Math.PI / 2, -Math.PI / 2);
+            ctx.fill();
+
+            const rightEndGrad = ctx.createRadialGradient(tubeX + tubeWidth - 40, tubeCenterY, 5, tubeX + tubeWidth - 40, tubeCenterY, 40);
+            rightEndGrad.addColorStop(0, isDarkMode() ? 'rgba(51, 65, 85, 0.4)' : 'rgba(226, 232, 240, 0.6)');
+            rightEndGrad.addColorStop(1, isDarkMode() ? 'rgba(15, 23, 42, 0.1)' : 'rgba(241, 245, 249, 0.2)');
+            ctx.fillStyle = rightEndGrad;
+            ctx.beginPath();
+            ctx.arc(tubeX + tubeWidth - 40, tubeCenterY, 40, -Math.PI / 2, Math.PI / 2);
+            ctx.fill();
+
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = isDarkMode() ? 'rgba(148, 163, 184, 0.8)' : 'rgba(71, 85, 105, 0.8)';
+            ctx.beginPath();
+            ctx.moveTo(tubeX + 40, tubeY);
+            ctx.lineTo(tubeX + tubeWidth - 40, tubeY);
+            ctx.arc(tubeX + tubeWidth - 40, tubeCenterY, 40, -Math.PI / 2, Math.PI / 2);
+            ctx.lineTo(tubeX + 40, tubeY + tubeHeight);
+            ctx.arc(tubeX + 40, tubeCenterY, 40, Math.PI / 2, -Math.PI / 2);
+            ctx.stroke();
+
+            ctx.fillStyle = isDarkMode() ? 'rgba(241, 245, 249, 0.15)' : 'rgba(203, 213, 225, 0.3)';
+            ctx.fillRect(tubeX - 40, tubeCenterY - 12, 40, 24);
+            ctx.strokeRect(tubeX - 40, tubeCenterY - 12, 40, 24);
+            ctx.fillRect(tubeX + tubeWidth, tubeCenterY - 12, 40, 24);
+            ctx.strokeRect(tubeX + tubeWidth, tubeCenterY - 12, 40, 24);
+
+            ctx.strokeStyle = isDarkMode() ? 'rgba(255, 255, 255, 0.6)' : 'rgba(255, 255, 255, 0.9)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(tubeX + 30, tubeY + 8);
+            ctx.lineTo(tubeX + tubeWidth - 30, tubeY + 8);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function drawElectrodesAndWires() {
+            ctx.save();
+
+            ctx.fillStyle = '#cbd5e1';
+            ctx.fillRect(tubeX + 10, tubeCenterY - 22, 6, 44);
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(tubeX + 10, tubeCenterY);
+            ctx.lineTo(tubeX - 45, tubeCenterY);
+            ctx.stroke();
+
+            ctx.fillStyle = '#334155';
+            ctx.fillRect(tubeX - 55, tubeCenterY - 10, 20, 20);
+
+            ctx.strokeStyle = isDarkMode() ? '#94a3b8' : '#0f172a';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(tubeX - 50, tubeCenterY + 10);
+            ctx.bezierCurveTo(tubeX - 70, tubeCenterY + 120, tubeX - 120, 400, tubeX - 130, 460);
+            ctx.stroke();
+
+            ctx.fillStyle = '#cbd5e1';
+            ctx.fillRect(tubeX + tubeWidth - 16, tubeCenterY - 22, 6, 44);
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(tubeX + tubeWidth - 16, tubeCenterY);
+            ctx.lineTo(tubeX + tubeWidth + 45, tubeCenterY);
+            ctx.stroke();
+
+            ctx.fillStyle = '#334155';
+            ctx.fillRect(tubeX + tubeWidth + 35, tubeCenterY - 10, 20, 20);
+
+            ctx.strokeStyle = isDarkMode() ? '#94a3b8' : '#0f172a';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(tubeX + tubeWidth + 45, tubeCenterY + 10);
+            ctx.bezierCurveTo(tubeX + tubeWidth + 65, tubeCenterY + 120, tubeX + tubeWidth + 110, 400, tubeX + tubeWidth + 120, 460);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function drawFluorescentScreenAndRay(liftProgress) {
+            ctx.save();
+
+            const screenStartX = tubeX + 50;
+            const screenEndX = tubeX + tubeWidth - 50;
+            const screenWidth = screenEndX - screenStartX;
+            const sheetHeight = 36;
+
+            const maxLift = 26;
+            const liftOffsetY = liftProgress * maxLift;
+            const sheetTopY = (tubeCenterY - sheetHeight / 2) - liftOffsetY;
+
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(screenStartX + 60, tubeY + 4);
+            ctx.lineTo(screenStartX + 60, sheetTopY);
+            ctx.moveTo(screenEndX - 60, tubeY + 4);
+            ctx.lineTo(screenEndX - 60, sheetTopY);
+            ctx.stroke();
+
+            const sheetGrad = ctx.createLinearGradient(0, sheetTopY, 0, sheetTopY + sheetHeight);
+            sheetGrad.addColorStop(0, '#475569');
+            sheetGrad.addColorStop(0.5, '#334155');
+            sheetGrad.addColorStop(1, '#1e293b');
+
+            ctx.fillStyle = sheetGrad;
+            ctx.fillRect(screenStartX, sheetTopY, screenWidth, sheetHeight);
+
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(screenStartX, sheetTopY, screenWidth, sheetHeight);
+
+            if (liftProgress < 0.35) {
+                const glowAlpha = 1 - (liftProgress / 0.35);
+
+                ctx.save();
+                ctx.shadowColor = '#22c55e';
+                ctx.shadowBlur = 12;
+
+                ctx.fillStyle = `rgba(34, 197, 94, ${glowAlpha * 0.35})`;
+                ctx.fillRect(screenStartX, tubeCenterY - 8, screenWidth, 16);
+
+                ctx.strokeStyle = `rgba(34, 197, 94, ${glowAlpha * 0.9})`;
+                ctx.lineWidth = 6;
+                ctx.beginPath();
+                ctx.moveTo(tubeX + 10, tubeCenterY);
+                ctx.lineTo(tubeX + tubeWidth - 10, tubeCenterY);
+                ctx.stroke();
+
+                ctx.strokeStyle = `rgba(134, 239, 172, ${glowAlpha})`;
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(tubeX + 10, tubeCenterY);
+                ctx.lineTo(tubeX + tubeWidth - 10, tubeCenterY);
+                ctx.stroke();
+
+                ctx.strokeStyle = `rgba(255, 255, 255, ${glowAlpha})`;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(tubeX + 10, tubeCenterY);
+                ctx.lineTo(tubeX + tubeWidth - 10, tubeCenterY);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            ctx.restore();
+        }
+
+        function drawLabels() {
+            ctx.save();
+            ctx.fillStyle = isDarkMode() ? '#f8fafc' : '#020617';
+            ctx.font = 'bold 26px sans-serif';
+
+            // Cathode
+            ctx.fillText('Cathode', tubeX - 60, tubeY - 40);
+
+            // Anode
+            ctx.fillText('Anode', tubeX + tubeWidth - 30, tubeY - 40);
+
+            // Direction of cathode ray
+            const arrowY = tubeY - 45;
+            ctx.font = 'bold 25px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Direction of cathode ray', 480, arrowY - 16);
+
+            // Arrow
+            ctx.strokeStyle = isDarkMode() ? '#f8fafc' : '#020617';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(330, arrowY);
+            ctx.lineTo(610, arrowY);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(610, arrowY - 8);
+            ctx.lineTo(626, arrowY);
+            ctx.lineTo(610, arrowY + 8);
+            ctx.closePath();
+            ctx.fill();
+
+            // Cathode ray tube label
+            const tubeLabelX = tubeX + 100;
+            const tubeLabelY = tubeY + tubeHeight + 85;
+            ctx.font = 'bold 26px sans-serif';
+            ctx.fillText('Cathode ray tube', tubeLabelX, tubeLabelY);
+
+            ctx.strokeStyle = isDarkMode() ? '#f8fafc' : '#020617';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(tubeLabelX - 5, tubeLabelY - 20);
+            ctx.lineTo(tubeLabelX + 30, tubeY + tubeHeight + 4);
+            ctx.stroke();
+
+            // Cathode ray label
+            const rayLabelX = tubeX + tubeWidth - 140;
+            const rayLabelY = tubeY + tubeHeight + 85;
+            ctx.fillText('Cathode ray', rayLabelX, rayLabelY);
+
+            ctx.beginPath();
+            ctx.moveTo(rayLabelX - 5, rayLabelY - 20);
+            ctx.lineTo(rayLabelX - 35, tubeCenterY + 10);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            animationFrame++;
+            const cycle = (animationFrame % 360) / 360;
+            let liftProgress = 0;
+
+            if (cycle < 0.4) {
+                liftProgress = 0;
+            } else if (cycle < 0.5) {
+                const t = (cycle - 0.4) / 0.1;
+                liftProgress = 0.5 - 0.5 * Math.cos(t * Math.PI);
+            } else if (cycle < 0.9) {
+                liftProgress = 1;
+            } else {
+                const t = (cycle - 0.9) / 0.1;
+                liftProgress = 0.5 + 0.5 * Math.cos(t * Math.PI);
+            }
+
+            drawStand();
+            drawGlassTube();
+            drawElectrodesAndWires();
+            drawFluorescentScreenAndRay(liftProgress);
+            drawLabels();
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
 </body>
 </html>

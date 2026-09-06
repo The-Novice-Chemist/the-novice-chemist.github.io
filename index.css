@@ -1,4 +1,32 @@
 /* Custom styles for The Novice Chemist */
+
+:root {
+  /* ==========================================================================
+     GLOBAL FONT SIZE CONFIGURATION
+     Adjust this variable to manually scale the font size of content across the website.
+     Default: 14.5px (options: 14px, 14.5px, 15px, 0.92rem, etc.)
+     ========================================================================== */
+  --globalfontsize: 13.5px;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
+
+/* Content typography scaling - applies to reading text only, keeping headings and UI untouched */
+.content-body,
+.content-body p,
+.content-body ol > li,
+.content-body ul > li,
+.content-body figcaption,
+.content-body td,
+.content-area p,
+.content-area li,
+.content-text,
+main .overflow-y-auto p:not(.text-xs):not(.text-\[10px\]):not(.text-\[11px\]),
+main .overflow-y-auto ol:not(.text-xs) > li,
+main .overflow-y-auto ul:not(.text-xs) > li {
+  font-size: var(--globalfontsize) !important;
+  line-height: 1.65;
+}
+

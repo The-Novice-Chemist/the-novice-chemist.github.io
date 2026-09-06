@@ -11,18 +11,23 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../js/theme.js"></script>
     <script src="../../js/sidebar.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Kalam:wght@300;400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif, .serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
         .handwritten { font-family: 'Kalam', cursive; }
-        .custom-scrollbar::-webkit-scrollbar { height: 8px; width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(30, 41, 59, 0.5); }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; }
         @keyframes flicker { 0%, 100% { transform: scale(1) skewX(0deg); opacity: 0.9; } 25% { transform: scale(1.02) skewX(2deg); opacity: 0.8; } 50% { transform: scale(0.98) skewX(-1deg); opacity: 1; } 75% { transform: scale(1.01) skewX(1deg); opacity: 0.85; } }
         .flame-anim { animation: flicker 0.1s infinite alternate; }
         .cursor-grab { cursor: grab; }
@@ -36,28 +41,45 @@
         .attention-anim { animation: attention-flash 1.5s infinite ease-in-out; }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-600 dark:text-slate-400 text-sm md:text-base antialiased h-screen flex overflow-hidden transition-colors duration-300">
+<body class="bg-white dark:bg-slate-950 font-sans text-slate-700 dark:text-slate-300 text-sm md:text-base antialiased h-screen flex overflow-hidden transition-colors duration-200">
     <!-- Sidebar injected via JS -->
 
-    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm transition-colors duration-300">
-             <div class="flex items-center gap-4"><label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors"><i data-lucide="panel-left" class="w-5 h-5"></i></label><span class="font-medium text-slate-900 dark:text-white">Flame Tests</span></div>
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
+             <div class="flex items-center gap-3">
+                 <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
+                     <i data-lucide="panel-left" class="w-4 h-4"></i>
+                 </label>
+                 <nav class="flex items-center gap-2 text-xs text-slate-400">
+                     <a href="../../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <span>Inorganic</span>
+                     <span class="text-slate-300 dark:text-slate-700">/</span>
+                     <span class="font-semibold text-slate-900 dark:text-white">Flame Tests</span>
+                 </nav>
+             </div>
+             <div class="flex items-center gap-2">
+                 <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
+                     <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                     <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                 </button>
+             </div>
         </header>
-        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24 scroll-smooth">
-            <div class="max-w-4xl mx-auto space-y-12 pb-20">
+        <div class="flex-1 overflow-y-auto px-6 py-8 md:px-10 md:py-10 lg:px-14 custom-scrollbar scroll-smooth">
+            <div class="max-w-4xl mx-auto space-y-10 pb-20">
                 
-                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
                     <div class="max-w-2xl">
-                        <h1 class="text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-2">Flame Test</h1>
-                        <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                            Drag the graphite rod to a salt sample to coat it, then move it into the flame to observe the emission spectrum. Use HCl to clean the rod.
+                        <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white mb-2">Flame Tests of s-Block Elements</h1>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
+                            Drag the graphite rod to a salt sample to coat it, then move it into the flame to observe the characteristic emission spectrum. Use concentrated HCl to clean the rod between tests.
                         </p>
                     </div>
                 </div>
 
                 <!-- SUMMARY TABLE SECTION -->
                 <section class="mt-0">
-                     <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6">Flame Test Summary</h2>
+                     <h2 class="font-serif text-lg sm:text-xl font-semibold text-slate-900 dark:text-white mb-4">Flame Color Summary Table</h2>
                      <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm max-w-3xl mx-auto overflow-hidden">
                          <table class="w-full text-xs md:text-sm text-left">
                              <thead class="bg-slate-50/50 dark:bg-slate-700/50 text-slate-500 dark:text-slate-400 font-medium border-b border-slate-100 dark:border-slate-700">

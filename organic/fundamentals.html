@@ -11,57 +11,73 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../js/theme.js"></script>
     <script src="../js/sidebar.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, .serif { font-family: 'Merriweather', serif; }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif, .serif { font-family: 'Playfair Display', Georgia, serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 4px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #334155; }
         .dna-anim { stroke-dasharray: 10; animation: dash 10s linear infinite; }
         @keyframes dash { to { stroke-dashoffset: 100; } }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased h-screen flex overflow-hidden">
+<body class="bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased h-screen flex overflow-hidden transition-colors duration-200">
     <!-- Sidebar injected via JS -->
 
-    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-900 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
-        <header class="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-20 shadow-sm">
-            <div class="flex items-center gap-4">
-                <label for="sidebar-toggle" class="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 rounded-md cursor-pointer transition-colors" title="Toggle Sidebar">
-                    <i data-lucide="panel-left" class="w-5 h-5"></i>
+    <main class="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 relative transition-all duration-300 md:ml-72 peer-checked:md:ml-0">
+        <header class="h-14 bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between px-6 sticky top-0 z-20 transition-colors duration-200">
+            <div class="flex items-center gap-3">
+                <label for="sidebar-toggle" class="p-1.5 -ml-1.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-slate-800 dark:hover:text-slate-200 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Sidebar">
+                    <i data-lucide="panel-left" class="w-4 h-4"></i>
                 </label>
-                <nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                    <span class="hidden sm:inline">Organic</span>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-300 dark:text-slate-600"></i>
-                    <span class="font-medium text-slate-900 dark:text-white">Fundamentals</span>
+                <nav class="flex items-center gap-2 text-xs text-slate-400">
+                    <a href="../index.html" class="hover:text-slate-700 dark:hover:text-slate-200 transition-colors">Home</a>
+                    <span class="text-slate-300 dark:text-slate-700">/</span>
+                    <span>Organic</span>
+                    <span class="text-slate-300 dark:text-slate-700">/</span>
+                    <span class="font-semibold text-slate-900 dark:text-white">Fundamentals</span>
                 </nav>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="toggleTheme()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-800" aria-label="Toggle Dark Mode">
+                    <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                    <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                </button>
             </div>
         </header>
 
-        <div class="flex-1 overflow-y-auto p-6 md:p-12 lg:px-24">
-            <div class="max-w-3xl mx-auto space-y-12 pb-20">
+        <div class="flex-1 overflow-y-auto px-6 py-8 md:px-10 md:py-10 lg:px-14 custom-scrollbar">
+            <div class="max-w-3xl mx-auto space-y-10 pb-20">
                 <section>
-                    <div class="mb-6"><span class="text-emerald-600 dark:text-emerald-400 font-bold tracking-wider text-sm uppercase mb-1 block">1.1 Introduction</span><h1 class="text-4xl font-bold text-slate-900 dark:text-white leading-tight">Organic Chemistry Basics</h1></div>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-8 mb-8 font-light">Organic Chemistry is the study of carbon compounds.</p>
+                    <div class="mb-4">
+                        <span class="text-emerald-700 dark:text-emerald-400 font-mono text-xs font-semibold uppercase tracking-wider mb-1.5 block">1.1 Introduction</span>
+                        <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900 dark:text-white leading-tight">Organic Chemistry Basics</h1>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 text-sm sm:text-base">Organic Chemistry is the study of carbon-containing compounds and their functional groups.</p>
                     
-                    <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 md:p-8">
+                    <div class="bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-6 md:p-8">
                         <div class="grid md:grid-cols-2 gap-8 items-center">
                             <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Why is it important?</h3>
+                                <h3 class="font-serif text-lg font-semibold text-slate-900 dark:text-white mb-4">Why is it important?</h3>
                                 <ul class="space-y-4">
-                                    <li class="flex gap-4 items-start">
-                                        <div class="mt-1 p-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded"><i data-lucide="dna" class="w-4 h-4"></i></div>
-                                        <div><strong class="block text-slate-900 dark:text-white text-sm">Basis of Life</strong><span class="text-sm text-slate-500 dark:text-slate-400">DNA, proteins, and cellular structures.</span></div>
+                                    <li class="flex gap-3.5 items-start">
+                                        <div class="mt-0.5 p-1.5 bg-emerald-100/80 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-400 rounded-lg border border-emerald-200/50 dark:border-emerald-800/50"><i data-lucide="dna" class="w-4 h-4"></i></div>
+                                        <div><strong class="block text-slate-900 dark:text-white text-sm font-semibold">Basis of Life</strong><span class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-normal">DNA, carbohydrates, proteins, enzymes, and cellular membranes.</span></div>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="flex justify-center border-l border-slate-100 dark:border-slate-700 pl-4">
-                               <svg width="160" height="100" viewBox="0 0 200 100" class="opacity-70">
+                            <div class="flex justify-center border-t md:border-t-0 md:border-l border-slate-200/80 dark:border-slate-800 pt-6 md:pt-0 md:pl-6">
+                               <svg width="160" height="100" viewBox="0 0 200 100" class="opacity-80">
                                  <path d="M10,50 Q55,0 100,50 T190,50" fill="none" stroke="#059669" stroke-width="2" class="dna-anim" />
                                  <path d="M10,50 Q55,100 100,50 T190,50" fill="none" stroke="#34d399" stroke-width="2" class="dna-anim" style="animation-direction: reverse;" />
                                </svg>

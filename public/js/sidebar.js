@@ -259,6 +259,10 @@ function toggleTheme() {
         document.documentElement.classList.add('dark');
         localStorage.theme = 'dark';
     }
+    if (window.globalLightBg && window.globalDarkBg) {
+        document.documentElement.style.setProperty('--globalLightBg', window.globalLightBg);
+        document.documentElement.style.setProperty('--globalDarkBg', window.globalDarkBg);
+    }
 }
 
 // Initialize theme immediately
@@ -412,11 +416,17 @@ function renderSidebar(config) {
         // Find the container inside header to append to
         const headerContainer = header.querySelector('.flex.items-center.gap-4');
         if (headerContainer) {
+             // If container exists (left side), append to header itself (right side)
+             // Wait, structure.html header has justify-between.
+             // Left side is .flex.items-center.gap-4
+             // Right side is empty.
+             // So I can just appendChild to header.
              const rightDiv = document.createElement('div');
              rightDiv.className = 'flex items-center gap-2';
              rightDiv.innerHTML = themeToggleHTML;
              header.appendChild(rightDiv);
         } else {
+             // Fallback
              header.insertAdjacentHTML('beforeend', themeToggleHTML);
         }
     }

@@ -259,6 +259,10 @@ function toggleTheme() {
         document.documentElement.classList.add('dark');
         localStorage.theme = 'dark';
     }
+    if (window.globalLightBg && window.globalDarkBg) {
+        document.documentElement.style.setProperty('--globalLightBg', window.globalLightBg);
+        document.documentElement.style.setProperty('--globalDarkBg', window.globalDarkBg);
+    }
 }
 
 // Initialize theme immediately
